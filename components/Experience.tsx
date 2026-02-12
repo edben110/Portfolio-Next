@@ -4,7 +4,7 @@ function Experience() {
   const experiences = [
     {
       title: 'Estudiante de Ingeniería de Software',
-      company: 'Universidad Cooperativa de Colombia - Campus Pasto',
+      company: 'Universidad Cooperativa de Colombia, Campus Pasto',
       date: 'Actualidad',
       icon: 'fa-graduation-cap',
       descriptions: [
@@ -15,7 +15,7 @@ function Experience() {
     },
     {
       title: 'Monitor de Bienestar Universitario',
-      company: 'Universidad Cooperativa de Colombia - Campus Pasto',
+      company: 'Universidad Cooperativa de Colombia, Campus Pasto',
       date: 'Actualidad',
       icon: 'fa-user-tie',
       descriptions: [
@@ -56,10 +56,10 @@ function Experience() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
             Experiencia
           </h2>
-          <p className="text-lg text-white">Mi trayectoria académica y profesional</p>
+          <p className="text-base sm:text-lg text-white px-4">Mi trayectoria académica y profesional</p>
           <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto mt-4 rounded-full"></div>
         </div>
 
@@ -117,7 +117,7 @@ function Experience() {
                     {/* Descriptions */}
                     <div className="space-y-2 mb-6">
                       {exp.descriptions.map((desc, descIdx) => (
-                        <p key={descIdx} className="text-white flex items-start gap-2">
+                        <p key={descIdx} className="text-white flex items-start gap-2 text-justify leading-relaxed">
                           <i className="fas fa-check-circle text-primary mt-1 flex-shrink-0"></i>
                           <span>{desc}</span>
                         </p>

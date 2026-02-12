@@ -129,10 +129,10 @@ export default function Skills() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
             Tech Stack & Habilidades
           </h2>
-          <p className="text-lg text-white max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white max-w-2xl mx-auto px-4">
             Mi conjunto de habilidades centrado en desarrollo full-stack y tecnologías modernas
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto mt-4 rounded-full"></div>
@@ -147,33 +147,30 @@ export default function Skills() {
             >
               <div className="flex">
                 {skillCategories.map((category, idx) => (
-                  <div key={idx} className="w-full flex-shrink-0 px-4">
-                    <div className="bg-[#0d1b0d] border border-[#00ff41] rounded-2xl p-8 md:p-12 
+                  <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
+                    <div className="bg-[#0d1b0d] border border-[#00ff41] rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 
                                   shadow-[0_4px_20px_rgba(0,255,65,0.15)] hover:shadow-[0_8px_30px_rgba(0,255,65,0.25)] 
                                   transition-all duration-300 hover:-translate-y-[5px] relative">
-                      {/* Gradient left border (::before del original) */}
-                      <div className="absolute top-0 left-0 w-[5px] h-full bg-gradient-to-b from-[#00ff41] to-[#00ff88] 
-                                    rounded-l-2xl" />
                       
                       {/* Gradient glow effect */}
                       <div className="absolute -inset-[2px] bg-gradient-to-br from-[#00ff41] to-[#00ff88] 
                                     rounded-2xl opacity-30 blur-[10px] -z-10" />
                       
-                      <h3 className="text-2xl md:text-3xl font-bold text-[#00ff41] mb-8 flex items-center gap-3">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00ff41] mb-6 md:mb-8 flex items-center gap-3">
                         <i className={`fas ${category.icon}`}></i>
                         {category.title}
                       </h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                         {category.skills.map((skill, skillIdx) => (
                           <div
                             key={skillIdx}
-                            className="bg-[#0a0e0a] border border-[rgba(0,255,65,0.3)] rounded-2xl p-6 
+                            className="bg-[#0a0e0a] border border-[rgba(0,255,65,0.3)] rounded-xl sm:rounded-2xl p-4 sm:p-6 
                                      hover:border-[#00ff41] hover:bg-[#132613] transition-all duration-300 
                                      hover:-translate-y-2 hover:shadow-[0_8px_25px_rgba(0,255,65,0.3)] group"
                           >
-                            <div className="flex flex-col items-center text-center space-y-3">
+                            <div className="flex flex-col items-center text-center space-y-2 sm:space-y-3">
                               <i
-                                className={`${skill.icon} text-[2.25rem] transition-all duration-300 
+                                className={`${skill.icon} text-[1.85rem] sm:text-[2.25rem] transition-all duration-300 
                                          group-hover:scale-110`}
                                 style={{ 
                                   color: skill.color,
@@ -183,7 +180,7 @@ export default function Skills() {
                               <h4 className="text-[0.9rem] font-semibold text-[#00ff41] tracking-wide">
                                 {skill.name}
                               </h4>
-                              <p className="text-[0.7rem] text-white/90 leading-tight">{skill.description}</p>
+                              <p className="text-[0.7rem] text-[#00aa2b] leading-tight">{skill.description}</p>
                             </div>
                           </div>
                         ))}
@@ -198,25 +195,25 @@ export default function Skills() {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 md:-translate-x-12 
                      bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
-                     rounded-full w-12 h-12 flex items-center justify-center text-[#00ff41] 
+                     rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#00ff41] 
                      transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
-                     active:scale-95"
+                     active:scale-95 z-10"
             aria-label="Habilidad anterior"
           >
-            <i className="fas fa-chevron-left"></i>
+            <i className="fas fa-chevron-left text-sm sm:text-base"></i>
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 md:translate-x-12 
                      bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
-                     rounded-full w-12 h-12 flex items-center justify-center text-[#00ff41] 
+                     rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#00ff41] 
                      transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
-                     active:scale-95"
+                     active:scale-95 z-10"
             aria-label="Próxima habilidad"
           >
-            <i className="fas fa-chevron-right"></i>
+            <i className="fas fa-chevron-right text-sm sm:text-base"></i>
           </button>
 
           {/* Indicators */}

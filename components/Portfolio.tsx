@@ -70,10 +70,10 @@ export default function Portfolio() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
             Portafolio
           </h2>
-          <p className="text-lg text-white">Algunos de mis proyectos recientes</p>
+          <p className="text-base sm:text-lg text-white px-4">Algunos de mis proyectos recientes</p>
           <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto mt-4 rounded-full"></div>
         </div>
 
@@ -95,7 +95,7 @@ export default function Portfolio() {
                       onClick={() => project.hasLink && window.open(project.link, '_blank')}
                     >
                       {/* Project Image */}
-                      <div className="relative h-64 md:h-96 overflow-hidden">
+                      <div className="relative h-[200px] sm:h-[240px] md:h-[280px] lg:h-[300px] overflow-hidden">
                         <Image
                           src={project.image}
                           alt={project.title}
@@ -106,11 +106,11 @@ export default function Portfolio() {
                       </div>
 
                       {/* Project Content */}
-                      <div className="p-8">
-                        <h3 className="text-2xl md:text-3xl font-bold text-[#00ff41] mb-4">
+                      <div className="p-6 md:p-8">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00ff41] mb-4">
                           {project.title}
                         </h3>
-                        <p className="text-lg text-white mb-6">{project.description}</p>
+                        <p className="text-base md:text-lg text-white mb-6 leading-relaxed text-justify">{project.description}</p>
 
                         {/* Tags */}
                         <div className="flex flex-wrap gap-2">
@@ -141,23 +141,25 @@ export default function Portfolio() {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 
-                     bg-primary/20 hover:bg-primary/40 backdrop-blur-sm border border-primary 
-                     rounded-full w-12 h-12 flex items-center justify-center text-primary 
-                     transition-all duration-300 hover:scale-110 shadow-glow-md"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 md:-translate-x-12 
+                     bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
+                     rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#00ff41] 
+                     transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
+                     active:scale-95 z-10"
             aria-label="Proyecto anterior"
           >
-            <i className="fas fa-chevron-left"></i>
+            <i className="fas fa-chevron-left text-sm sm:text-base"></i>
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 
-                     bg-primary/20 hover:bg-primary/40 backdrop-blur-sm border border-primary 
-                     rounded-full w-12 h-12 flex items-center justify-center text-primary 
-                     transition-all duration-300 hover:scale-110 shadow-glow-md"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 md:translate-x-12 
+                     bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
+                     rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#00ff41] 
+                     transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
+                     active:scale-95 z-10"
             aria-label="Próximo proyecto"
           >
-            <i className="fas fa-chevron-right"></i>
+            <i className="fas fa-chevron-right text-sm sm:text-base"></i>
           </button>
 
           {/* Indicators */}

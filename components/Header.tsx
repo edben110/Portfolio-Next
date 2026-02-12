@@ -28,8 +28,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-black/90 backdrop-blur-md shadow-[0_4px_20px_rgba(0,255,65,0.5)]'
-          : 'bg-transparent shadow-[0_0_20px_rgba(0,255,65,0.3)]'
+          ? 'backdrop-blur-md shadow-[0_4px_20px_rgba(0,255,65,0.5)]'
+          : ''
       }`}
     >
       <div className="container mx-auto px-4">
