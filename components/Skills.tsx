@@ -129,13 +129,13 @@ export default function Skills() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
             Tech Stack & Habilidades
           </h2>
-          <p className="text-lg text-green-200 max-w-2xl mx-auto">
+          <p className="text-lg text-white max-w-2xl mx-auto">
             Mi conjunto de habilidades centrado en desarrollo full-stack y tecnologías modernas
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto mt-4 rounded-full"></div>
         </div>
 
         {/* Skills Carousel */}
@@ -148,9 +148,18 @@ export default function Skills() {
               <div className="flex">
                 {skillCategories.map((category, idx) => (
                   <div key={idx} className="w-full flex-shrink-0 px-4">
-                    <div className="bg-gradient-to-br from-black/80 to-primary/5 backdrop-blur-sm 
-                                  border border-primary/30 rounded-2xl p-8 md:p-12">
-                      <h3 className="text-2xl md:text-3xl font-bold text-primary mb-8 flex items-center gap-3">
+                    <div className="bg-[#0d1b0d] border border-[#00ff41] rounded-2xl p-8 md:p-12 
+                                  shadow-[0_4px_20px_rgba(0,255,65,0.15)] hover:shadow-[0_8px_30px_rgba(0,255,65,0.25)] 
+                                  transition-all duration-300 hover:-translate-y-[5px] relative">
+                      {/* Gradient left border (::before del original) */}
+                      <div className="absolute top-0 left-0 w-[5px] h-full bg-gradient-to-b from-[#00ff41] to-[#00ff88] 
+                                    rounded-l-2xl" />
+                      
+                      {/* Gradient glow effect */}
+                      <div className="absolute -inset-[2px] bg-gradient-to-br from-[#00ff41] to-[#00ff88] 
+                                    rounded-2xl opacity-30 blur-[10px] -z-10" />
+                      
+                      <h3 className="text-2xl md:text-3xl font-bold text-[#00ff41] mb-8 flex items-center gap-3">
                         <i className={`fas ${category.icon}`}></i>
                         {category.title}
                       </h3>
@@ -158,28 +167,23 @@ export default function Skills() {
                         {category.skills.map((skill, skillIdx) => (
                           <div
                             key={skillIdx}
-                            className="bg-black/60 backdrop-blur-sm border border-primary/20 rounded-xl p-6 
-                                     hover:border-primary/50 transition-all duration-300 hover:scale-105 
-                                     hover:shadow-glow-md group"
+                            className="bg-[#0a0e0a] border border-[rgba(0,255,65,0.3)] rounded-2xl p-6 
+                                     hover:border-[#00ff41] hover:bg-[#132613] transition-all duration-300 
+                                     hover:-translate-y-2 hover:shadow-[0_8px_25px_rgba(0,255,65,0.3)] group"
                           >
-                            <div className="flex flex-col items-center text-center space-y-4">
-                              <div
-                                className="w-16 h-16 rounded-full flex items-center justify-center 
-                                         group-hover:scale-110 transition-transform duration-300"
-                                style={{
-                                  backgroundColor: `${skill.color}15`,
-                                  border: `2px solid ${skill.color}40`,
+                            <div className="flex flex-col items-center text-center space-y-3">
+                              <i
+                                className={`${skill.icon} text-[2.25rem] transition-all duration-300 
+                                         group-hover:scale-110`}
+                                style={{ 
+                                  color: skill.color,
+                                  filter: `drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
                                 }}
-                              >
-                                <i
-                                  className={`${skill.icon} text-3xl`}
-                                  style={{ color: skill.color }}
-                                ></i>
-                              </div>
-                              <h4 className="text-xl font-semibold text-primary">
+                              ></i>
+                              <h4 className="text-[0.9rem] font-semibold text-[#00ff41] tracking-wide">
                                 {skill.name}
                               </h4>
-                              <p className="text-sm text-green-200">{skill.description}</p>
+                              <p className="text-[0.7rem] text-white/90 leading-tight">{skill.description}</p>
                             </div>
                           </div>
                         ))}
@@ -195,9 +199,10 @@ export default function Skills() {
           <button
             onClick={prevSlide}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 
-                     bg-primary/20 hover:bg-primary/40 backdrop-blur-sm border border-primary 
-                     rounded-full w-12 h-12 flex items-center justify-center text-primary 
-                     transition-all duration-300 hover:scale-110 shadow-glow-md"
+                     bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
+                     rounded-full w-12 h-12 flex items-center justify-center text-[#00ff41] 
+                     transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
+                     active:scale-95"
             aria-label="Habilidad anterior"
           >
             <i className="fas fa-chevron-left"></i>
@@ -205,9 +210,10 @@ export default function Skills() {
           <button
             onClick={nextSlide}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 
-                     bg-primary/20 hover:bg-primary/40 backdrop-blur-sm border border-primary 
-                     rounded-full w-12 h-12 flex items-center justify-center text-primary 
-                     transition-all duration-300 hover:scale-110 shadow-glow-md"
+                     bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
+                     rounded-full w-12 h-12 flex items-center justify-center text-[#00ff41] 
+                     transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
+                     active:scale-95"
             aria-label="Próxima habilidad"
           >
             <i className="fas fa-chevron-right"></i>
@@ -219,10 +225,10 @@ export default function Skills() {
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`h-[10px] rounded-full transition-all duration-300 border border-[rgba(0,255,65,0.4)] ${
                   idx === currentIndex
-                    ? 'bg-primary w-8'
-                    : 'bg-primary/30 hover:bg-primary/60'
+                    ? 'bg-[#00ff41] w-8'
+                    : 'bg-[rgba(0,255,65,0.2)] w-[10px] hover:bg-[rgba(0,255,65,0.4)]'
                 }`}
                 aria-label={`Ir a categoría ${idx + 1}`}
               ></button>

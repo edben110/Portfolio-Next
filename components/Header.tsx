@@ -28,8 +28,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-black/90 backdrop-blur-md shadow-glow-md'
-          : 'bg-transparent shadow-glow-sm'
+          ? 'bg-black/90 backdrop-blur-md shadow-[0_4px_20px_rgba(0,255,65,0.5)]'
+          : 'bg-transparent shadow-[0_0_20px_rgba(0,255,65,0.3)]'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -45,7 +45,7 @@ export default function Header() {
                 priority
               />
             </div>
-            <span className="text-2xl font-bold text-primary">Edben</span>
+            <span className="text-2xl font-bold text-[#00ff41]">Edben</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -55,7 +55,7 @@ export default function Header() {
                 <li key={item}>
                   <button
                     onClick={() => scrollToSection(item)}
-                    className="text-primary hover:text-primary-light transition-colors duration-300 font-medium capitalize"
+                    className="text-[#00ff41] hover:text-[#39ff14] transition-colors duration-300 font-medium capitalize"
                   >
                     {item === 'inicio' ? 'Inicio' : 
                      item === 'about' ? 'Sobre mí' :
@@ -69,7 +69,7 @@ export default function Header() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-primary text-2xl"
+            className="md:hidden text-[#00ff41] text-2xl"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -85,7 +85,7 @@ export default function Header() {
                 <li key={item}>
                   <button
                     onClick={() => scrollToSection(item)}
-                    className="text-primary hover:text-primary-light transition-colors duration-300 font-medium capitalize w-full text-left"
+                    className="text-[#00ff41] hover:text-[#39ff14] transition-colors duration-300 font-medium capitalize w-full text-left"
                   >
                     {item === 'inicio' ? 'Inicio' : 
                      item === 'about' ? 'Sobre mí' :

@@ -1,4 +1,6 @@
-export default function Experience() {
+import { memo } from 'react';
+
+function Experience() {
   const experiences = [
     {
       title: 'Estudiante de Ingeniería de Software',
@@ -54,17 +56,17 @@ export default function Experience() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
             Experiencia
           </h2>
-          <p className="text-lg text-green-200">Mi trayectoria académica y profesional</p>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
+          <p className="text-lg text-white">Mi trayectoria académica y profesional</p>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto mt-4 rounded-full"></div>
         </div>
 
         {/* Timeline */}
         <div className="max-w-5xl mx-auto relative">
           {/* Timeline Line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-primary via-secondary to-primary"></div>
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-[#00ff41] via-[#00ff88] to-[#00ff41]"></div>
 
           {/* Timeline Items */}
           <div className="space-y-12">
@@ -82,9 +84,9 @@ export default function Experience() {
 
                 {/* Content */}
                 <div className={`flex-1 ${idx % 2 === 0 ? 'md:text-right' : ''}`}>
-                  <div className="bg-gradient-to-br from-black/80 to-primary/5 backdrop-blur-sm 
-                                border border-primary/30 rounded-2xl p-8 
-                                hover:shadow-glow-lg transition-all duration-300 hover:scale-105">
+                  <div className="bg-[#0d1b0d] border-2 border-[rgba(0,255,65,0.3)] rounded-2xl p-8 
+                                shadow-[0_4px_20px_rgba(0,255,65,0.15)] hover:shadow-[0_8px_30px_rgba(0,255,65,0.25)]
+                                transition-all duration-300 hover:scale-105 relative overflow-hidden">
                     {/* Date Badge */}
                     <div className={`inline-flex items-center px-4 py-2 bg-primary/20 
                                    border border-primary/40 rounded-full text-primary text-sm 
@@ -104,7 +106,7 @@ export default function Experience() {
                         <h3 className="text-2xl font-bold text-primary mb-2">
                           {exp.title}
                         </h3>
-                        <h4 className="text-lg text-green-200 flex items-center gap-2 
+                        <h4 className="text-lg text-white flex items-center gap-2 
                                      flex-wrap">
                           <i className="fas fa-building text-primary"></i>
                           {exp.company}
@@ -115,7 +117,7 @@ export default function Experience() {
                     {/* Descriptions */}
                     <div className="space-y-2 mb-6">
                       {exp.descriptions.map((desc, descIdx) => (
-                        <p key={descIdx} className="text-green-200 flex items-start gap-2">
+                        <p key={descIdx} className="text-white flex items-start gap-2">
                           <i className="fas fa-check-circle text-primary mt-1 flex-shrink-0"></i>
                           <span>{desc}</span>
                         </p>
@@ -151,3 +153,5 @@ export default function Experience() {
     </section>
   );
 }
+
+export default memo(Experience);

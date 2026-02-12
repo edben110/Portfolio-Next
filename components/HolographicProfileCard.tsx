@@ -16,6 +16,7 @@ export default function HolographicProfileCard() {
     if (!card) return;
 
     let boundingRect: DOMRect | null = null;
+    let rafId: number;
 
     const handleMouseEnter = () => {
       setIsHovering(true);
@@ -25,21 +26,27 @@ export default function HolographicProfileCard() {
     const handleMouseMove = (e: MouseEvent) => {
       if (!boundingRect) return;
       
-      const x = e.clientX - boundingRect.left;
-      const y = e.clientY - boundingRect.top;
+      // Usar requestAnimationFrame para optimizar las actualizaciones
+      if (rafId) cancelAnimationFrame(rafId);
       
-      const xPercent = (x / boundingRect.width) * 100;
-      const yPercent = (y / boundingRect.height) * 100;
-      
-      // Límites de rotación similares al original: -10 a 10 grados
-      const tiltX = ((yPercent - 50) / 50) * -10;
-      const tiltY = ((xPercent - 50) / 50) * 10;
-      
-      setRotation({ x: tiltX, y: tiltY });
-      setGlowPosition({ x: xPercent, y: yPercent });
+      rafId = requestAnimationFrame(() => {
+        const x = e.clientX - boundingRect!.left;
+        const y = e.clientY - boundingRect!.top;
+        
+        const xPercent = (x / boundingRect!.width) * 100;
+        const yPercent = (y / boundingRect!.height) * 100;
+        
+        // Límites de rotación similares al original: -10 a 10 grados
+        const tiltX = ((yPercent - 50) / 50) * -10;
+        const tiltY = ((xPercent - 50) / 50) * 10;
+        
+        setRotation({ x: tiltX, y: tiltY });
+        setGlowPosition({ x: xPercent, y: yPercent });
+      });
     };
 
     const handleMouseLeave = () => {
+      if (rafId) cancelAnimationFrame(rafId);
       setIsHovering(false);
       setRotation({ x: 0, y: 0 });
       setGlowPosition({ x: 50, y: 50 });
@@ -51,6 +58,7 @@ export default function HolographicProfileCard() {
     card.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       card.removeEventListener('mouseenter', handleMouseEnter);
       card.removeEventListener('mousemove', handleMouseMove);
       card.removeEventListener('mouseleave', handleMouseLeave);
@@ -60,7 +68,7 @@ export default function HolographicProfileCard() {
   return (
     <div className="profile-card-container relative">
       {/* Profile Card - Estructura exacta del original */}
-      <div className="profile-card-wrapper relative p-8 bg-[#0d1b0d] rounded-[2rem] border border-[#00ff41]">
+      <div className="profile-card-wrapper relative p-8 bg-[#0d1b0d] rounded-[2rem] border border-[#00ff41] shadow-[0_10px_40px_rgba(0,255,65,0.2)]">
         {/* Gradient background blur (pseudo-element ::before del original) */}
         <div 
           className="absolute -inset-[2px] rounded-[2rem] opacity-30 -z-10 blur-[10px]"

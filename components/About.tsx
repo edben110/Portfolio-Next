@@ -1,4 +1,6 @@
-export default function About() {
+import { memo } from 'react';
+
+function About() {
   const interests = [
     { icon: 'fa-rocket', text: 'Ciencia Ficción' },
     { icon: 'fa-book', text: 'Historia' },
@@ -10,24 +12,24 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="relative py-20 bg-black/50">
+    <section id="about" className="relative py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
               Sobre mí
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto rounded-full"></div>
           </div>
 
           {/* About Content */}
           <div className="space-y-6">
-            <p className="text-lg text-green-200 leading-relaxed text-justify">
-              Buenos días, tardes o noches. Soy <strong className="text-primary">Edwar Alexander Benito Basante</strong>, 
+            <p className="text-lg text-white leading-relaxed text-justify">
+              Buenos días, tardes o noches. Soy <strong className="text-[#00ff41]">Edwar Alexander Benito Basante</strong>, 
               estudiante de Ingeniería de Software en la Universidad Cooperativa de Colombia.
             </p>
-            <p className="text-lg text-green-200 leading-relaxed text-justify">
+            <p className="text-lg text-white leading-relaxed text-justify">
               Me apasionan la ciencia ficción, el belicismo, amante de los metroidvanias, la historia, 
               la ingeniería, ir al gimnasio y las artes marciales. Mi enfoque está en crear 
               soluciones tecnológicas innovadoras utilizando las mejores prácticas de desarrollo.
@@ -35,14 +37,14 @@ export default function About() {
 
             {/* Interests */}
             <div className="mt-12">
-              <h3 className="text-2xl font-semibold text-primary mb-6">Intereses</h3>
+              <h3 className="text-2xl font-semibold text-[#00ff41] mb-6">Intereses</h3>
               <div className="flex flex-wrap gap-4">
                 {interests.map((interest, index) => (
                   <span
                     key={index}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/10 to-secondary/10 
-                             border border-primary/30 rounded-full text-primary hover:bg-primary/20 
-                             transition-all duration-300 hover:scale-105 hover:shadow-glow-md"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[rgba(0,255,65,0.1)] to-[rgba(0,255,136,0.1)] 
+                             border border-[rgba(0,255,65,0.3)] rounded-full text-[#00ff41] hover:bg-[rgba(0,255,65,0.2)] 
+                             transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_15px_rgba(0,255,65,0.2)]"
                   >
                     <i className={`fas ${interest.icon}`}></i>
                     <span>{interest.text}</span>
@@ -56,3 +58,5 @@ export default function About() {
     </section>
   );
 }
+
+export default memo(About);

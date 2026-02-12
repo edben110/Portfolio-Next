@@ -44,7 +44,14 @@ export default function MatrixRain() {
       }
     }
 
-    const interval = setInterval(draw, 33);
+    let animationId: number;
+
+    function animate() {
+      draw();
+      animationId = requestAnimationFrame(animate);
+    }
+
+    animate();
 
     const handleResize = () => {
       canvas.width = window.innerWidth;
@@ -54,7 +61,7 @@ export default function MatrixRain() {
     window.addEventListener('resize', handleResize);
 
     return () => {
-      clearInterval(interval);
+      cancelAnimationFrame(animationId);
       window.removeEventListener('resize', handleResize);
     };
   }, []);

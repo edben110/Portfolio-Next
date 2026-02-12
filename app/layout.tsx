@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { Poppins, Fira_Code } from 'next/font/google';
 import './globals.css';
 
@@ -16,18 +16,19 @@ const firaCode = Fira_Code({
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#00ff41',
+};
+
 export const metadata: Metadata = {
   title: 'Edben - Desarrollador de Software',
   description: 'Portfolio de Edwar Alexander Benito Basante, desarrollador full-stack especializado en tecnologías modernas.',
   keywords: ['desarrollador software', 'full-stack developer', 'Python', 'Django', 'React', 'Angular', 'portfolio'],
   authors: [{ name: 'Edwar Alexander Benito Basante' }],
   creator: 'Edwar Alexander Benito Basante',
-  themeColor: '#00ff41',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    viewportFit: 'cover',
-  },
   openGraph: {
     type: 'website',
     title: 'Edben - Desarrollador de Software',

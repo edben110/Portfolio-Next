@@ -66,15 +66,15 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="relative py-20 bg-black/50">
+    <section id="portfolio" className="relative py-20">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
             Portafolio
           </h2>
-          <p className="text-lg text-green-200">Algunos de mis proyectos recientes</p>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
+          <p className="text-lg text-white">Algunos de mis proyectos recientes</p>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto mt-4 rounded-full"></div>
         </div>
 
         {/* Portfolio Carousel */}
@@ -88,9 +88,9 @@ export default function Portfolio() {
                 {projects.map((project, idx) => (
                   <div key={idx} className="w-full flex-shrink-0 px-4">
                     <div
-                      className={`bg-gradient-to-br from-black/80 to-primary/5 backdrop-blur-sm 
-                                border border-primary/30 rounded-2xl overflow-hidden 
-                                transition-all duration-300 hover:shadow-glow-lg group
+                      className={`bg-[#0d1b0d] border border-[rgba(0,255,65,0.3)] rounded-2xl overflow-hidden 
+                                transition-all duration-300 hover:shadow-[0_15px_40px_rgba(0,255,65,0.3)] 
+                                hover:border-[#00ff41] hover:-translate-y-[10px] group
                                 ${project.hasLink ? 'cursor-pointer' : ''}`}
                       onClick={() => project.hasLink && window.open(project.link, '_blank')}
                     >
@@ -107,18 +107,18 @@ export default function Portfolio() {
 
                       {/* Project Content */}
                       <div className="p-8">
-                        <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                        <h3 className="text-2xl md:text-3xl font-bold text-[#00ff41] mb-4">
                           {project.title}
                         </h3>
-                        <p className="text-lg text-green-200 mb-6">{project.description}</p>
+                        <p className="text-lg text-white mb-6">{project.description}</p>
 
                         {/* Tags */}
                         <div className="flex flex-wrap gap-2">
                           {project.tags.map((tag, tagIdx) => (
                             <span
                               key={tagIdx}
-                              className="px-4 py-2 bg-primary/10 border border-primary/30 rounded-full 
-                                       text-primary text-sm font-medium"
+                              className="px-4 py-2 bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] rounded-full 
+                                       text-[#00ff41] text-sm font-medium"
                             >
                               {tag}
                             </span>
@@ -126,7 +126,7 @@ export default function Portfolio() {
                         </div>
 
                         {!project.hasLink && (
-                          <p className="text-sm text-green-200/60 mt-4 italic">
+                          <p className="text-sm text-white/80 mt-4 italic">
                             Link pendiente
                           </p>
                         )}
