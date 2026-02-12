@@ -139,38 +139,46 @@ export default function Skills() {
         </div>
 
         {/* Skills Carousel */}
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto">
           <div className="overflow-hidden">
             <div
               className="transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               <div className="flex">
-                {skillCategories.map((category, idx) => (
+                {skillCategories.map((category, idx) => {
+                  const skillCount = category.skills.length;
+                  const containerWidth = 
+                    skillCount === 1 ? 'max-w-[280px]' :
+                    skillCount === 2 ? 'max-w-[500px]' :
+                    'max-w-full';
+                  
+                  return (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
-                    <div className="bg-[#0d1b0d] border border-[#00ff41] rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 
+                    <div className={`bg-[#0d1b0d] border border-[#00ff41] rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 
                                   shadow-[0_4px_20px_rgba(0,255,65,0.15)] hover:shadow-[0_8px_30px_rgba(0,255,65,0.25)] 
-                                  transition-all duration-300 hover:-translate-y-[5px] relative">
+                                  transition-all duration-300 hover:-translate-y-[5px] relative mx-auto ${containerWidth}`}>
                       
                       {/* Gradient glow effect */}
                       <div className="absolute -inset-[2px] bg-gradient-to-br from-[#00ff41] to-[#00ff88] 
                                     rounded-2xl opacity-30 blur-[10px] -z-10" />
                       
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00ff41] mb-6 md:mb-8 flex items-center gap-3">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00ff41] mb-4 md:mb-6 flex items-center justify-center gap-3">
                         <i className={`fas ${category.icon}`}></i>
                         {category.title}
                       </h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                      <div className="flex flex-wrap justify-center gap-3 md:gap-4 w-full">
                         {category.skills.map((skill, skillIdx) => (
                           <div
                             key={skillIdx}
-                            className="bg-[#0a0e0a] border border-[rgba(0,255,65,0.3)] rounded-xl sm:rounded-2xl p-4 sm:p-6 
+                            className="bg-[#0a0e0a] border border-[rgba(0,255,65,0.3)] rounded-xl sm:rounded-2xl p-3 sm:p-4 
                                      hover:border-[#00ff41] hover:bg-[#132613] transition-all duration-300 
-                                     hover:-translate-y-2 hover:shadow-[0_8px_25px_rgba(0,255,65,0.3)] group"
+                                     hover:-translate-y-2 hover:shadow-[0_8px_25px_rgba(0,255,65,0.3)] group
+                                     w-full max-w-[200px] h-[140px] flex items-center justify-center"
                           >
-                            <div className="flex flex-col items-center text-center space-y-2 sm:space-y-3">
+                            <div className="flex flex-col items-center text-center space-y-2">
                               <i
-                                className={`${skill.icon} text-[1.85rem] sm:text-[2.25rem] transition-all duration-300 
+                                className={`${skill.icon} text-[1.65rem] sm:text-[2rem] transition-all duration-300 
                                          group-hover:scale-110`}
                                 style={{ 
                                   color: skill.color,
@@ -187,37 +195,27 @@ export default function Skills() {
                       </div>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
 
           {/* Navigation Buttons */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 md:-translate-x-12 
-                     bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
-                     rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#00ff41] 
-                     transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
-                     active:scale-95 z-10"
-            aria-label="Habilidad anterior"
-          >
-            <i className="fas fa-chevron-left text-sm sm:text-base"></i>
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 md:translate-x-12 
-                     bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
-                     rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-[#00ff41] 
-                     transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
-                     active:scale-95 z-10"
-            aria-label="Próxima habilidad"
-          >
-            <i className="fas fa-chevron-right text-sm sm:text-base"></i>
-          </button>
-
-          {/* Indicators */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center items-center gap-4 mt-4 sm:mt-5 md:mt-6">
+            <button
+              onClick={prevSlide}
+              className="bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
+                       rounded-full w-12 h-12 flex items-center justify-center text-[#00ff41] 
+                       transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
+                       active:scale-95"
+              aria-label="Habilidad anterior"
+            >
+              <i className="fas fa-chevron-left"></i>
+            </button>
+            
+            {/* Indicators */}
+            <div className="flex justify-center gap-2">
             {skillCategories.map((_, idx) => (
               <button
                 key={idx}
@@ -229,8 +227,18 @@ export default function Skills() {
                 }`}
                 aria-label={`Ir a categoría ${idx + 1}`}
               ></button>
-            ))}
-          </div>
+            ))}            </div>
+            
+            <button
+              onClick={nextSlide}
+              className="bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
+                       rounded-full w-12 h-12 flex items-center justify-center text-[#00ff41] 
+                       transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
+                       active:scale-95"
+              aria-label="Próxima habilidad"
+            >
+              <i className="fas fa-chevron-right"></i>
+            </button>          </div>
         </div>
       </div>
     </section>
