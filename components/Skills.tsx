@@ -19,7 +19,7 @@ export default function Skills() {
         {
           name: 'Flask',
           icon: 'fas fa-flask',
-          color: '#000000',
+          color: '#BD3C00',
           description: 'Microframework web Python',
         },
         {
@@ -49,7 +49,7 @@ export default function Skills() {
         {
           name: 'Next.js',
           icon: 'fas fa-layer-group',
-          color: '#000000',
+          color: '#A000FF',
           description: 'Framework React con SSR',
         },
       ],
@@ -149,8 +149,10 @@ export default function Skills() {
                 {skillCategories.map((category, idx) => {
                   const skillCount = category.skills.length;
                   const containerWidth = 
-                    skillCount === 1 ? 'max-w-[280px]' :
-                    skillCount === 2 ? 'max-w-[500px]' :
+                    skillCount === 1 ? 'max-w-[250px]' :
+                    skillCount === 2 ? 'max-w-[380px]' :
+                    skillCount === 3 ? 'max-w-[600px]' :
+                    skillCount === 4 ? 'max-w-[800px]' :
                     'max-w-full';
                   
                   return (
@@ -174,7 +176,7 @@ export default function Skills() {
                             className="bg-[#0a0e0a] border border-[rgba(0,255,65,0.3)] rounded-xl sm:rounded-2xl p-3 sm:p-4 
                                      hover:border-[#00ff41] hover:bg-[#132613] transition-all duration-300 
                                      hover:-translate-y-2 hover:shadow-[0_8px_25px_rgba(0,255,65,0.3)] group
-                                     w-full max-w-[200px] h-[140px] flex items-center justify-center"
+                                     flex-1 min-w-[140px] max-w-[170px] h-[130px] flex items-center justify-center"
                           >
                             <div className="flex flex-col items-center text-center space-y-2">
                               <i
