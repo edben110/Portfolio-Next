@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Skills() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,19 +13,19 @@ export default function Skills() {
       skills: [
         {
           name: 'Django',
-          icon: 'fab fa-python',
+          iconPath: '/python-original.svg',
           color: '#092E20',
           description: 'Framework web de Python',
         },
         {
           name: 'Flask',
-          icon: 'fas fa-flask',
+          iconPath: 'https://www.svgrepo.com/show/508915/flask.svg',
           color: '#BD3C00',
           description: 'Microframework web Python',
         },
         {
           name: 'Spring Boot',
-          icon: 'fab fa-java',
+          iconPath: '/java-original.svg',
           color: '#6DB33F',
           description: 'Framework Java moderno',
         },
@@ -36,19 +37,19 @@ export default function Skills() {
       skills: [
         {
           name: 'React',
-          icon: 'fab fa-react',
+          iconPath: '/react-original.svg',
           color: '#61DAFB',
           description: 'Librería JavaScript UI',
         },
         {
           name: 'Angular',
-          icon: 'fab fa-angular',
+          iconPath: '/angularjs-original.svg',
           color: '#DD0031',
           description: 'Framework TypeScript completo',
         },
         {
           name: 'Next.js',
-          icon: 'fas fa-layer-group',
+          iconPath: '/nextjs-original.svg',
           color: '#A000FF',
           description: 'Framework React con SSR',
         },
@@ -60,7 +61,7 @@ export default function Skills() {
       skills: [
         {
           name: 'Flutter',
-          icon: 'fas fa-mobile',
+          iconPath: '/flutter-original.svg',
           color: '#02569B',
           description: 'Framework multiplataforma',
         },
@@ -72,13 +73,13 @@ export default function Skills() {
       skills: [
         {
           name: 'MongoDB',
-          icon: 'fas fa-leaf',
+          iconPath: '/mongodb-original.svg',
           color: '#47A248',
           description: 'Base de datos NoSQL',
         },
         {
           name: 'PostgreSQL',
-          icon: 'fas fa-database',
+          iconPath: '/postgresql-original.svg',
           color: '#336791',
           description: 'Base de datos relacional',
         },
@@ -90,7 +91,7 @@ export default function Skills() {
       skills: [
         {
           name: 'Docker',
-          icon: 'fab fa-docker',
+          iconPath: '/docker-original.svg',
           color: '#2496ED',
           description: 'Containerización',
         },
@@ -108,7 +109,7 @@ export default function Skills() {
         },
         {
           name: 'Arduino',
-          icon: 'fas fa-microchip',
+          iconPath: '/arduino-original.svg',
           color: '#00979D',
           description: 'Desarrollo embebido',
         },
@@ -150,9 +151,9 @@ export default function Skills() {
                   const skillCount = category.skills.length;
                   const containerWidth = 
                     skillCount === 1 ? 'max-w-[250px]' :
-                    skillCount === 2 ? 'max-w-[380px]' :
-                    skillCount === 3 ? 'max-w-[600px]' :
-                    skillCount === 4 ? 'max-w-[800px]' :
+                    skillCount === 2 ? 'max-w-[420px]' :
+                    skillCount === 3 ? 'max-w-[640px]' :
+                    skillCount === 4 ? 'max-w-[880px]' :
                     'max-w-full';
                   
                   return (
@@ -176,21 +177,36 @@ export default function Skills() {
                             className="bg-[#0a0e0a] border border-[rgba(0,255,65,0.3)] rounded-xl sm:rounded-2xl p-3 sm:p-4 
                                      hover:border-[#00ff41] hover:bg-[#132613] transition-all duration-300 
                                      hover:-translate-y-2 hover:shadow-[0_8px_25px_rgba(0,255,65,0.3)] group
-                                     flex-1 min-w-[140px] max-w-[170px] h-[130px] flex items-center justify-center"
+                                     flex-1 min-w-[150px] max-w-[190px] h-[150px] flex items-center justify-center"
                           >
-                            <div className="flex flex-col items-center text-center space-y-2">
-                              <i
-                                className={`${skill.icon} text-[1.65rem] sm:text-[2rem] transition-all duration-300 
-                                         group-hover:scale-110`}
-                                style={{ 
-                                  color: skill.color,
-                                  filter: `drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
-                                }}
-                              ></i>
-                              <h4 className="text-[0.9rem] font-semibold text-[#00ff41] tracking-wide">
+                            <div className="flex flex-col items-center text-center space-y-2 w-full px-1">
+                              {skill.iconPath ? (
+                                <div className="relative w-[2.2rem] h-[2.2rem] sm:w-[2.8rem] sm:h-[2.8rem] 
+                                              transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+                                  <Image
+                                    src={skill.iconPath}
+                                    alt={`${skill.name} icon`}
+                                    fill
+                                    className="object-contain"
+                                    style={{
+                                      filter: `drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
+                                    }}
+                                  />
+                                </div>
+                              ) : (
+                                <i
+                                  className={`${skill.icon} text-[1.8rem] sm:text-[2.2rem] transition-all duration-300 
+                                           group-hover:scale-110 flex-shrink-0`}
+                                  style={{ 
+                                    color: skill.color,
+                                    filter: `drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
+                                  }}
+                                ></i>
+                              )}
+                              <h4 className="text-[0.95rem] font-semibold text-[#00ff41] tracking-wide break-words w-full">
                                 {skill.name}
                               </h4>
-                              <p className="text-[0.7rem] text-[#00aa2b] leading-tight">{skill.description}</p>
+                              <p className="text-[0.72rem] text-[#00aa2b] leading-snug break-words w-full">{skill.description}</p>
                             </div>
                           </div>
                         ))}
@@ -204,7 +220,7 @@ export default function Skills() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex justify-center items-center gap-4 mt-4 sm:mt-5 md:mt-6">
+          <div className=" flex justify-center items-center gap-4 mt-4 sm:mt-5 md:mt-6">
             <button
               onClick={prevSlide}
               className="bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 

@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import Image from 'next/image';
 
 function Footer() {
   return (
@@ -41,8 +42,17 @@ function Footer() {
                 className="flex items-center gap-3 text-white hover:text-[#00ff41] 
                          transition-colors duration-300 group"
               >
-                <i className="fab fa-github text-[#00ff41] text-xl group-hover:scale-110 
-                             transition-transform duration-300"></i>
+                <div className="relative w-5 h-5 transition-transform duration-300 group-hover:scale-110">
+                  <Image
+                    src="/github-original.svg"
+                    alt="GitHub icon"
+                    fill
+                    className="object-contain"
+                    style={{
+                      filter: 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(459%) hue-rotate(58deg) brightness(102%) contrast(101%)',
+                    }}
+                  />
+                </div>
                 <span>GitHub</span>
               </a>
               <a
@@ -52,8 +62,17 @@ function Footer() {
                 className="flex items-center gap-3 text-white hover:text-[#00ff41] 
                          transition-colors duration-300 group"
               >
-                <i className="fab fa-linkedin text-[#00ff41] text-xl group-hover:scale-110 
-                             transition-transform duration-300"></i>
+                <div className="relative w-5 h-5 transition-transform duration-300 group-hover:scale-110">
+                  <Image
+                    src="/linkedin-original.svg"
+                    alt="LinkedIn icon"
+                    fill
+                    className="object-contain"
+                    style={{
+                      filter: 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(459%) hue-rotate(58deg) brightness(102%) contrast(101%)',
+                    }}
+                  />
+                </div>
                 <span>LinkedIn</span>
               </a>
             </div>
