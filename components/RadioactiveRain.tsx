@@ -1,11 +1,9 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useTheme } from './ThemeContext';
 
-export default function MatrixRain() {
+export default function RadioactiveRain() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { matrixBgColor } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -14,35 +12,81 @@ export default function MatrixRain() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initDrops();
+    }
 
     const chars = '|';
     const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    
-    const drops: number[] = [];
-    for (let i = 0; i < columns; i++) {
-      drops[i] = Math.random() * -100;
-}
+
+    let drops: Drop[] = [];
+
+    type Drop = {
+      x: number;
+      y: number;
+      speed: number;
+      delay: number;
+    };
+
+    let extraWidth = 0;
+    let totalWidth = 0;
+    let columns = 0;
+
+    function initDrops() {
+      extraWidth = canvas.width * 0.5;
+      totalWidth = canvas.width + extraWidth * 2;
+      columns = Math.floor(totalWidth / fontSize);
+
+      drops = [];
+
+      for (let i = 0; i < columns; i++) {
+        drops.push({
+          x: (i * fontSize) - extraWidth,
+          y: Math.random() * -canvas.height,
+          speed: 1 + Math.random() * 3,
+          delay: Math.random() * 200
+        });
+      }
+    }
+
+    resize();
 
     function draw() {
-      if (!ctx || !canvas) return;
-      
-      ctx.fillStyle = matrixBgColor;
+      if (!ctx) return;
+
+      ctx.fillStyle = 'rgba(255,255,255,0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = '#00ff41';
+      ctx.fillStyle = 'green';
       ctx.font = `${fontSize}px OCR A Extended`;
 
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      for (let drop of drops) {
 
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
-          drops[i] = 0;
+        if (drop.delay > 0) {
+          drop.delay--;
+          continue;
         }
-        drops[i]++;
+
+        ctx.save();
+        ctx.translate(drop.x, drop.y);
+        ctx.rotate(30 * Math.PI / 180);
+        ctx.fillText(chars, 0, 0);
+        ctx.restore();
+
+        drop.y += drop.speed;
+        drop.x += drop.speed;
+
+        if (
+          drop.y > canvas.height ||
+          drop.x > canvas.width + extraWidth
+        ) {
+          drop.y = Math.random() * -200;
+          drop.x = Math.random() * totalWidth - extraWidth;
+          drop.speed = 1 + Math.random() * 3;
+          drop.delay = Math.random() * 200;
+        }
       }
     }
 
@@ -55,24 +99,18 @@ export default function MatrixRain() {
 
     animate();
 
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', resize);
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', resize);
     };
-  }, [matrixBgColor]);
+  }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      id="matrixCanvas"
-      className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none opacity-25"
+      className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
     />
   );
 }

@@ -32,7 +32,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   };
 
   // Color de fondo para el efecto Matrix
-  const matrixBgColor = theme === 'dark' ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)';
+  const matrixBgColor = theme === 'dark' ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 1)';
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, matrixBgColor }}>
