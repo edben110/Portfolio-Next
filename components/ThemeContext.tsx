@@ -23,6 +23,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
+  useEffect(() => {
+    // Aplicar clase al elemento HTML
+    const html = document.documentElement;
+    html.setAttribute('data-theme', theme);
+  }, [theme]);
+
   const toggleTheme = () => {
     setTheme((prevTheme) => {
       const newTheme = prevTheme === 'dark' ? 'light' : 'dark';

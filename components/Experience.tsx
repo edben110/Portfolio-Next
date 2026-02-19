@@ -56,10 +56,10 @@ function Experience() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-theme-primary mb-4">
             Experiencia
           </h2>
-          <p className="text-base sm:text-lg text-white px-4">Mi trayectoria académica y profesional</p>
+          <p className="text-base sm:text-lg text-theme-secondary px-4">Mi trayectoria académica y profesional</p>
           <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto mt-4 rounded-full"></div>
         </div>
 

@@ -30,7 +30,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'backdrop-blur-md shadow-[0_4px_20px_rgba(0,255,65,0.5)]'
+          ? 'backdrop-blur-md shadow-theme-card'
           : ''
       }`}
     >
@@ -47,7 +47,7 @@ export default function Header() {
                 priority
               />
             </div>
-            <span className="text-2xl font-bold text-[#00ff41]">Edben</span>
+            <span className="text-2xl font-bold text-theme-primary">Edben</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -57,7 +57,7 @@ export default function Header() {
                 <li key={item}>
                   <button
                     onClick={() => scrollToSection(item)}
-                    className="text-[#00ff41] hover:text-[#39ff14] transition-colors duration-300 font-medium capitalize"
+                    className="text-theme-primary hover:text-matrix-green transition-colors duration-300 font-medium capitalize"
                   >
                     {item === 'inicio' ? 'Inicio' : 
                      item === 'about' ? 'Sobre mí' :
@@ -70,7 +70,7 @@ export default function Header() {
               <li>
                 <button
                   onClick={toggleTheme}
-                  className="text-[#00ff41] hover:text-[#39ff14] transition-all duration-300 text-2xl"
+                  className="text-theme-primary hover:text-matrix-green transition-all duration-300 text-2xl"
                   aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
                   title={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
                 >
@@ -85,13 +85,13 @@ export default function Header() {
             {/* Botón de Toggle de Tema para móvil */}
             <button
               onClick={toggleTheme}
-              className="text-[#00ff41] hover:text-[#39ff14] transition-all duration-300 text-xl"
+              className="text-theme-primary hover:text-matrix-green transition-all duration-300 text-xl"
               aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
             >
               <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`}></i>
             </button>
             <button
-              className="text-[#00ff41] text-2xl"
+              className="text-theme-primary text-2xl"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -108,7 +108,7 @@ export default function Header() {
                 <li key={item}>
                   <button
                     onClick={() => scrollToSection(item)}
-                    className="text-[#00ff41] hover:text-[#39ff14] transition-colors duration-300 font-medium capitalize w-full text-left"
+                    className="text-theme-primary hover:text-matrix-green transition-colors duration-300 font-medium capitalize w-full text-left"
                   >
                     {item === 'inicio' ? 'Inicio' : 
                      item === 'about' ? 'Sobre mí' :

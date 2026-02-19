@@ -7,6 +7,40 @@
   --font-fira-code: 'Fira Code', 'Courier New', monospace;
 }
 
+/* Dark Theme Variables (Default) */
+html[data-theme="dark"] {
+  --bg-main: #0A0F14;
+  --bg-secondary: rgba(0, 255, 65, 0.05);
+  --bg-card: rgba(0, 255, 65, 0.1);
+  --text-primary: #00ff41;
+  --text-secondary: #ffffff;
+  --text-muted: #cccccc;
+  --border-color: rgba(0, 255, 65, 0.3);
+  --matrix-green: #00ff41;
+  --matrix-green-soft: #00cc33;
+  --shadow-color: rgba(0, 255, 65, 0.2);
+  --shadow-hover: rgba(0, 255, 65, 0.25);
+  --scrollbar-thumb: #00ff41;
+  --scrollbar-thumb-hover: #00cc33;
+}
+
+/* Light Theme Variables */
+html[data-theme="light"] {
+  --bg-main: #ffffff;
+  --bg-secondary: #f2f2f2;
+  --bg-card: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #000000;
+  --text-muted: #222222;
+  --border-color: rgba(0, 0, 0, 0.15);
+  --matrix-green: #00ff41;
+  --matrix-green-soft: #00cc33;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --shadow-hover: rgba(0, 0, 0, 0.25);
+  --scrollbar-thumb: var(--matrix-green);
+  --scrollbar-thumb-hover: var(--matrix-green-soft);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -19,11 +53,45 @@ html {
 }
 
 body {
-  background-color: #0A0F14 ;
-  color: #00ff41;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
   font-family: var(--font-poppins);
   overflow-x: hidden;
   position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto de iluminación radial para modo claro */
+html[data-theme="light"] body::before {
+  content: "";
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0,0,0,0.08) 0%, rgba(255,255,255,1) 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Efecto de noise para modo claro */
+html[data-theme="light"] body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.015),
+    rgba(0,0,0,0.015) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Custom scrollbar */
@@ -36,12 +104,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00ff41;
+  background: var(--scrollbar-thumb);
   border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00cc33;
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Matrix Canvas */
@@ -117,4 +186,178 @@ body {
 
 .tech-icons i {
   cursor: pointer;
+}
+/* ============================================
+   THEME-AWARE CUSTOM CLASSES
+   ============================================ */
+
+/* Text Colors */
+.text-theme-primary {
+  color: var(--text-primary);
+}
+
+.text-theme-secondary {
+  color: var(--text-secondary);
+}
+
+.text-theme-muted {
+  color: var(--text-muted);
+}
+
+.text-matrix-green {
+  color: var(--matrix-green);
+}
+
+/* Background Colors */
+.bg-theme-main {
+  background-color: var(--bg-main);
+}
+
+.bg-theme-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.bg-theme-card {
+  background-color: var(--bg-card);
+}
+
+/* Borders */
+.border-theme {
+  border-color: var(--border-color);
+}
+
+/* Shadows para Light Mode */
+html[data-theme="light"] .shadow-theme-card {
+  box-shadow: 0 40px 80px var(--shadow-color);
+}
+
+html[data-theme="light"] .shadow-theme-hover:hover {
+  box-shadow: 0 50px 100px var(--shadow-hover);
+}
+
+html[data-theme="dark"] .shadow-theme-card {
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+html[data-theme="dark"] .shadow-theme-hover:hover {
+  box-shadow: 0 8px 30px var(--shadow-hover);
+}
+
+/* Buttons - Adaptable al tema */
+.btn-theme-primary {
+  background-color: var(--matrix-green);
+  color: #000;
+  padding: 14px 32px;
+  border: 2px solid var(--matrix-green);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+html[data-theme="light"] .btn-theme-primary {
+  border-radius: 25px 0px 25px 0px;
+  background-color: transparent;
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+html[data-theme="light"] .btn-theme-primary:hover {
+  background-color: var(--matrix-green);
+  color: #000;
+  border-color: var(--matrix-green);
+}
+
+html[data-theme="dark"] .btn-theme-primary {
+  border-radius: 0.5rem;
+  background-color: var(--matrix-green);
+  color: #000;
+}
+
+html[data-theme="dark"] .btn-theme-primary:hover {
+  background-color: var(--matrix-green-soft);
+  transform: scale(1.05);
+}
+
+/* Cards con efecto de línea vertical para Light Mode */
+html[data-theme="light"] .card-light-accent {
+  position: relative;
+  background: var(--bg-secondary);
+  padding: 60px;
+}
+
+html[data-theme="light"] .card-light-accent::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--matrix-green);
+  opacity: 0.2;
+}
+
+/* Sections con padding adicional para Light Mode */
+html[data-theme="light"] section {
+  background-color: transparent;
+}
+
+html[data-theme="light"] .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Headers y títulos */
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4 {
+  color: var(--text-primary);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4 {
+  color: var(--text-primary);
+}
+
+/* Links y botones del header */
+html[data-theme="light"] header nav a,
+html[data-theme="light"] header nav button {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+html[data-theme="light"] header nav a:hover,
+html[data-theme="light"] header nav button:hover {
+  color: var(--matrix-green);
+}
+
+/* Tarjetas de intereses y skills */
+html[data-theme="light"] .interest-card,
+html[data-theme="light"] .skill-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+html[data-theme="light"] .interest-card:hover,
+html[data-theme="light"] .skill-card:hover {
+  background: var(--bg-main);
+  border-color: var(--matrix-green);
+  box-shadow: 0 15px 40px var(--shadow-hover);
+}
+
+/* Transiciones suaves */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+button, a {
+  transition: all 0.3s ease;
 }

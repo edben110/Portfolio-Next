@@ -17,7 +17,7 @@ function About() {
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00ff41] mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-theme-primary mb-4">
               Sobre mí
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto rounded-full"></div>
@@ -25,11 +25,11 @@ function About() {
 
           {/* About Content */}
           <div className="space-y-6">
-            <p className="text-lg text-white leading-relaxed text-justify">
-              Buenos días, tardes o noches. Soy <strong className="text-[#00ff41]">Edwar Alexander Benito Basante</strong>, 
+            <p className="text-lg text-theme-secondary leading-relaxed text-justify">
+              Buenos días, tardes o noches. Soy <strong className="text-matrix-green">Edwar Alexander Benito Basante</strong>, 
               estudiante de Ingeniería de Software en la Universidad Cooperativa de Colombia.
             </p>
-            <p className="text-lg text-white leading-relaxed text-justify">
+            <p className="text-lg text-theme-secondary leading-relaxed text-justify">
               Me apasionan la ciencia ficción, el belicismo, amante de los metroidvanias, la historia, 
               la ingeniería, ir al gimnasio y las artes marciales. Mi enfoque está en crear 
               soluciones tecnológicas innovadoras utilizando las mejores prácticas de desarrollo.
@@ -37,7 +37,7 @@ function About() {
 
             {/* Interests */}
             <div className="mt-12">
-              <h3 className="text-2xl font-semibold text-[#00ff41] mb-6">Intereses</h3>
+              <h3 className="text-2xl font-semibold text-theme-primary mb-6">Intereses</h3>
               <div className="flex flex-wrap gap-4">
                 {interests.map((interest, index) => (
                   <span
