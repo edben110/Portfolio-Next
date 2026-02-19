@@ -158,7 +158,7 @@ export default function Skills() {
                   
                   return (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
-                    <div className={`bg-[#0d1b0d] border border-[#00ff41] rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 
+                    <div className={`bg-[#0d1b0d] border border-[#00ff41] rounded-[0px_50px_0px_50px] p-4 sm:p-5 md:p-6 lg:p-8 
                                   shadow-[0_4px_20px_rgba(0,255,65,0.15)] hover:shadow-[0_8px_30px_rgba(0,255,65,0.25)] 
                                   transition-all duration-300 hover:-translate-y-[5px] relative mx-auto ${containerWidth}`}>
                       
@@ -177,7 +177,7 @@ export default function Skills() {
                             className="bg-[#0a0e0a] border border-[rgba(0,255,65,0.3)] rounded-xl sm:rounded-2xl p-3 sm:p-4 
                                      hover:border-[#00ff41] hover:bg-[#132613] transition-all duration-300 
                                      hover:-translate-y-2 hover:shadow-[0_8px_25px_rgba(0,255,65,0.3)] group
-                                     flex-1 min-w-[150px] max-w-[190px] h-[150px] flex items-center justify-center"
+                                     flex-1 min-w-[150px] max-w-[190px] h-[180px] flex items-center justify-center"
                           >
                             <div className="flex flex-col items-center text-center space-y-2 w-full px-1">
                               {skill.iconPath ? (

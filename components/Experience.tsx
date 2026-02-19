@@ -84,7 +84,7 @@ function Experience() {
 
                 {/* Content */}
                 <div className={`flex-1 ${idx % 2 === 0 ? 'md:text-right' : ''}`}>
-                  <div className="bg-[#0d1b0d] border-2 border-[rgba(0,255,65,0.3)] rounded-2xl p-8 
+                  <div className="bg-[#0d1b0d] border-2 border-[rgba(0,255,65,0.3)] rounded-[0px_50px_0px_50px] p-8 
                                 shadow-[0_4px_20px_rgba(0,255,65,0.15)] hover:shadow-[0_8px_30px_rgba(0,255,65,0.25)]
                                 transition-all duration-300 hover:scale-105 relative overflow-hidden">
                     {/* Date Badge */}

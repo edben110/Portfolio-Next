@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useTheme } from './ThemeContext';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +52,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex gap-8">
+            <ul className="flex gap-8 items-center">
               {['inicio', 'about', 'skills', 'portfolio', 'experience'].map((item) => (
                 <li key={item}>
                   <button
@@ -64,17 +66,38 @@ export default function Header() {
                   </button>
                 </li>
               ))}
+              {/* Botón de Toggle de Tema */}
+              <li>
+                <button
+                  onClick={toggleTheme}
+                  className="text-[#00ff41] hover:text-[#39ff14] transition-all duration-300 text-2xl"
+                  aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+                  title={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+                >
+                  <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`}></i>
+                </button>
+              </li>
             </ul>
           </nav>
 
           {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-[#00ff41] text-2xl"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            {/* Botón de Toggle de Tema para móvil */}
+            <button
+              onClick={toggleTheme}
+              className="text-[#00ff41] hover:text-[#39ff14] transition-all duration-300 text-xl"
+              aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+            >
+              <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`}></i>
+            </button>
+            <button
+              className="text-[#00ff41] text-2xl"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

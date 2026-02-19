@@ -1,6 +1,7 @@
 import { Metadata, Viewport } from 'next';
 import { Poppins, Fira_Code } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/components/ThemeContext';
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700'],
@@ -58,7 +59,9 @@ export default function RootLayout({
         />
       </head>
       <body className={poppins.className}>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

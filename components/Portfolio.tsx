@@ -88,7 +88,7 @@ export default function Portfolio() {
                 {projects.map((project, idx) => (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
                     <div
-                      className={`bg-[#0d1b0d] border border-[rgba(0,255,65,0.3)] rounded-2xl overflow-hidden 
+                      className={`bg-[#0d1b0d] border border-[rgba(0,255,65,0.3)] rounded-[0px_50px_0px_50px] overflow-hidden 
                                 transition-all duration-300 hover:shadow-[0_15px_40px_rgba(0,255,65,0.3)] 
                                 hover:border-[#00ff41] hover:-translate-y-[10px] group mx-auto
                                 ${project.hasLink ? 'cursor-pointer' : ''}`}

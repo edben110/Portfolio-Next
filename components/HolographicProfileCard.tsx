@@ -137,24 +137,50 @@ export default function HolographicProfileCard() {
           />
         </div>
 
-        {/* Tech Icons - Exacto del original */}
-        <div className="tech-icons flex justify-around text-[2rem]">
-          <i 
-            className="fab fa-python transition-all duration-300 hover:scale-125" 
-            style={{ color: '#3776AB' }}
-          ></i>
-          <i 
-            className="fab fa-react transition-all duration-300 hover:scale-125" 
-            style={{ color: '#61DAFB' }}
-          ></i>
-          <i 
-            className="fab fa-angular transition-all duration-300 hover:scale-125" 
-            style={{ color: '#DD0031' }}
-          ></i>
-          <i 
-            className="fab fa-java transition-all duration-300 hover:scale-125" 
-            style={{ color: '#007396' }}
-          ></i>
+        {/* Tech Icons - Usando iconos SVG de public/ */}
+        <div className="tech-icons flex justify-around items-center gap-4">
+          <Image
+            src="/python-original.svg"
+            alt="Python"
+            width={40}
+            height={40}
+            className="transition-all duration-300 hover:scale-125"
+          />
+          <Image
+            src="/react-original.svg"
+            alt="React"
+            width={40}
+            height={40}
+            className="transition-all duration-300 hover:scale-125"
+          />
+          <Image
+            src="/nextjs-original.svg"
+            alt="Next.js"
+            width={40}
+            height={40}
+            className="transition-all duration-300 hover:scale-125"
+          />
+          <Image
+            src="/angularjs-original.svg"
+            alt="Angular"
+            width={40}
+            height={40}
+            className="transition-all duration-300 hover:scale-125"
+          />
+          <Image
+            src="/java-original.svg"
+            alt="Java"
+            width={40}
+            height={40}
+            className="transition-all duration-300 hover:scale-125"
+          />
+          <Image
+            src="/flutter-original.svg"
+            alt="Flutter"
+            width={40}
+            height={40}
+            className="transition-all duration-300 hover:scale-125"
+          />
         </div>
       </div>
     </div>

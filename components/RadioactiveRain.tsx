@@ -17,7 +17,7 @@ export default function MatrixRain() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()';
+    const chars = '|';
     const fontSize = 14;
     const columns = canvas.width / fontSize;
     
