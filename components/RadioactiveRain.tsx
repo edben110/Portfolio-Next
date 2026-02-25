@@ -13,6 +13,7 @@ export default function RadioactiveRain() {
     if (!ctx) return;
 
     function resize() {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       initDrops();
@@ -35,6 +36,7 @@ export default function RadioactiveRain() {
     let columns = 0;
 
     function initDrops() {
+      if (!canvas) return;
       extraWidth = canvas.width * 0.5;
       totalWidth = canvas.width + extraWidth * 2;
       columns = Math.floor(totalWidth / fontSize);
@@ -54,7 +56,7 @@ export default function RadioactiveRain() {
     resize();
 
     function draw() {
-      if (!ctx) return;
+      if (!ctx || !canvas) return;
 
       ctx.fillStyle = 'rgba(255,255,255,0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
