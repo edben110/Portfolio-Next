@@ -24,13 +24,21 @@ export default function Hero() {
               Estudiante de Ingeniería de Software apasionado por la ciencia ficción, la historia, 
               el belicismo y la ingeniería. Especializado en desarrollo full-stack con tecnologías modernas.
             </p>
-            <div className="flex gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-4">
               <a
                 href="#portfolio"
-                className="btn-theme-primary shadow-theme-card shadow-theme-hover transform hover:scale-105"
+                className="btn-theme-primary transform hover:scale-105"
               >
                 <i className="fas fa-briefcase"></i>
                 Ver Proyectos
+              </a>
+              <a
+                href="/cv.pdf"
+                download
+                className="btn-theme-outline transform hover:scale-105"
+              >
+                <i className="fas fa-file-download"></i>
+                Descargar PDF
               </a>
             </div>
           </div>

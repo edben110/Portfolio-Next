@@ -8,7 +8,6 @@ function WhatsAppButton() {
       rel="noopener noreferrer"
       className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-green-500 hover:bg-green-600 
                rounded-full flex items-center justify-center text-white text-3xl 
-               shadow-[0_8px_25px_rgba(0,255,65,0.25)] hover:shadow-[0_15px_40px_rgba(0,255,65,0.3)] 
                transition-all duration-300 hover:scale-110"
       style={{
         animation: 'pulse-glow 2s ease-in-out infinite'

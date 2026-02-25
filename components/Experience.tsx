@@ -84,8 +84,7 @@ function Experience() {
 
                 {/* Content */}
                 <div className={`flex-1 ${idx % 2 === 0 ? 'md:text-right' : ''}`}>
-                  <div className="experience-card border-2 rounded-[0px_50px_0px_50px] p-8 
-                                shadow-[0_4px_20px_rgba(0,255,65,0.15)]
+                  <div className="experience-card border-2 rounded-2xl md:rounded-[0px_50px_0px_50px] p-8 
                                 transition-all duration-300 relative overflow-hidden">
                     {/* Date Badge */}
                     <div className={`inline-flex items-center px-4 py-2 bg-primary/20 

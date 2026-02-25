@@ -14,7 +14,7 @@ function About() {
   return (
     <section id="about" className="relative py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-theme-primary mb-4">
@@ -44,7 +44,7 @@ function About() {
                     key={index}
                     className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[rgba(0,255,65,0.1)] to-[rgba(0,255,136,0.1)] 
                              tag-badge border rounded-full 
-                             transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_15px_rgba(0,255,65,0.2)]"
+                             transition-all duration-300 hover:scale-105"
                   >
                     <i className={`fas ${interest.icon}`}></i>
                     <span>{interest.text}</span>

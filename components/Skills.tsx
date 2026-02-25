@@ -140,27 +140,17 @@ export default function Skills() {
         </div>
 
         {/* Skills Carousel */}
-        <div className="relative max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto">
+        <div className="relative w-full max-w-5xl mx-auto">
           <div className="overflow-hidden">
             <div
               className="transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               <div className="flex">
-                {skillCategories.map((category, idx) => {
-                  const skillCount = category.skills.length;
-                  const containerWidth = 
-                    skillCount === 1 ? 'max-w-[250px]' :
-                    skillCount === 2 ? 'max-w-[420px]' :
-                    skillCount === 3 ? 'max-w-[640px]' :
-                    skillCount === 4 ? 'max-w-[880px]' :
-                    'max-w-full';
-                  
-                  return (
+                {skillCategories.map((category, idx) => (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
-                    <div className={`carousel-container-card border-2 rounded-[0px_50px_0px_50px] p-4 sm:p-5 md:p-6 lg:p-8 
-                                  shadow-[0_4px_20px_rgba(0,255,65,0.15)] hover:shadow-[0_8px_30px_rgba(0,255,65,0.25)] 
-                                  transition-all duration-300 hover:-translate-y-[5px] relative mx-auto ${containerWidth}`}>
+                    <div className={`carousel-container-card border-2 rounded-2xl md:rounded-[0px_50px_0px_50px] p-4 sm:p-5 md:p-6 lg:p-8 
+                                  transition-all duration-300 hover:-translate-y-[5px] relative mx-auto max-w-5xl`}>
                       
                       {/* Gradient glow effect */}
                       <div className="absolute -inset-[2px] bg-gradient-to-br from-[#00ff41] to-[#00ff88] 
@@ -174,9 +164,9 @@ export default function Skills() {
                         {category.skills.map((skill, skillIdx) => (
                           <div
                             key={skillIdx}
-                            className="skill-item-card border rounded-xl sm:rounded-2xl p-3 sm:p-4 
+                            className="skill-item-card border rounded-2xl p-3 sm:p-4 
                                      transition-all duration-300 
-                                     hover:-translate-y-2 hover:shadow-[0_8px_25px_rgba(0,255,65,0.3)] group
+                                     hover:-translate-y-2 group
                                      flex-1 min-w-[150px] max-w-[190px] h-[180px] flex items-center justify-center"
                           >
                             <div className="flex flex-col items-center text-center space-y-2 w-full px-1">
@@ -213,8 +203,7 @@ export default function Skills() {
                       </div>
                     </div>
                   </div>
-                  );
-                })}
+                ))}
               </div>
             </div>
           </div>

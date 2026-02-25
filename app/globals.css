@@ -256,6 +256,18 @@ html[data-theme="dark"] .shadow-theme-hover:hover {
   gap: 0.5rem;
 }
 
+.btn-theme-outline {
+  background-color: transparent;
+  color: var(--text-primary);
+  padding: 14px 32px;
+  border: 2px solid var(--matrix-green);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 html[data-theme="light"] .btn-theme-primary {
   border-radius: 25px 0px 25px 0px;
   background-color: transparent;
@@ -277,6 +289,20 @@ html[data-theme="dark"] .btn-theme-primary {
 
 html[data-theme="dark"] .btn-theme-primary:hover {
   background-color: var(--matrix-green-soft);
+  transform: scale(1.05);
+}
+
+html[data-theme="light"] .btn-theme-outline:hover {
+  background-color: rgba(0, 255, 65, 0.12);
+  color: #000;
+}
+
+html[data-theme="dark"] .btn-theme-outline {
+  color: var(--matrix-green);
+}
+
+html[data-theme="dark"] .btn-theme-outline:hover {
+  background-color: rgba(0, 255, 65, 0.15);
   transform: scale(1.05);
 }
 
@@ -492,6 +518,34 @@ html[data-theme="light"] .carousel-indicator:hover {
 html[data-theme="light"] .carousel-indicator.active {
   background-color: var(--matrix-green);
   border-color: var(--matrix-green);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .btn-theme-primary:hover,
+  .btn-theme-outline:hover,
+  .carousel-container-card:hover,
+  .skill-item-card:hover,
+  .experience-card:hover,
+  .tag-badge:hover,
+  .carousel-nav-btn:hover,
+  .carousel-indicator:hover,
+  .shadow-theme-hover:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .carousel-container-card:hover,
+  .experience-card:hover {
+    border-color: inherit;
+  }
+
+  .carousel-container-card img {
+    transform: none !important;
+  }
+
+  .group:hover .group-hover\:scale-110 {
+    transform: none !important;
+  }
 }
 
 /* Profile Card - Holographic Card */

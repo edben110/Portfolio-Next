@@ -28,11 +28,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'backdrop-blur-md shadow-theme-card'
-          : ''
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md"
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -103,12 +99,13 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden pb-4">
-            <ul className="flex flex-col gap-4">
+            <div className="mt-3 rounded-2xl border border-theme bg-theme-card px-4 py-4">
+              <ul className="flex flex-col gap-2">
               {['inicio', 'about', 'skills', 'portfolio', 'experience'].map((item) => (
                 <li key={item}>
                   <button
                     onClick={() => scrollToSection(item)}
-                    className="text-theme-primary hover:text-matrix-green transition-colors duration-300 font-medium capitalize w-full text-left"
+                    className="text-theme-primary transition-colors duration-300 font-medium capitalize w-full text-center px-3 py-2 rounded-xl"
                   >
                     {item === 'inicio' ? 'Inicio' : 
                      item === 'about' ? 'Sobre mí' :
@@ -117,7 +114,8 @@ export default function Header() {
                   </button>
                 </li>
               ))}
-            </ul>
+              </ul>
+            </div>
           </nav>
         )}
       </div>
