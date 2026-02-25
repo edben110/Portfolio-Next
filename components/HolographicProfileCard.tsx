@@ -68,7 +68,7 @@ export default function HolographicProfileCard() {
   return (
     <div className="profile-card-container relative">
       {/* Profile Card - Estructura exacta del original */}
-      <div className="profile-card-wrapper relative p-8 bg-[#0d1b0d] rounded-[2rem] border border-[#00ff41] shadow-[0_10px_40px_rgba(0,255,65,0.2)]">
+      <div className="profile-card-wrapper holographic-card relative p-8 rounded-[2rem] border">
         {/* Gradient background blur (pseudo-element ::before del original) */}
         <div 
           className="absolute -inset-[2px] rounded-[2rem] opacity-30 -z-10 blur-[10px]"
@@ -80,8 +80,8 @@ export default function HolographicProfileCard() {
         {/* Profile Image Wrapper - 300x300px exacto del original */}
         <div
           ref={cardRef}
-          className="profile-img-wrapper relative w-[300px] h-[300px] rounded-[1.5rem] overflow-hidden 
-                     border-[3px] border-[#00ff41] mb-6 bg-[#0d1b0d] flex items-center justify-center cursor-pointer"
+          className="profile-img-wrapper holographic-img-wrapper relative w-[300px] h-[300px] rounded-[1.5rem] overflow-hidden 
+                     border-[3px] mb-6 flex items-center justify-center cursor-pointer"
           style={{
             boxShadow: isHovering 
               ? '0 15px 50px rgba(0, 255, 65, 0.4)' 

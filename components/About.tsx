@@ -43,7 +43,7 @@ function About() {
                   <span
                     key={index}
                     className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[rgba(0,255,65,0.1)] to-[rgba(0,255,136,0.1)] 
-                             border border-[rgba(0,255,65,0.3)] rounded-full text-[#00ff41] hover:bg-[rgba(0,255,65,0.2)] 
+                             tag-badge border rounded-full 
                              transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_15px_rgba(0,255,65,0.2)]"
                   >
                     <i className={`fas ${interest.icon}`}></i>

@@ -158,7 +158,7 @@ export default function Skills() {
                   
                   return (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
-                    <div className={`bg-[#0d1b0d] border border-[#00ff41] rounded-[0px_50px_0px_50px] p-4 sm:p-5 md:p-6 lg:p-8 
+                    <div className={`carousel-container-card border-2 rounded-[0px_50px_0px_50px] p-4 sm:p-5 md:p-6 lg:p-8 
                                   shadow-[0_4px_20px_rgba(0,255,65,0.15)] hover:shadow-[0_8px_30px_rgba(0,255,65,0.25)] 
                                   transition-all duration-300 hover:-translate-y-[5px] relative mx-auto ${containerWidth}`}>
                       
@@ -166,7 +166,7 @@ export default function Skills() {
                       <div className="absolute -inset-[2px] bg-gradient-to-br from-[#00ff41] to-[#00ff88] 
                                     rounded-2xl opacity-30 blur-[10px] -z-10" />
                       
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00ff41] mb-4 md:mb-6 flex items-center justify-center gap-3">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-matrix-green mb-4 md:mb-6 flex items-center justify-center gap-3">
                         <i className={`fas ${category.icon}`}></i>
                         {category.title}
                       </h3>
@@ -174,8 +174,8 @@ export default function Skills() {
                         {category.skills.map((skill, skillIdx) => (
                           <div
                             key={skillIdx}
-                            className="bg-[#0a0e0a] border border-[rgba(0,255,65,0.3)] rounded-xl sm:rounded-2xl p-3 sm:p-4 
-                                     hover:border-[#00ff41] hover:bg-[#132613] transition-all duration-300 
+                            className="skill-item-card border rounded-xl sm:rounded-2xl p-3 sm:p-4 
+                                     transition-all duration-300 
                                      hover:-translate-y-2 hover:shadow-[0_8px_25px_rgba(0,255,65,0.3)] group
                                      flex-1 min-w-[150px] max-w-[190px] h-[180px] flex items-center justify-center"
                           >
@@ -203,10 +203,10 @@ export default function Skills() {
                                   }}
                                 ></i>
                               )}
-                              <h4 className="text-[0.95rem] font-semibold text-[#00ff41] tracking-wide break-words w-full">
+                              <h4 className="text-[0.95rem] font-semibold text-matrix-green tracking-wide break-words w-full">
                                 {skill.name}
                               </h4>
-                              <p className="text-[0.72rem] text-[#00aa2b] leading-snug break-words w-full">{skill.description}</p>
+                              <p className="text-[0.72rem] text-theme-muted leading-snug break-words w-full">{skill.description}</p>
                             </div>
                           </div>
                         ))}
@@ -223,9 +223,9 @@ export default function Skills() {
           <div className=" flex justify-center items-center gap-4 mt-4 sm:mt-5 md:mt-6">
             <button
               onClick={prevSlide}
-              className="bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
-                       rounded-full w-12 h-12 flex items-center justify-center text-[#00ff41] 
-                       transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
+              className="carousel-nav-btn border 
+                       rounded-full w-12 h-12 flex items-center justify-center 
+                       transition-all duration-300 hover:scale-110
                        active:scale-95"
               aria-label="Habilidad anterior"
             >
@@ -238,10 +238,10 @@ export default function Skills() {
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`h-[10px] rounded-full transition-all duration-300 border border-[rgba(0,255,65,0.4)] ${
+                className={`carousel-indicator border h-[10px] rounded-full transition-all duration-300 ${
                   idx === currentIndex
-                    ? 'bg-[#00ff41] w-8'
-                    : 'bg-[rgba(0,255,65,0.2)] w-[10px] hover:bg-[rgba(0,255,65,0.4)]'
+                    ? 'active w-8'
+                    : 'w-[10px]'
                 }`}
                 aria-label={`Ir a categoría ${idx + 1}`}
               ></button>
@@ -249,9 +249,9 @@ export default function Skills() {
             
             <button
               onClick={nextSlide}
-              className="bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
-                       rounded-full w-12 h-12 flex items-center justify-center text-[#00ff41] 
-                       transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
+              className="carousel-nav-btn border 
+                       rounded-full w-12 h-12 flex items-center justify-center 
+                       transition-all duration-300 hover:scale-110
                        active:scale-95"
               aria-label="Próxima habilidad"
             >

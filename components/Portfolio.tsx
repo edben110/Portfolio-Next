@@ -88,9 +88,8 @@ export default function Portfolio() {
                 {projects.map((project, idx) => (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
                     <div
-                      className={`bg-[#0d1b0d] border border-[rgba(0,255,65,0.3)] rounded-[0px_50px_0px_50px] overflow-hidden 
-                                transition-all duration-300 hover:shadow-[0_15px_40px_rgba(0,255,65,0.3)] 
-                                hover:border-[#00ff41] hover:-translate-y-[10px] group mx-auto
+                      className={`carousel-container-card border-2 rounded-[0px_50px_0px_50px] overflow-hidden 
+                                transition-all duration-300 hover:-translate-y-[10px] group mx-auto
                                 ${project.hasLink ? 'cursor-pointer' : ''}`}
                       onClick={() => project.hasLink && window.open(project.link, '_blank')}
                     >
@@ -107,18 +106,17 @@ export default function Portfolio() {
 
                       {/* Project Content */}
                       <div className="p-4 md:p-5 text-center">
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#00ff41] mb-3">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-matrix-green mb-3">
                           {project.title}
                         </h3>
-                        <p className="text-sm md:text-base text-white mb-4 leading-relaxed text-center max-w-md mx-auto">{project.description}</p>
+                        <p className="text-sm md:text-base text-theme-secondary mb-4 leading-relaxed text-center max-w-md mx-auto">{project.description}</p>
 
                         {/* Tags */}
                         <div className="flex flex-wrap gap-2 justify-center">
                           {project.tags.map((tag, tagIdx) => (
                             <span
                               key={tagIdx}
-                              className="px-4 py-2 bg-[rgba(0,255,65,0.1)] border border-[rgba(0,255,65,0.3)] rounded-full 
-                                       text-[#00ff41] text-sm font-medium"
+                              className="tag-badge px-4 py-2 border rounded-full text-sm font-medium"
                             >
                               {tag}
                             </span>
@@ -136,9 +134,9 @@ export default function Portfolio() {
           <div className="flex justify-center items-center gap-4 mt-5">
             <button
               onClick={prevSlide}
-              className="bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
-                       rounded-full w-12 h-12 flex items-center justify-center text-[#00ff41] 
-                       transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
+              className="carousel-nav-btn border 
+                       rounded-full w-12 h-12 flex items-center justify-center 
+                       transition-all duration-300 hover:scale-110
                        active:scale-95"
               aria-label="Proyecto anterior"
             >
@@ -151,10 +149,10 @@ export default function Portfolio() {
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`carousel-indicator border rounded-full h-[10px] transition-all duration-300 ${
                   idx === currentIndex
-                    ? 'bg-primary w-8'
-                    : 'bg-primary/30 hover:bg-primary/60'
+                    ? 'active w-8'
+                    : 'w-[10px]'
                 }`}
                 aria-label={`Ir a proyecto ${idx + 1}`}
               ></button>
@@ -162,9 +160,9 @@ export default function Portfolio() {
             
             <button
               onClick={nextSlide}
-              className="bg-[rgba(0,255,65,0.15)] hover:bg-[rgba(0,255,65,0.3)] border border-[#00ff41] 
-                       rounded-full w-12 h-12 flex items-center justify-center text-[#00ff41] 
-                       transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)]
+              className="carousel-nav-btn border 
+                       rounded-full w-12 h-12 flex items-center justify-center 
+                       transition-all duration-300 hover:scale-110
                        active:scale-95"
               aria-label="Próximo proyecto"
             >

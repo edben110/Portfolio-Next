@@ -84,9 +84,9 @@ function Experience() {
 
                 {/* Content */}
                 <div className={`flex-1 ${idx % 2 === 0 ? 'md:text-right' : ''}`}>
-                  <div className="bg-[#0d1b0d] border-2 border-[rgba(0,255,65,0.3)] rounded-[0px_50px_0px_50px] p-8 
-                                shadow-[0_4px_20px_rgba(0,255,65,0.15)] hover:shadow-[0_8px_30px_rgba(0,255,65,0.25)]
-                                transition-all duration-300 hover:scale-105 relative overflow-hidden">
+                  <div className="experience-card border-2 rounded-[0px_50px_0px_50px] p-8 
+                                shadow-[0_4px_20px_rgba(0,255,65,0.15)]
+                                transition-all duration-300 relative overflow-hidden">
                     {/* Date Badge */}
                     <div className={`inline-flex items-center px-4 py-2 bg-primary/20 
                                    border border-primary/40 rounded-full text-primary text-sm 
@@ -106,7 +106,7 @@ function Experience() {
                         <h3 className="text-2xl font-bold text-primary mb-2">
                           {exp.title}
                         </h3>
-                        <h4 className="text-lg text-white flex items-center gap-2 
+                        <h4 className="text-lg text-theme-secondary flex items-center gap-2 
                                      flex-wrap">
                           <i className="fas fa-building text-primary"></i>
                           {exp.company}
@@ -117,7 +117,7 @@ function Experience() {
                     {/* Descriptions */}
                     <div className="space-y-2 mb-6">
                       {exp.descriptions.map((desc, descIdx) => (
-                        <p key={descIdx} className="text-white flex items-start gap-2 text-justify leading-relaxed">
+                        <p key={descIdx} className="text-theme-secondary flex items-start gap-2 text-justify leading-relaxed">
                           <i className="fas fa-check-circle text-primary mt-1 flex-shrink-0"></i>
                           <span>{desc}</span>
                         </p>

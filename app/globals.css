@@ -353,6 +353,172 @@ html[data-theme="light"] .skill-card:hover {
   box-shadow: 0 15px 40px var(--shadow-hover);
 }
 
+/* ============================================
+   CAROUSEL & CONTAINER CARDS
+   ============================================ */
+
+/* Contenedor principal de carrusel - Modo Oscuro */
+html[data-theme="dark"] .carousel-container-card {
+  background-color: #0d1b0d;
+  border-color: rgba(0, 255, 65, 0.3);
+}
+
+html[data-theme="dark"] .carousel-container-card:hover {
+  border-color: #00ff41;
+  box-shadow: 0 15px 40px rgba(0, 255, 65, 0.3);
+}
+
+/* Contenedor principal de carrusel - Modo Claro */
+html[data-theme="light"] .carousel-container-card {
+  background-color: #f8f8f8;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="light"] .carousel-container-card:hover {
+  background-color: #ffffff;
+  border-color: var(--matrix-green);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor interior de skill item - Modo Oscuro */
+html[data-theme="dark"] .skill-item-card {
+  background-color: #0a0e0a;
+  border-color: rgba(0, 255, 65, 0.3);
+}
+
+html[data-theme="dark"] .skill-item-card:hover {
+  background-color: #132613;
+  border-color: #00ff41;
+}
+
+/* Contenedor interior de skill item - Modo Claro */
+html[data-theme="light"] .skill-item-card {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+html[data-theme="light"] .skill-item-card:hover {
+  background-color: #f0fdf4;
+  border-color: var(--matrix-green);
+}
+
+/* Experience card - Modo Oscuro */
+html[data-theme="dark"] .experience-card {
+  background-color: #0d1b0d;
+  border-color: rgba(0, 255, 65, 0.3);
+}
+
+html[data-theme="dark"] .experience-card:hover {
+  border-color: #00ff41;
+  box-shadow: 0 8px 30px rgba(0, 255, 65, 0.25);
+  transform: scale(1.05);
+}
+
+/* Experience card - Modo Claro */
+html[data-theme="light"] .experience-card {
+  background-color: #f8f8f8;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="light"] .experience-card:hover {
+  background-color: #ffffff;
+  border-color: var(--matrix-green);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+  transform: scale(1.05);
+}
+
+/* Tags y badges */
+html[data-theme="light"] .tag-badge {
+  background-color: rgba(0, 255, 65, 0.08);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .tag-badge {
+  background-color: rgba(0, 255, 65, 0.1);
+  border-color: rgba(0, 255, 65, 0.3);
+  color: #00ff41;
+}
+
+/* Carousel navigation buttons */
+html[data-theme="dark"] .carousel-nav-btn {
+  background-color: rgba(0, 255, 65, 0.15);
+  border-color: #00ff41;
+  color: #00ff41;
+}
+
+html[data-theme="dark"] .carousel-nav-btn:hover {
+  background-color: rgba(0, 255, 65, 0.3);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+}
+
+html[data-theme="light"] .carousel-nav-btn {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.3);
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .carousel-nav-btn:hover {
+  background-color: rgba(0, 255, 65, 0.15);
+  border-color: var(--matrix-green);
+  color: var(--matrix-green);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+/* Carousel indicators */
+html[data-theme="dark"] .carousel-indicator {
+  background-color: rgba(0, 255, 65, 0.2);
+  border-color: rgba(0, 255, 65, 0.4);
+}
+
+html[data-theme="dark"] .carousel-indicator:hover {
+  background-color: rgba(0, 255, 65, 0.4);
+}
+
+html[data-theme="dark"] .carousel-indicator.active {
+  background-color: #00ff41;
+}
+
+html[data-theme="light"] .carousel-indicator {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="light"] .carousel-indicator:hover {
+  background-color: rgba(0, 255, 65, 0.3);
+  border-color: var(--matrix-green);
+}
+
+html[data-theme="light"] .carousel-indicator.active {
+  background-color: var(--matrix-green);
+  border-color: var(--matrix-green);
+}
+
+/* Profile Card - Holographic Card */
+html[data-theme="dark"] .holographic-card {
+  background-color: #0d1b0d;
+  border-color: #00ff41;
+  box-shadow: 0 10px 40px rgba(0, 255, 65, 0.2);
+}
+
+html[data-theme="light"] .holographic-card {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+html[data-theme="dark"] .holographic-img-wrapper {
+  background-color: #0d1b0d;
+  border-color: #00ff41;
+  box-shadow: 0 10px 40px rgba(0, 255, 65, 0.3);
+}
+
+html[data-theme="light"] .holographic-img-wrapper {
+  background-color: #f8f8f8;
+  border-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
 /* Transiciones suaves */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
