@@ -391,7 +391,8 @@ html[data-theme="dark"] .carousel-container-card {
 
 html[data-theme="dark"] .carousel-container-card:hover {
   border-color: #00ff41;
-  box-shadow: 0 15px 40px rgba(0, 255, 65, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 255, 65, 0.25);
+  transform: scale(1.05);
 }
 
 /* Contenedor principal de carrusel - Modo Claro */
@@ -403,7 +404,8 @@ html[data-theme="light"] .carousel-container-card {
 html[data-theme="light"] .carousel-container-card:hover {
   background-color: #ffffff;
   border-color: var(--matrix-green);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+  transform: scale(1.05);
 }
 
 /* Contenedor interior de skill item - Modo Oscuro */
@@ -415,6 +417,8 @@ html[data-theme="dark"] .skill-item-card {
 html[data-theme="dark"] .skill-item-card:hover {
   background-color: #132613;
   border-color: #00ff41;
+  box-shadow: 0 8px 30px rgba(0, 255, 65, 0.25);
+  transform: scale(1.05);
 }
 
 /* Contenedor interior de skill item - Modo Claro */
@@ -426,6 +430,8 @@ html[data-theme="light"] .skill-item-card {
 html[data-theme="light"] .skill-item-card:hover {
   background-color: #f0fdf4;
   border-color: var(--matrix-green);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+  transform: scale(1.05);
 }
 
 /* Experience card - Modo Oscuro */

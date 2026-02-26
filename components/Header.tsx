@@ -34,12 +34,12 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => scrollToSection('inicio')}>
-            <div className="relative w-12 h-12">
+            <div className="relative w-14 h-14">
               <Image
                 src="/logo.png"
                 alt="Logo Edben"
                 fill
-                className="object-contain"
+                className="object-contain rounded-full"
                 priority
               />
             </div>

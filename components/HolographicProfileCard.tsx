@@ -68,7 +68,7 @@ export default function HolographicProfileCard() {
   return (
     <div className="profile-card-container relative">
       {/* Profile Card - Estructura exacta del original */}
-      <div className="profile-card-wrapper holographic-card relative p-8 rounded-[2rem] border">
+      <div className="profile-card-wrapper holographic-card relative p-8 rounded-[2rem] border justify-center items-center flex flex-col">
         {/* Gradient background blur (pseudo-element ::before del original) */}
         <div 
           className="absolute -inset-[2px] rounded-[2rem] opacity-30 -z-10 blur-[10px]"
@@ -129,7 +129,7 @@ export default function HolographicProfileCard() {
 
           {/* Profile Image */}
           <Image
-            src="/perfil.png"
+            src="/perfil.jpeg"
             alt="Edben Profile"
             fill
             className="object-contain"

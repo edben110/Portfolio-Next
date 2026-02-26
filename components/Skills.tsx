@@ -152,10 +152,6 @@ export default function Skills() {
                     <div className={`carousel-container-card border-2 rounded-2xl md:rounded-[0px_50px_0px_50px] p-4 sm:p-5 md:p-6 lg:p-8 
                                   transition-all duration-300 hover:-translate-y-[5px] relative mx-auto max-w-5xl`}>
                       
-                      {/* Gradient glow effect */}
-                      <div className="absolute -inset-[2px] bg-gradient-to-br from-[#00ff41] to-[#00ff88] 
-                                    rounded-2xl opacity-30 blur-[10px] -z-10" />
-                      
                       <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-matrix-green mb-4 md:mb-6 flex items-center justify-center gap-3">
                         <i className={`fas ${category.icon}`}></i>
                         {category.title}
