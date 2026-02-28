@@ -104,7 +104,7 @@ export default function Portfolio() {
             Portafolio
           </h2>
           <p className="text-base sm:text-lg text-theme-secondary px-4">Algunos de mis proyectos recientes</p>
-          <div className="w-24 h-1 bg-[#00ff41] mx-auto mt-4 rounded-full"></div>
+          <div className="w-24 h-1 bg-[var(--matrix-green)] mx-auto mt-4 rounded-full"></div>
         </div>
 
         {/* Portfolio Carousel */}

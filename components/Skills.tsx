@@ -136,7 +136,7 @@ export default function Skills() {
           <p className="text-base sm:text-lg text-theme-secondary max-w-2xl mx-auto px-4">
             Mi conjunto de habilidades centrado en desarrollo full-stack y tecnologías modernas
           </p>
-          <div className="w-24 h-1 bg-[#00ff41] mx-auto mt-4 rounded-full"></div>
+          <div className="w-24 h-1 bg-[var(--matrix-green)] mx-auto mt-4 rounded-full"></div>
         </div>
 
         {/* Skills Carousel */}

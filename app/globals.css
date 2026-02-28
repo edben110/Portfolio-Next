@@ -33,8 +33,8 @@ html[data-theme="light"] {
   --text-secondary: #000000;
   --text-muted: #222222;
   --border-color: rgba(0, 0, 0, 0.15);
-  --matrix-green: #00ff41;
-  --matrix-green-soft: #00cc33;
+  --matrix-green: #1FA162;
+  --matrix-green-soft: #178a52;
   --shadow-color: rgba(0, 0, 0, 0.15);
   --shadow-hover: rgba(0, 0, 0, 0.25);
   --scrollbar-thumb: var(--matrix-green);
@@ -133,6 +133,10 @@ html[data-theme="light"] body::after {
   .gradient-text {
     color: #00ff41;
   }
+
+html[data-theme="light"] .gradient-text {
+  color: #1FA162;
+}
   
   .perspective-1000 {
     perspective: 1000px;
@@ -284,7 +288,7 @@ html[data-theme="dark"] .btn-theme-primary:hover {
 }
 
 html[data-theme="light"] .btn-theme-outline:hover {
-  background-color: rgba(0, 255, 65, 0.12);
+  background-color: rgba(31, 161, 98, 0.12);
   color: #000;
 }
 
@@ -464,7 +468,7 @@ html[data-theme="light"] .experience-card:hover {
 
 /* Tags y badges */
 html[data-theme="light"] .tag-badge {
-  background-color: rgba(0, 255, 65, 0.08);
+  background-color: rgba(31, 161, 98, 0.08);
   border-color: rgba(0, 0, 0, 0.2);
   color: var(--text-primary);
 }
@@ -494,10 +498,10 @@ html[data-theme="light"] .carousel-nav-btn {
 }
 
 html[data-theme="light"] .carousel-nav-btn:hover {
-  background-color: rgba(0, 255, 65, 0.15);
+  background-color: rgba(31, 161, 98, 0.15);
   border-color: var(--matrix-green);
   color: var(--matrix-green);
-  box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+  box-shadow: 0 0 15px rgba(31, 161, 98, 0.2);
 }
 
 /* Carousel indicators */
@@ -520,7 +524,7 @@ html[data-theme="light"] .carousel-indicator {
 }
 
 html[data-theme="light"] .carousel-indicator:hover {
-  background-color: rgba(0, 255, 65, 0.3);
+  background-color: rgba(31, 161, 98, 0.3);
   border-color: var(--matrix-green);
 }
 
@@ -593,6 +597,39 @@ html[data-theme="light"] .holographic-img-wrapper {
 /* Transiciones suaves */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ============================================
+   LIGHT MODE OVERRIDES — primary color → #1FA162
+   Cubre text-primary, bg-primary, border-primary
+   y sus variantes de opacidad usadas en Experience
+   ============================================ */
+html[data-theme="light"] .text-primary {
+  color: #1FA162 !important;
+}
+
+html[data-theme="light"] .bg-primary {
+  background-color: #1FA162 !important;
+}
+
+html[data-theme="light"] .border-primary {
+  border-color: #1FA162 !important;
+}
+
+html[data-theme="light"] .bg-primary\/10 {
+  background-color: rgba(31, 161, 98, 0.1) !important;
+}
+
+html[data-theme="light"] .bg-primary\/20 {
+  background-color: rgba(31, 161, 98, 0.2) !important;
+}
+
+html[data-theme="light"] .border-primary\/30 {
+  border-color: rgba(31, 161, 98, 0.3) !important;
+}
+
+html[data-theme="light"] .border-primary\/40 {
+  border-color: rgba(31, 161, 98, 0.4) !important;
 }
 
 button, a {

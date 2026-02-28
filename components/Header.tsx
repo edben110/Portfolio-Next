@@ -56,7 +56,8 @@ export default function Header() {
                   priority
                 />
               </div>
-              <span className="text-xl font-bold text-matrix-green tracking-widest">Edben</span>
+              <span className={`text-xl font-bold tracking-widest transition-colors duration-300
+                               ${theme === 'dark' ? 'text-matrix-green' : 'text-black'}`}>Edben</span>
             </div>
 
             {/* Controles derechos */}
@@ -65,9 +66,10 @@ export default function Header() {
               <button
                 onClick={toggleTheme}
                 aria-label={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}
-                className="w-10 h-10 flex items-center justify-center rounded-full
+                className={`w-10 h-10 flex items-center justify-center rounded-full
                            transition-all duration-500 ease-in-out
-                           text-matrix-green hover:bg-matrix-green/10 hover:scale-110"
+                           hover:bg-matrix-green/10 hover:scale-110
+                           ${theme === 'dark' ? 'text-matrix-green' : 'text-black'}`}
               >
                 <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'} text-lg`}></i>
               </button>

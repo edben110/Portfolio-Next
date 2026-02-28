@@ -20,7 +20,7 @@ function About() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-theme-primary mb-4">
               Sobre mí
             </h2>
-            <div className="w-24 h-1 bg-[#00ff41] mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-[var(--matrix-green)] mx-auto rounded-full"></div>
           </div>
 
           {/* About Content */}

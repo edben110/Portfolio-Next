@@ -1,8 +1,12 @@
+'use client';
+
 import { memo } from 'react';
 import Image from 'next/image';
+import { useTheme } from './ThemeContext';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const { theme } = useTheme();
 
   return (
     <footer className="backdrop-blur-md relative border-t border-theme py-12">
@@ -50,7 +54,7 @@ function Footer() {
                     alt="GitHub icon"
                     fill
                     className="object-contain"
-                    style={{ filter: 'brightness(0) invert(1)' }}
+                    style={{ filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'brightness(0)' }}
                   />
                 </div>
                 <span>GitHub</span>
