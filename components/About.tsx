@@ -20,7 +20,7 @@ function About() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-theme-primary mb-4">
               Sobre mí
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-[#00ff41] mx-auto rounded-full"></div>
           </div>
 
           {/* About Content */}
@@ -42,7 +42,7 @@ function About() {
                 {interests.map((interest, index) => (
                   <span
                     key={index}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[rgba(0,255,65,0.1)] to-[rgba(0,255,136,0.1)] 
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[rgba(0,255,65,0.1)] 
                              tag-badge border rounded-full 
                              transition-all duration-300 hover:scale-105"
                   >

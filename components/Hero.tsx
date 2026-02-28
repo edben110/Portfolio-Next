@@ -9,22 +9,24 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6 z-10">
-            <span className="text-base sm:text-lg md:text-xl text-matrix-green">
+            <div className='text-center md:text-left'>
+              <span className="text-base sm:text-lg md:text-xl text-matrix-green text-center md:text-left">
               Hola que tal, soy
-            </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+            </span></div>
+            
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-center md:text-left">
               <span className="gradient-text">Edwar Alexander</span>
               <br />
               <span className="text-matrix-green">Benito Basante</span>
             </h1>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-matrix-green">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-matrix-green text-center md:text-left">
               Software Developer
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-theme-secondary max-w-2xl leading-relaxed text-justify">
               Estudiante de Ingeniería de Software apasionado por la ciencia ficción, la historia, 
               el belicismo y la ingeniería. Especializado en desarrollo full-stack con tecnologías modernas.
             </p>
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-4 sm:items-center sm:justify-center">
               <a
                 href="#portfolio"
                 className="btn-theme-primary transform hover:scale-105"
@@ -38,7 +40,7 @@ export default function Hero() {
                 className="btn-theme-outline transform hover:scale-105"
               >
                 <i className="fas fa-file-download"></i>
-                Descargar PDF
+                Descargar CV
               </a>
             </div>
           </div>

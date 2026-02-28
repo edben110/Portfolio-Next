@@ -44,15 +44,13 @@ function Footer() {
                 className="flex items-center justify-center md:justify-center gap-3 text-theme-secondary hover:text-matrix-green 
                          transition-colors duration-300 group"
               >
-                <div className="relative w-5 h-5 transition-transform duration-300 group-hover:scale-110">
+                <div className="relative w-6 h-6 transition-transform duration-300 group-hover:scale-110">
                   <Image
                     src="/github-original.svg"
                     alt="GitHub icon"
                     fill
                     className="object-contain"
-                    style={{
-                      filter: 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(459%) hue-rotate(58deg) brightness(102%) contrast(101%)',
-                    }}
+                    style={{ filter: 'brightness(0) invert(1)' }}
                   />
                 </div>
                 <span>GitHub</span>
@@ -70,9 +68,6 @@ function Footer() {
                     alt="LinkedIn icon"
                     fill
                     className="object-contain"
-                    style={{
-                      filter: 'brightness(0) saturate(100%) invert(64%) sepia(98%) saturate(459%) hue-rotate(58deg) brightness(102%) contrast(101%)',
-                    }}
                   />
                 </div>
                 <span>LinkedIn</span>

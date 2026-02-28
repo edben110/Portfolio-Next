@@ -136,12 +136,12 @@ export default function Skills() {
           <p className="text-base sm:text-lg text-theme-secondary max-w-2xl mx-auto px-4">
             Mi conjunto de habilidades centrado en desarrollo full-stack y tecnologías modernas
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto mt-4 rounded-full"></div>
+          <div className="w-24 h-1 bg-[#00ff41] mx-auto mt-4 rounded-full"></div>
         </div>
 
         {/* Skills Carousel */}
-        <div className="relative w-full max-w-5xl mx-auto">
-          <div className="overflow-hidden">
+        <div className="relative w-full md:max-w-3xl mx-auto">
+          <div className="overflow-x-hidden py-4 px-[4%]">
             <div
               className="transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -150,7 +150,7 @@ export default function Skills() {
                 {skillCategories.map((category, idx) => (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
                     <div className={`carousel-container-card border-2 rounded-2xl md:rounded-[0px_50px_0px_50px] p-4 sm:p-5 md:p-6 lg:p-8 
-                                  transition-all duration-300 hover:-translate-y-[5px] relative mx-auto max-w-5xl`}>
+                                  transition-all duration-300 relative mx-auto`}>
                       
                       <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-matrix-green mb-4 md:mb-6 flex items-center justify-center gap-3">
                         <i className={`fas ${category.icon}`}></i>
@@ -162,7 +162,7 @@ export default function Skills() {
                             key={skillIdx}
                             className="skill-item-card border rounded-2xl p-3 sm:p-4 
                                      transition-all duration-300 
-                                     hover:-translate-y-2 group
+                                     group
                                      flex-1 min-w-[150px] max-w-[190px] h-[180px] flex items-center justify-center"
                           >
                             <div className="flex flex-col items-center text-center space-y-2 w-full px-1">

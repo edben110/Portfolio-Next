@@ -60,13 +60,13 @@ function Experience() {
             Experiencia
           </h2>
           <p className="text-base sm:text-lg text-theme-secondary px-4">Mi trayectoria académica y profesional</p>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto mt-4 rounded-full"></div>
+          <div className="w-24 h-1 bg-[#00ff41] mx-auto mt-4 rounded-full"></div>
         </div>
 
         {/* Timeline */}
         <div className="max-w-5xl mx-auto relative">
           {/* Timeline Line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-[#00ff41] via-[#00ff88] to-[#00ff41]"></div>
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-[#00ff41]"></div>
 
           {/* Timeline Items */}
           <div className="space-y-12">

@@ -4,19 +4,23 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useTheme } from './ThemeContext';
 
+const navItems = [
+  { id: 'inicio',     label: 'Inicio',      icon: 'fa-house' },
+  { id: 'about',      label: 'Sobre mí',    icon: 'fa-user' },
+  { id: 'skills',     label: 'Habilidades', icon: 'fa-code' },
+  { id: 'portfolio',  label: 'Portafolio',  icon: 'fa-briefcase' },
+  { id: 'experience', label: 'Experiencia', icon: 'fa-briefcase-clock' },
+];
+
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
+  // Bloquear scroll cuando el menú está abierto
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isMenuOpen]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -27,98 +31,105 @@ export default function Header() {
   };
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md"
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => scrollToSection('inicio')}>
-            <div className="relative w-14 h-14">
-              <Image
-                src="/logo.png"
-                alt="Logo Edben"
-                fill
-                className="object-contain rounded-full"
-                priority
-              />
+    <>
+      {/* Barra superior fija */}
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md"
+        style={{
+          backgroundColor: theme === 'dark'
+            ? 'rgba(10, 15, 20, 0.75)'
+            : 'rgba(255, 255, 255, 0.75)',
+        }}
+      >
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <div
+              className="flex items-center gap-3 cursor-pointer"
+              onClick={() => scrollToSection('inicio')}
+            >
+              <div className="relative w-12 h-12">
+                <Image
+                  src="/logo.png"
+                  alt="Logo Edben"
+                  fill
+                  className="object-contain rounded-full"
+                  priority
+                />
+              </div>
+              <span className="text-xl font-bold text-matrix-green tracking-widest">Edben</span>
             </div>
-            <span className="text-2xl font-bold text-theme-primary">Edben</span>
-          </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:block">
-            <ul className="flex gap-8 items-center">
-              {['inicio', 'about', 'skills', 'portfolio', 'experience'].map((item) => (
-                <li key={item}>
-                  <button
-                    onClick={() => scrollToSection(item)}
-                    className="text-theme-primary hover:text-matrix-green transition-colors duration-300 font-medium capitalize"
-                  >
-                    {item === 'inicio' ? 'Inicio' : 
-                     item === 'about' ? 'Sobre mí' :
-                     item === 'skills' ? 'Habilidades' :
-                     item === 'portfolio' ? 'Portafolio' : 'Experiencia'}
-                  </button>
-                </li>
-              ))}
-              {/* Botón de Toggle de Tema */}
-              <li>
-                <button
-                  onClick={toggleTheme}
-                  className="text-theme-primary hover:text-matrix-green transition-all duration-300 text-2xl"
-                  aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-                  title={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-                >
-                  <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`}></i>
-                </button>
-              </li>
-            </ul>
-          </nav>
+            {/* Controles derechos */}
+            <div className="flex items-center gap-4">
+              {/* Toggle tema */}
+              <button
+                onClick={toggleTheme}
+                aria-label={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}
+                className="w-10 h-10 flex items-center justify-center rounded-full
+                           transition-all duration-500 ease-in-out
+                           text-matrix-green hover:bg-matrix-green/10 hover:scale-110"
+              >
+                <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'} text-lg`}></i>
+              </button>
 
-          {/* Mobile Menu Toggle */}
-          <div className="md:hidden flex items-center gap-4">
-            {/* Botón de Toggle de Tema para móvil */}
-            <button
-              onClick={toggleTheme}
-              className="text-theme-primary hover:text-matrix-green transition-all duration-300 text-xl"
-              aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-            >
-              <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`}></i>
-            </button>
-            <button
-              className="text-theme-primary text-2xl"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
-            </button>
+              {/* Botón hamburger */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Abrir menú"
+                className={`w-10 h-10 flex items-center justify-center rounded-full
+                            transition-all duration-500 ease-in-out
+                            hover:bg-matrix-green/10 hover:scale-110
+                            ${theme === 'dark' ? 'text-white' : 'text-black'}`}
+              >
+                <i className={`fas ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-xl`}></i>
+              </button>
+            </div>
           </div>
         </div>
+      </header>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden pb-4">
-            <div className="mt-3 rounded-2xl border border-theme bg-theme-card px-4 py-4">
-              <ul className="flex flex-col gap-2">
-              {['inicio', 'about', 'skills', 'portfolio', 'experience'].map((item) => (
-                <li key={item}>
-                  <button
-                    onClick={() => scrollToSection(item)}
-                    className="text-theme-primary transition-colors duration-300 font-medium capitalize w-full text-center px-3 py-2 rounded-xl"
-                  >
-                    {item === 'inicio' ? 'Inicio' : 
-                     item === 'about' ? 'Sobre mí' :
-                     item === 'skills' ? 'Habilidades' :
-                     item === 'portfolio' ? 'Portafolio' : 'Experiencia'}
-                  </button>
-                </li>
-              ))}
-              </ul>
-            </div>
-          </nav>
-        )}
+      {/* Overlay fullscreen */}
+      <div
+        className={`fixed inset-0 z-40 flex flex-col items-center justify-center
+                    transition-all duration-500 ease-in-out backdrop-blur-md
+                    ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        style={{
+          backgroundColor: theme === 'dark'
+            ? 'rgba(10, 15, 20, 0.90)'
+            : 'rgba(255, 255, 255, 0.90)',
+        }}
+      >
+        <nav className="w-full max-w-sm mx-auto px-8">
+          <ul className="flex flex-col items-start gap-6">
+            {navItems.map((item, idx) => (
+              <li
+                key={item.id}
+                className="w-full transition-all duration-500"
+                style={{
+                  transitionDelay: isMenuOpen ? `${idx * 60}ms` : '0ms',
+                  transform: isMenuOpen ? 'translateY(0)' : 'translateY(20px)',
+                  opacity: isMenuOpen ? 1 : 0,
+                }}
+              >
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className={`group flex items-center gap-4 w-full px-6 py-3 rounded-2xl
+                              transition-all duration-400 ease-in-out
+                              hover:bg-matrix-green/10 hover:scale-105
+                              ${theme === 'dark' ? 'text-white' : 'text-black'}
+                              hover:text-matrix-green`}
+                >
+                  <i className={`fas ${item.icon} text-matrix-green text-xl
+                                 transition-transform duration-400 group-hover:scale-110`}></i>
+                  <span className="text-2xl font-semibold tracking-widest uppercase">
+                    {item.label}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
-    </header>
+    </>
   );
 }

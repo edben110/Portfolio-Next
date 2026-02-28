@@ -104,12 +104,12 @@ export default function Portfolio() {
             Portafolio
           </h2>
           <p className="text-base sm:text-lg text-theme-secondary px-4">Algunos de mis proyectos recientes</p>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00ff41] to-[#00ff88] mx-auto mt-4 rounded-full"></div>
+          <div className="w-24 h-1 bg-[#00ff41] mx-auto mt-4 rounded-full"></div>
         </div>
 
         {/* Portfolio Carousel */}
-        <div className="relative w-full max-w-5xl mx-auto">
-          <div className="overflow-hidden">
+        <div className="relative w-full md:max-w-[868px] mx-auto">
+          <div className="overflow-x-hidden py-4 px-[4%]">
             <div
               className="transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -119,7 +119,7 @@ export default function Portfolio() {
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
                     <div
                       className={`carousel-container-card border-2 rounded-2xl md:rounded-[0px_50px_0px_50px] overflow-hidden 
-                                transition-all duration-300 hover:-translate-y-[10px] group mx-auto
+                                transition-all duration-300 group mx-auto
                                 ${project.hasLink ? 'cursor-pointer' : ''}`}
                       onClick={() => project.hasLink && window.open(project.link, '_blank')}
                     >
@@ -131,7 +131,7 @@ export default function Portfolio() {
                           fill
                           className="object-cover group-hover:scale-110 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                        <div className="absolute inset-0 bg-black/50"></div>
                       </div>
 
                       {/* Project Content */}

@@ -68,15 +68,7 @@ export default function HolographicProfileCard() {
   return (
     <div className="profile-card-container relative">
       {/* Profile Card - Estructura exacta del original */}
-      <div className="profile-card-wrapper holographic-card relative p-8 rounded-[2rem] border justify-center items-center flex flex-col">
-        {/* Gradient background blur (pseudo-element ::before del original) */}
-        <div 
-          className="absolute -inset-[2px] rounded-[2rem] opacity-30 -z-10 blur-[10px]"
-          style={{
-            background: 'linear-gradient(135deg, #00ff41 0%, #00ff88 100%)',
-          }}
-        />
-
+      <div className="profile-card-wrapper holographic-card relative p-8 rounded-[2rem] border justify-center items-center flex flex-col">        
         {/* Profile Image Wrapper - 300x300px exacto del original */}
         <div
           ref={cardRef}
@@ -99,7 +91,7 @@ export default function HolographicProfileCard() {
             ref={glowRef}
             className="profile-card-glow absolute w-[300px] h-[300px] rounded-full pointer-events-none -z-[2] blur-[40px]"
             style={{
-              background: `radial-gradient(circle, rgba(0, 255, 65, 0.4) 0%, rgba(0, 255, 136, 0.2) 30%, transparent 70%)`,
+              background: `rgba(0, 255, 65, 0.35)`,
               left: `${glowPosition.x}%`,
               top: `${glowPosition.y}%`,
               transform: 'translate(-50%, -50%)',
@@ -113,19 +105,13 @@ export default function HolographicProfileCard() {
             ref={shineRef}
             className="profile-img-shine absolute inset-0 pointer-events-none z-[1]"
             style={{
-              background: `radial-gradient(circle at ${glowPosition.x}% ${glowPosition.y}%, rgba(255, 255, 255, 0.2) 0%, transparent 60%)`,
+              background: `rgba(255, 255, 255, 0.12)`,
               opacity: isHovering ? 1 : 0,
               transition: 'opacity 0.3s ease',
             }}
           />
 
-          {/* Gradient overlay (pseudo-element ::after del original) */}
-          <div 
-            className="absolute inset-0 opacity-5 mix-blend-overlay pointer-events-none"
-            style={{
-              background: 'linear-gradient(135deg, #00ff41 0%, #00ff88 100%)',
-            }}
-          />
+
 
           {/* Profile Image */}
           <Image
