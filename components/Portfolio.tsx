@@ -1,10 +1,26 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 
 export default function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) nextSlide();
+      else prevSlide();
+    }
+  };
 
   const projects = [
     {
@@ -113,6 +129,9 @@ export default function Portfolio() {
             <div
               className="transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <div className="flex">
                 {projects.map((project, idx) => (
@@ -185,8 +204,8 @@ export default function Portfolio() {
           <div className="flex justify-center items-center gap-4 mt-5">
             <button
               onClick={prevSlide}
-              className="carousel-nav-btn border 
-                       rounded-full w-12 h-12 flex items-center justify-center 
+              className="carousel-nav-btn border hidden md:flex
+                       rounded-full w-12 h-12 items-center justify-center 
                        transition-all duration-300 hover:scale-110
                        active:scale-95"
               aria-label="Proyecto anterior"
@@ -211,14 +230,15 @@ export default function Portfolio() {
             
             <button
               onClick={nextSlide}
-              className="carousel-nav-btn border 
-                       rounded-full w-12 h-12 flex items-center justify-center 
+              className="carousel-nav-btn border hidden md:flex
+                       rounded-full w-12 h-12 items-center justify-center 
                        transition-all duration-300 hover:scale-110
                        active:scale-95"
               aria-label="Próximo proyecto"
             >
               <i className="fas fa-chevron-right"></i>
-            </button>          </div>
+            </button>
+          </div>
         </div>
       </div>
     </section>

@@ -46,7 +46,7 @@ function About() {
                              tag-badge border rounded-full 
                              transition-all duration-300 hover:scale-105"
                   >
-                    <i className={`fas ${interest.icon}`}></i>
+                    <i className={`fas ${interest.icon} text-primary`}></i>
                     <span>{interest.text}</span>
                   </span>
                 ))}

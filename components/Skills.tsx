@@ -1,10 +1,26 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 
 export default function Skills() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) nextSlide();
+      else prevSlide();
+    }
+  };
 
   const skillCategories = [
     {
@@ -145,6 +161,9 @@ export default function Skills() {
             <div
               className="transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <div className="flex">
                 {skillCategories.map((category, idx) => (
@@ -205,11 +224,11 @@ export default function Skills() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className=" flex justify-center items-center gap-4 mt-4 sm:mt-5 md:mt-6">
+          <div className="flex justify-center items-center gap-4 mt-4 sm:mt-5 md:mt-6">
             <button
               onClick={prevSlide}
-              className="carousel-nav-btn border 
-                       rounded-full w-12 h-12 flex items-center justify-center 
+              className="carousel-nav-btn border hidden md:flex
+                       rounded-full w-12 h-12 items-center justify-center 
                        transition-all duration-300 hover:scale-110
                        active:scale-95"
               aria-label="Habilidad anterior"
@@ -234,14 +253,15 @@ export default function Skills() {
             
             <button
               onClick={nextSlide}
-              className="carousel-nav-btn border 
-                       rounded-full w-12 h-12 flex items-center justify-center 
+              className="carousel-nav-btn border hidden md:flex
+                       rounded-full w-12 h-12 items-center justify-center 
                        transition-all duration-300 hover:scale-110
                        active:scale-95"
               aria-label="Próxima habilidad"
             >
               <i className="fas fa-chevron-right"></i>
-            </button>          </div>
+            </button>
+          </div>
         </div>
       </div>
     </section>

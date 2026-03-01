@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center pt-20">
       <div className="container mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center">
           {/* Text Content */}
           <div className="space-y-6 z-10 flex flex-col items-center md:items-start">
             <div className='text-center md:text-left'>
