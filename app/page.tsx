@@ -1,7 +1,7 @@
 'use client';
 
 import MatrixRain from '@/components/MatrixRain';
-//import RadioactiveRain from '@/components/RadioactiveRain';
+import RadioactiveRain from '@/components/RadioactiveRain';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <>
-      {theme === 'dark' ? <MatrixRain /> : null}
+      {theme === 'dark' ? <MatrixRain /> : <RadioactiveRain />}
       <Header />
       <main className="relative z-10">
         <Hero />
