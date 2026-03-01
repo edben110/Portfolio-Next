@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <div className="space-y-6 z-10">
+          <div className="space-y-6 z-10 flex flex-col items-center md:items-start">
             <div className='text-center md:text-left'>
               <span className="text-base sm:text-lg md:text-xl text-matrix-green text-center md:text-left">
               Hola que tal, soy
@@ -26,7 +26,7 @@ export default function Hero() {
               Estudiante de Ingeniería de Software apasionado por la ciencia ficción, la historia, 
               el belicismo y la ingeniería. Especializado en desarrollo full-stack con tecnologías modernas.
             </p>
-            <div className="flex flex-wrap gap-4 pt-4 sm:items-center sm:justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 items-center justify-center w-full">
               <a
                 href="#portfolio"
                 className="btn-theme-primary transform hover:scale-105"
