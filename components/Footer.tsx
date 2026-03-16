@@ -50,7 +50,7 @@ function Footer() {
               >
                 <div className="relative w-6 h-6 transition-transform duration-300 group-hover:scale-110">
                   <Image
-                    src="/github-original.svg"
+                    src="/svg/github-original.svg"
                     alt="GitHub icon"
                     fill
                     className="object-contain"
@@ -68,7 +68,7 @@ function Footer() {
               >
                 <div className="relative w-5 h-5 transition-transform duration-300 group-hover:scale-110">
                   <Image
-                    src="/linkedin-original.svg"
+                    src="/svg/linkedin-original.svg"
                     alt="LinkedIn icon"
                     fill
                     className="object-contain"

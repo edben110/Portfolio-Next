@@ -29,7 +29,7 @@ export default function Skills() {
       skills: [
         {
           name: 'Django',
-          iconPath: '/python-original.svg',
+          iconPath: '/svg/python-original.svg',
           color: '#092E20',
           description: 'Framework web de Python',
         },
@@ -41,7 +41,7 @@ export default function Skills() {
         },
         {
           name: 'Spring Boot',
-          iconPath: '/java-original.svg',
+          iconPath: '/svg/java-original.svg',
           color: '#6DB33F',
           description: 'Framework Java moderno',
         },
@@ -53,19 +53,19 @@ export default function Skills() {
       skills: [
         {
           name: 'React',
-          iconPath: '/react-original.svg',
+          iconPath: '/svg/react-original.svg',
           color: '#61DAFB',
           description: 'Librería JavaScript UI',
         },
         {
           name: 'Angular',
-          iconPath: '/angularjs-original.svg',
+          iconPath: '/svg/angularjs-original.svg',
           color: '#DD0031',
           description: 'Framework TypeScript completo',
         },
         {
           name: 'Next.js',
-          iconPath: '/nextjs-original.svg',
+          iconPath: '/svg/nextjs-original.svg',
           color: '#A000FF',
           description: 'Framework React con SSR',
         },
@@ -77,7 +77,7 @@ export default function Skills() {
       skills: [
         {
           name: 'Flutter',
-          iconPath: '/flutter-original.svg',
+          iconPath: '/svg/flutter-original.svg',
           color: '#02569B',
           description: 'Framework multiplataforma',
         },
@@ -89,13 +89,13 @@ export default function Skills() {
       skills: [
         {
           name: 'MongoDB',
-          iconPath: '/mongodb-original.svg',
+          iconPath: '/svg/mongodb-original.svg',
           color: '#47A248',
           description: 'Base de datos NoSQL',
         },
         {
           name: 'PostgreSQL',
-          iconPath: '/postgresql-original.svg',
+          iconPath: '/svg/postgresql-original.svg',
           color: '#336791',
           description: 'Base de datos relacional',
         },
@@ -107,7 +107,7 @@ export default function Skills() {
       skills: [
         {
           name: 'Docker',
-          iconPath: '/docker-original.svg',
+          iconPath: '/svg/docker-original.svg',
           color: '#2496ED',
           description: 'Containerización',
         },
@@ -125,7 +125,7 @@ export default function Skills() {
         },
         {
           name: 'Arduino',
-          iconPath: '/arduino-original.svg',
+          iconPath: '/svg/arduino-original.svg',
           color: '#00979D',
           description: 'Desarrollo embebido',
         },

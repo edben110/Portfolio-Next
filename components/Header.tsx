@@ -9,6 +9,7 @@ const navItems = [
   { id: 'about',      label: 'Sobre mí',    icon: 'fa-user' },
   { id: 'skills',     label: 'Habilidades', icon: 'fa-code' },
   { id: 'portfolio',  label: 'Portafolio',  icon: 'fa-briefcase' },
+  { id: 'testimonios', label: 'Testimonios', icon: 'fa-comments' },
   { id: 'experience', label: 'Experiencia', icon: 'fa-briefcase-clock' },
 ];
 
@@ -49,7 +50,7 @@ export default function Header() {
             >
               <div className="relative w-12 h-12">
                 <Image
-                  src="/logo.png"
+                  src="/imgs/logo.png"
                   alt="Logo Edben"
                   fill
                   className="object-contain rounded-full"

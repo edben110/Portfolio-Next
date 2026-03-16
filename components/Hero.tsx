@@ -4,9 +4,9 @@ import HolographicProfileCard from './HolographicProfileCard';
 
 export default function Hero() {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center pt-20">
-      <div className="container mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center">
+    <section id="inicio" className="relative min-h-screen flex items-start pt-20">
+      <div className="container mx-auto px-4 py-8 md:py-10 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-6 md:gap-8 lg:gap-4 items-center">
           {/* Text Content */}
           <div className="space-y-6 z-10 flex flex-col items-center md:items-start">
             <div className='text-center md:text-left'>
@@ -35,7 +35,7 @@ export default function Hero() {
                 Ver Proyectos
               </a>
               <a
-                href="/cv.pdf"
+                href="/CV%20ATS.pdf"
                 download
                 className="btn-theme-outline transform hover:scale-105"
               >
@@ -46,7 +46,7 @@ export default function Hero() {
           </div>
 
           {/* Profile Card with Holographic Effect */}
-          <div className="flex justify-center lg:justify-end z-10">
+          <div className="flex justify-center lg:justify-center z-10">
             <HolographicProfileCard />
           </div>
         </div>

@@ -115,7 +115,7 @@ export default function HolographicProfileCard() {
 
           {/* Profile Image */}
           <Image
-            src="/perfil.jpeg"
+            src="/imgs/perfil.jpeg"
             alt="Edben Profile"
             fill
             className="object-contain"
@@ -126,42 +126,42 @@ export default function HolographicProfileCard() {
         {/* Tech Icons - Usando iconos SVG de public/ */}
         <div className="tech-icons flex justify-around items-center gap-4">
           <Image
-            src="/python-original.svg"
+            src="/svg/python-original.svg"
             alt="Python"
             width={40}
             height={40}
             className="transition-all duration-300 hover:scale-125"
           />
           <Image
-            src="/react-original.svg"
+            src="/svg/react-original.svg"
             alt="React"
             width={40}
             height={40}
             className="transition-all duration-300 hover:scale-125"
           />
           <Image
-            src="/nextjs-original.svg"
+            src="/svg/nextjs-original.svg"
             alt="Next.js"
             width={40}
             height={40}
             className="transition-all duration-300 hover:scale-125"
           />
           <Image
-            src="/angularjs-original.svg"
+            src="/svg/angularjs-original.svg"
             alt="Angular"
             width={40}
             height={40}
             className="transition-all duration-300 hover:scale-125"
           />
           <Image
-            src="/java-original.svg"
+            src="/svg/java-original.svg"
             alt="Java"
             width={40}
             height={40}
             className="transition-all duration-300 hover:scale-125"
           />
           <Image
-            src="/flutter-original.svg"
+            src="/svg/flutter-original.svg"
             alt="Flutter"
             width={40}
             height={40}
