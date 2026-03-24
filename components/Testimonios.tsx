@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import { useTheme } from './ThemeContext';
 
 type Testimonio = {
   nombre: string;
@@ -8,37 +9,83 @@ type Testimonio = {
   descripcion: string;
 };
 
-const testimonios: Testimonio[] = [
-  {
-    nombre: 'Mariana Cardenas',
-    cargo: 'Product Manager - Fintech',
-    descripcion:
-      'Trabajar con Edben fue clave para transformar una idea compleja en una solucion funcional. Tiene una gran capacidad para escuchar, proponer mejoras y entregar resultados con alta calidad tecnica.',
-  },
-  {
-    nombre: 'Jose Luis Torres',
-    cargo: 'Tech Lead - Consultora de Software',
-    descripcion:
-      'Edben demostro criterio tecnico y compromiso en todo el proceso. Su forma de estructurar soluciones, documentar decisiones y colaborar con el equipo acelero de forma notable los tiempos de entrega.',
-  },
-  {
-    nombre: 'Valeria Paredes',
-    cargo: 'Coordinadora Academica - Universidad',
-    descripcion:
-      'Destaca por su responsabilidad y enfoque practico. Explica conceptos complejos con claridad, mantiene una comunicacion constante y siempre busca que el resultado final sea util y sostenible.',
-  },
-  {
-    nombre: 'Diego Ramiro Quinones',
-    cargo: 'Founder - Startup de IA',
-    descripcion:
-      'Edben aporta vision de producto y solidez tecnica. Durante nuestro proyecto, propuso mejoras que elevaron el rendimiento de la plataforma y mejoraron la experiencia de los usuarios finales.',
-  },
-];
-
 export default function Testimonios() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const { language } = useTheme();
+
+  const content = {
+    es: {
+      title: 'Testimonios',
+      subtitle: 'Opiniones de personas con las que he trabajado',
+      prev: 'Testimonio anterior',
+      next: 'Proximo testimonio',
+      goTo: 'Ir a testimonio',
+      items: [
+        {
+          nombre: 'Mariana Cardenas',
+          cargo: 'Product Manager - Fintech',
+          descripcion:
+            'Trabajar con Edben fue clave para transformar una idea compleja en una solucion funcional. Tiene una gran capacidad para escuchar, proponer mejoras y entregar resultados con alta calidad tecnica.',
+        },
+        {
+          nombre: 'Jose Luis Torres',
+          cargo: 'Tech Lead - Consultora de Software',
+          descripcion:
+            'Edben demostro criterio tecnico y compromiso en todo el proceso. Su forma de estructurar soluciones, documentar decisiones y colaborar con el equipo acelero de forma notable los tiempos de entrega.',
+        },
+        {
+          nombre: 'Valeria Paredes',
+          cargo: 'Coordinadora Academica - Universidad',
+          descripcion:
+            'Destaca por su responsabilidad y enfoque practico. Explica conceptos complejos con claridad, mantiene una comunicacion constante y siempre busca que el resultado final sea util y sostenible.',
+        },
+        {
+          nombre: 'Diego Ramiro Quinones',
+          cargo: 'Founder - Startup de IA',
+          descripcion:
+            'Edben aporta vision de producto y solidez tecnica. Durante nuestro proyecto, propuso mejoras que elevaron el rendimiento de la plataforma y mejoraron la experiencia de los usuarios finales.',
+        },
+      ] as Testimonio[],
+    },
+    en: {
+      title: 'Testimonials',
+      subtitle: 'Feedback from people I have worked with',
+      prev: 'Previous testimonial',
+      next: 'Next testimonial',
+      goTo: 'Go to testimonial',
+      items: [
+        {
+          nombre: 'Mariana Cardenas',
+          cargo: 'Product Manager - Fintech',
+          descripcion:
+            'Working with Edben was key to turning a complex idea into a functional solution. He has a strong ability to listen, propose improvements, and deliver high-quality technical results.',
+        },
+        {
+          nombre: 'Jose Luis Torres',
+          cargo: 'Tech Lead - Software Consulting',
+          descripcion:
+            'Edben showed strong technical judgment and commitment throughout the process. His way of structuring solutions, documenting decisions, and collaborating with the team significantly improved delivery times.',
+        },
+        {
+          nombre: 'Valeria Paredes',
+          cargo: 'Academic Coordinator - University',
+          descripcion:
+            'He stands out for his responsibility and practical mindset. He explains complex concepts clearly, keeps communication consistent, and always aims for a useful and sustainable final result.',
+        },
+        {
+          nombre: 'Diego Ramiro Quinones',
+          cargo: 'Founder - AI Startup',
+          descripcion:
+            'Edben brings product vision and technical strength. During our project, he proposed improvements that boosted platform performance and improved the end-user experience.',
+        },
+      ] as Testimonio[],
+    },
+  };
+
+  const currentContent = content[language];
+  const testimonios = currentContent.items;
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonios.length);
@@ -69,10 +116,10 @@ export default function Testimonios() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-theme-primary mb-4">
-            Testimonios
+            {currentContent.title}
           </h2>
           <p className="text-base sm:text-lg text-theme-secondary px-4">
-            Opiniones de personas con las que he trabajado
+            {currentContent.subtitle}
           </p>
           <div className="w-24 h-1 bg-[var(--matrix-green)] mx-auto mt-4 rounded-full"></div>
         </div>
@@ -113,7 +160,7 @@ export default function Testimonios() {
             <button
               onClick={prevSlide}
               className="carousel-nav-btn border hidden md:flex rounded-full w-12 h-12 items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95"
-              aria-label="Testimonio anterior"
+              aria-label={currentContent.prev}
             >
               <i className="fas fa-chevron-left"></i>
             </button>
@@ -126,7 +173,7 @@ export default function Testimonios() {
                   className={`carousel-indicator border rounded-full h-[10px] transition-all duration-300 ${
                     idx === currentIndex ? 'active w-8' : 'w-[10px]'
                   }`}
-                  aria-label={`Ir a testimonio ${idx + 1}`}
+                  aria-label={`${currentContent.goTo} ${idx + 1}`}
                 ></button>
               ))}
             </div>
@@ -134,7 +181,7 @@ export default function Testimonios() {
             <button
               onClick={nextSlide}
               className="carousel-nav-btn border hidden md:flex rounded-full w-12 h-12 items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95"
-              aria-label="Proximo testimonio"
+              aria-label={currentContent.next}
             >
               <i className="fas fa-chevron-right"></i>
             </button>

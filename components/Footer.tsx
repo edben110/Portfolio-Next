@@ -6,7 +6,22 @@ import { useTheme } from './ThemeContext';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
-  const { theme } = useTheme();
+  const { theme, language } = useTheme();
+
+  const content = {
+    es: {
+      contact: 'Contacto',
+      followMe: 'Sigueme',
+      rights: 'Todos los derechos reservados.',
+    },
+    en: {
+      contact: 'Contact',
+      followMe: 'Follow me',
+      rights: 'All rights reserved.',
+    },
+  };
+
+  const currentContent = content[language];
 
   return (
     <footer className="backdrop-blur-md relative border-t border-theme py-12">
@@ -14,7 +29,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {/* Contact Section */}
           <div className="text-center md:text-center">
-            <h3 className="text-2xl font-bold text-theme-primary mb-4">Contacto</h3>
+            <h3 className="text-2xl font-bold text-theme-primary mb-4">{currentContent.contact}</h3>
             <div className="space-y-3">
               <a
                 href="mailto:ebenito370@gmail.com"
@@ -39,7 +54,7 @@ function Footer() {
 
           {/* Social Section */}
           <div className="text-center md:text-center">
-            <h3 className="text-2xl font-bold text-theme-primary mb-4">Sígueme</h3>
+            <h3 className="text-2xl font-bold text-theme-primary mb-4">{currentContent.followMe}</h3>
             <div className="space-y-3">
               <a
                 href="https://github.com/edben110"
@@ -83,7 +98,7 @@ function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-theme pt-8 text-center">
           <p className="text-theme-secondary">
-            &copy; {currentYear} Edben. Todos los derechos reservados.
+            &copy; {currentYear} Edben. {currentContent.rights}
           </p>
         </div>
       </div>

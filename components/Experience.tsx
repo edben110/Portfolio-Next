@@ -1,55 +1,122 @@
+'use client';
+
 import { memo } from 'react';
+import { useTheme } from './ThemeContext';
 
 function Experience() {
-  const experiences = [
-    {
-      title: 'Estudiante de Ingeniería de Software',
-      company: 'Universidad Cooperativa de Colombia, Campus Pasto',
-      date: 'Actualidad',
-      icon: 'fa-graduation-cap',
-      descriptions: [
-        'Formación en desarrollo de software, arquitectura de sistemas y metodologías ágiles',
-        'Especialización en tecnologías full-stack modernas',
+  const { language } = useTheme();
+
+  const content = {
+    es: {
+      title: 'Experiencia',
+      subtitle: 'Mi trayectoria academica y profesional',
+      experiences: [
+        {
+          title: 'Estudiante de Ingenieria de Software',
+          company: 'Universidad Cooperativa de Colombia, Campus Pasto',
+          date: 'Actualidad',
+          icon: 'fa-graduation-cap',
+          descriptions: [
+            'Formacion en desarrollo de software, arquitectura de sistemas y metodologias agiles',
+            'Desarrollo en tecnologias full-stack modernas',
+          ],
+          tags: ['Software', 'Full-Stack', 'Arquitectura'],
+        },
+        {
+          title: 'Monitor de Bienestar Universitario',
+          company: 'Universidad Cooperativa de Colombia, Campus Pasto',
+          date: 'Actualidad',
+          icon: 'fa-user-tie',
+          descriptions: [
+            'Administracion del ciclo de vida de documentos y politicas',
+            'Digitalizacion, gestion de acceso y control de informacion',
+            'Apoyo en procesos de bienestar estudiantil',
+          ],
+          tags: ['Gestion Documental', 'Digitalizacion'],
+        },
+        {
+          title: 'Auxiliar en Gestion de Archivo',
+          company: 'Batallon de Infanteria #47 Francisco de Paula Velez / Bivel 47',
+          date: 'Sem. B 2023',
+          icon: 'fa-archive',
+          descriptions: [
+            'Clasificacion y ordenamiento de documentos operativos',
+            'Gestion de prestamo y archivo fisico',
+            'Control y organizacion de informacion institucional',
+          ],
+          tags: ['Archivo', 'Clasificacion', 'Institucional'],
+        },
+        {
+          title: 'Tutor de Ingles',
+          company: 'Santa Marta / San Pedro de Uraba',
+          date: 'Sem. A 2023',
+          icon: 'fa-chalkboard-teacher',
+          descriptions: [
+            'Apoyo personalizado en el aprendizaje del idioma ingles',
+            'Desarrollo de habilidades comunicativas y gramaticales',
+            'Metodologias de ensenanza adaptadas a cada estudiante',
+          ],
+          tags: ['Ingles', 'Tutoria', 'Comunicacion'],
+        },
       ],
-      tags: ['Software', 'Full-Stack', 'Arquitectura'],
     },
-    {
-      title: 'Monitor de Bienestar Universitario',
-      company: 'Universidad Cooperativa de Colombia, Campus Pasto',
-      date: 'Actualidad',
-      icon: 'fa-user-tie',
-      descriptions: [
-        'Administración del ciclo de vida de documentos y políticas',
-        'Digitalización, gestión de acceso y control de información',
-        'Apoyo en procesos de bienestar estudiantil',
+    en: {
+      title: 'Experience',
+      subtitle: 'My academic and professional journey',
+      experiences: [
+        {
+          title: 'Software Engineering Student',
+          company: 'Cooperative University of Colombia, Pasto Campus',
+          date: 'Present',
+          icon: 'fa-graduation-cap',
+          descriptions: [
+            'Training in software development, systems architecture and agile methodologies',
+            'Hands-on development with modern full-stack technologies',
+          ],
+          tags: ['Software', 'Full-Stack', 'Architecture'],
+        },
+        {
+          title: 'University Wellbeing Assistant',
+          company: 'Cooperative University of Colombia, Pasto Campus',
+          date: 'Present',
+          icon: 'fa-user-tie',
+          descriptions: [
+            'Document and policy lifecycle administration',
+            'Digitalization, access management and information control',
+            'Support in student wellbeing processes',
+          ],
+          tags: ['Document Management', 'Digitalization'],
+        },
+        {
+          title: 'Archive Management Assistant',
+          company: 'Infantry Battalion #47 Francisco de Paula Velez / Bivel 47',
+          date: 'Semester B 2023',
+          icon: 'fa-archive',
+          descriptions: [
+            'Classification and organization of operational documents',
+            'Physical archive and loan management',
+            'Control and organization of institutional information',
+          ],
+          tags: ['Archive', 'Classification', 'Institutional'],
+        },
+        {
+          title: 'English Tutor',
+          company: 'Santa Marta / San Pedro de Uraba',
+          date: 'Semester A 2023',
+          icon: 'fa-chalkboard-teacher',
+          descriptions: [
+            'Personalized support for English language learning',
+            'Development of communication and grammar skills',
+            'Teaching methodologies adapted to each student',
+          ],
+          tags: ['English', 'Tutoring', 'Communication'],
+        },
       ],
-      tags: ['Gestión Documental', 'Bienestar', 'Digitalización'],
     },
-    {
-      title: 'Auxiliar en Gestión de Archivo',
-      company: 'Batallón de Infantería #47 Francisco de Paula Vélez / Bivel 47',
-      date: 'Sem. B 2023',
-      icon: 'fa-archive',
-      descriptions: [
-        'Clasificación y ordenamiento de documentos operativos',
-        'Gestión de préstamo y archivo físico',
-        'Control y organización de información institucional',
-      ],
-      tags: ['Archivo', 'Clasificación', 'Institucional'],
-    },
-    {
-      title: 'Tutor de Inglés',
-      company: 'Santa Marta / San Pedro de Urabá',
-      date: 'Sem. A 2023',
-      icon: 'fa-chalkboard-teacher',
-      descriptions: [
-        'Apoyo personalizado en el aprendizaje del idioma inglés',
-        'Desarrollo de habilidades comunicativas y gramaticales',
-        'Metodologías de enseñanza adaptadas a cada estudiante',
-      ],
-      tags: ['Inglés', 'Tutoría', 'Comunicación'],
-    },
-  ];
+  };
+
+  const currentContent = content[language];
+  const experiences = currentContent.experiences;
 
   return (
     <section id="experience" className="relative py-20">
@@ -57,9 +124,9 @@ function Experience() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-theme-primary mb-4">
-            Experiencia
+            {currentContent.title}
           </h2>
-          <p className="text-base sm:text-lg text-theme-secondary px-4">Mi trayectoria académica y profesional</p>
+          <p className="text-base sm:text-lg text-theme-secondary px-4">{currentContent.subtitle}</p>
           <div className="w-24 h-1 bg-[var(--matrix-green)] mx-auto mt-4 rounded-full"></div>
         </div>
 

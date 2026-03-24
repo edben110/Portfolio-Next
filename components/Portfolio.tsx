@@ -2,11 +2,13 @@
 
 import { useState, useRef } from 'react';
 import Image from 'next/image';
+import { useTheme } from './ThemeContext';
 
 export default function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const { language } = useTheme();
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -22,86 +24,189 @@ export default function Portfolio() {
     }
   };
 
-  const projects = [
-    {
-      title: 'Calculadora Multivariable',
-      description: 'Aplicación web para el análisis y visualización interactiva de funciones en 3D.',
-      solutions: [
-        'Modelado 3D de superficies con controles interactivos',
-        'Cálculo simbólico y numérico integrado',
-        'Resultados exportables para uso académico',
+  const content = {
+    es: {
+      title: 'Portafolio',
+      subtitle: 'Algunos de mis proyectos recientes',
+      solutions: 'Soluciones',
+      technologies: 'Tecnologias',
+      prevProject: 'Proyecto anterior',
+      nextProject: 'Proximo proyecto',
+      goToProject: 'Ir a proyecto',
+      projects: [
+        {
+          title: 'Calculadora Multivariable',
+          description: 'Aplicacion web para el analisis y visualizacion interactiva de funciones en 3D.',
+          solutions: [
+            'Modelado 3D de superficies con controles interactivos',
+            'Calculo simbolico y numerico integrado',
+            'Resultados exportables para uso academico',
+          ],
+          image: '/imgs/prove multivar.png',
+          tags: ['Three.js', 'Django', 'Wolfram API'],
+          link: 'https://multivar-3d.onrender.com',
+          hasLink: true,
+        },
+        {
+          title: 'App Movil',
+          description: 'Aplicacion de monitoreo de generadores electricos en tiempo real.',
+          solutions: [
+            'Lectura y envio de datos IoT en tiempo real',
+            'Panel movil con alertas de estado',
+            'Historico para analisis y mantenimiento',
+          ],
+          image: '/imgs/aplicacion movil.jpeg',
+          tags: ['Flutter', 'ThingSpeak', 'Arduino'],
+          link: '',
+          hasLink: false,
+        },
+        {
+          title: 'Sistema IoT',
+          description: 'Radar Arduino con visualizacion de distancias y zonas.',
+          solutions: [
+            'Deteccion de objetos con sensores ultrasonicos',
+            'Barrido y mapeo en tiempo real',
+            'Visualizacion serial para monitoreo',
+          ],
+          image: '/imgs/radar ard.jpeg',
+          tags: ['Arduino', 'C++', 'Serial Plotter'],
+          link: '',
+          hasLink: false,
+        },
+        {
+          title: 'API REST',
+          description: 'Aplicativo de control de gastos con reportes y categorias.',
+          solutions: [
+            'Registro de transacciones y categorias',
+            'Dashboard con metricas clave',
+            'Autenticacion segura por usuario',
+          ],
+          image: '/imgs/cashify prove.png',
+          tags: ['SpringBoot', 'MongoDB', 'React'],
+          link: 'https://cashify-black.vercel.app/',
+          hasLink: true,
+        },
+        {
+          title: 'API selectora por IA',
+          description: 'API para preseleccion de candidatos con procesamiento de texto.',
+          solutions: [
+            'Clasificacion de perfiles por afinidad',
+            'Normalizacion de CV y datos',
+            'Endpoints listos para integracion',
+          ],
+          image: '/imgs/seleccion prove.png',
+          tags: ['Flask', 'BERT', 'NLP'],
+          link: 'https://clippers-frontend.vercel.app/feed',
+          hasLink: true,
+        },
+        {
+          title: 'Script de automatizacion',
+          description: 'Script para generar certificados de seminarios de ingenieria.',
+          solutions: [
+            'Plantillas y datos dinamicos en lote',
+            'Exportacion automatica a PDF',
+            'Validacion de asistentes',
+          ],
+          image: '/imgs/prove scripts.png',
+          tags: ['Python', 'ReportLab', 'CSV'],
+          link: 'https://github.com/edben110/Py-scripts/tree/master/programas',
+          hasLink: true,
+        },
       ],
-      image: '/imgs/prove multivar.png',
-      tags: ['Three.js', 'Django', 'Wolfram API'],
-      link: 'https://multivar-3d.onrender.com',
-      hasLink: true,
     },
-    {
-      title: 'App Móvil',
-      description: 'Aplicación de monitoreo de generadores eléctricos en tiempo real.',
-      solutions: [
-        'Lectura y envío de datos IoT en tiempo real',
-        'Panel móvil con alertas de estado',
-        'Histórico para análisis y mantenimiento',
+    en: {
+      title: 'Portfolio',
+      subtitle: 'Some of my recent projects',
+      solutions: 'Solutions',
+      technologies: 'Technologies',
+      prevProject: 'Previous project',
+      nextProject: 'Next project',
+      goToProject: 'Go to project',
+      projects: [
+        {
+          title: 'Multivariable Calculator',
+          description: 'Web app for interactive analysis and 3D visualization of mathematical functions.',
+          solutions: [
+            '3D surface modeling with interactive controls',
+            'Integrated symbolic and numerical calculations',
+            'Exportable results for academic use',
+          ],
+          image: '/imgs/prove multivar.png',
+          tags: ['Three.js', 'Django', 'Wolfram API'],
+          link: 'https://multivar-3d.onrender.com',
+          hasLink: true,
+        },
+        {
+          title: 'Mobile App',
+          description: 'Real-time electric generator monitoring application.',
+          solutions: [
+            'Real-time IoT data reading and transmission',
+            'Mobile dashboard with status alerts',
+            'Historical records for analysis and maintenance',
+          ],
+          image: '/imgs/aplicacion movil.jpeg',
+          tags: ['Flutter', 'ThingSpeak', 'Arduino'],
+          link: '',
+          hasLink: false,
+        },
+        {
+          title: 'IoT System',
+          description: 'Arduino radar with distance and zone visualization.',
+          solutions: [
+            'Object detection with ultrasonic sensors',
+            'Real-time sweep and mapping',
+            'Serial visualization for monitoring',
+          ],
+          image: '/imgs/radar ard.jpeg',
+          tags: ['Arduino', 'C++', 'Serial Plotter'],
+          link: '',
+          hasLink: false,
+        },
+        {
+          title: 'REST API',
+          description: 'Expense tracking app with reports and categories.',
+          solutions: [
+            'Transaction and category registration',
+            'Dashboard with key metrics',
+            'Secure user authentication',
+          ],
+          image: '/imgs/cashify prove.png',
+          tags: ['SpringBoot', 'MongoDB', 'React'],
+          link: 'https://cashify-black.vercel.app/',
+          hasLink: true,
+        },
+        {
+          title: 'AI Screening API',
+          description: 'API for candidate pre-screening using text processing.',
+          solutions: [
+            'Profile classification by affinity',
+            'CV and data normalization',
+            'Integration-ready endpoints',
+          ],
+          image: '/imgs/seleccion prove.png',
+          tags: ['Flask', 'BERT', 'NLP'],
+          link: 'https://clippers-frontend.vercel.app/feed',
+          hasLink: true,
+        },
+        {
+          title: 'Automation Script',
+          description: 'Script to generate engineering seminar certificates.',
+          solutions: [
+            'Batch templates with dynamic data',
+            'Automatic PDF export',
+            'Attendee validation',
+          ],
+          image: '/imgs/prove scripts.png',
+          tags: ['Python', 'ReportLab', 'CSV'],
+          link: 'https://github.com/edben110/Py-scripts/tree/master/programas',
+          hasLink: true,
+        },
       ],
-      image: '/imgs/aplicacion movil.jpeg',
-      tags: ['Flutter', 'ThingSpeak', 'Arduino'],
-      link: '',
-      hasLink: false,
     },
-    {
-      title: 'Sistema IoT',
-      description: 'Radar Arduino con visualización de distancias y zonas.',
-      solutions: [
-        'Detección de objetos con sensores ultrasónicos',
-        'Barrido y mapeo en tiempo real',
-        'Visualización serial para monitoreo',
-      ],
-      image: '/imgs/radar ard.jpeg',
-      tags: ['Arduino', 'C++', 'Serial Plotter'],
-      link: '',
-      hasLink: false,
-    },
-    {
-      title: 'API REST',
-      description: 'Aplicativo de control de gastos con reportes y categorías.',
-      solutions: [
-        'Registro de transacciones y categorías',
-        'Dashboard con métricas clave',
-        'Autenticación segura por usuario',
-      ],
-      image: '/imgs/cashify prove.png',
-      tags: ['SpringBoot', 'MongoDB', 'React'],
-      link: 'https://cashify-black.vercel.app/',
-      hasLink: true,
-    },
-    {
-      title: 'API selectora por IA',
-      description: 'API para preselección de candidatos con procesamiento de texto.',
-      solutions: [
-        'Clasificación de perfiles por afinidad',
-        'Normalización de CV y datos',
-        'Endpoints listos para integración',
-      ],
-      image: '/imgs/seleccion prove.png',
-      tags: ['Flask', 'BERT', 'NLP'],
-      link: 'https://clippers-frontend.vercel.app/feed',
-      hasLink: true,
-    },
-    {
-      title: 'Script de automatización',
-      description: 'Script para generar certificados de seminarios de ingeniería.',
-      solutions: [
-        'Plantillas y datos dinámicos en lote',
-        'Exportación automática a PDF',
-        'Validación de asistentes',
-      ],
-      image: '/imgs/prove scripts.png',
-      tags: ['Python', 'ReportLab', 'CSV'],
-      link: 'https://github.com/edben110/Py-scripts/tree/master/programas',
-      hasLink: true,
-    },
-  ];
+  };
+
+  const currentContent = content[language];
+  const projects = currentContent.projects;
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);
@@ -117,9 +222,9 @@ export default function Portfolio() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-theme-primary mb-4">
-            Portafolio
+            {currentContent.title}
           </h2>
-          <p className="text-base sm:text-lg text-theme-secondary px-4">Algunos de mis proyectos recientes</p>
+          <p className="text-base sm:text-lg text-theme-secondary px-4">{currentContent.subtitle}</p>
           <div className="w-24 h-1 bg-[var(--matrix-green)] mx-auto mt-4 rounded-full"></div>
         </div>
 
@@ -164,7 +269,7 @@ export default function Portfolio() {
 
                         <div className="text-left max-w-md mx-auto mb-4">
                           <p className="text-xs uppercase tracking-[0.2em] text-theme-muted mb-2 text-center">
-                            Soluciones
+                            {currentContent.solutions}
                           </p>
                           <ul className="space-y-2 text-sm text-theme-secondary">
                             {project.solutions.map((solution, solutionIdx) => (
@@ -179,7 +284,7 @@ export default function Portfolio() {
                         {/* Tags */}
                         <div className="flex flex-col items-center gap-2">
                           <p className="text-xs uppercase tracking-[0.2em] text-theme-muted">
-                            Tecnologias
+                            {currentContent.technologies}
                           </p>
                           <div className="flex flex-wrap gap-2 justify-center">
                           {project.tags.map((tag, tagIdx) => (
@@ -208,7 +313,7 @@ export default function Portfolio() {
                        rounded-full w-12 h-12 items-center justify-center 
                        transition-all duration-300 hover:scale-110
                        active:scale-95"
-              aria-label="Proyecto anterior"
+              aria-label={currentContent.prevProject}
             >
               <i className="fas fa-chevron-left"></i>
             </button>
@@ -224,7 +329,7 @@ export default function Portfolio() {
                     ? 'active w-8'
                     : 'w-[10px]'
                 }`}
-                aria-label={`Ir a proyecto ${idx + 1}`}
+                aria-label={`${currentContent.goToProject} ${idx + 1}`}
               ></button>
             ))}            </div>
             
@@ -234,7 +339,7 @@ export default function Portfolio() {
                        rounded-full w-12 h-12 items-center justify-center 
                        transition-all duration-300 hover:scale-110
                        active:scale-95"
-              aria-label="Próximo proyecto"
+              aria-label={currentContent.nextProject}
             >
               <i className="fas fa-chevron-right"></i>
             </button>

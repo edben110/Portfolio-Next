@@ -2,11 +2,13 @@
 
 import { useState, useRef } from 'react';
 import Image from 'next/image';
+import { useTheme } from './ThemeContext';
 
 export default function Skills() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const { language } = useTheme();
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -22,116 +24,245 @@ export default function Skills() {
     }
   };
 
-  const skillCategories = [
-    {
-      title: 'Backend Development',
-      icon: 'fa-server',
-      skills: [
+  const content = {
+    es: {
+      title: 'Tech Stack y Habilidades',
+      subtitle: 'Mi conjunto de habilidades centrado en desarrollo full-stack y tecnologias modernas',
+      prevSkill: 'Habilidad anterior',
+      nextSkill: 'Proxima habilidad',
+      goToCategory: 'Ir a categoria',
+      categories: [
         {
-          name: 'Django',
-          iconPath: '/svg/python-original.svg',
-          color: '#092E20',
-          description: 'Framework web de Python',
+          title: 'Desarrollo Backend',
+          icon: 'fa-server',
+          skills: [
+            {
+              name: 'Django',
+              iconPath: '/svg/python-original.svg',
+              color: '#092E20',
+              description: 'Framework web de Python',
+            },
+            {
+              name: 'Flask',
+              iconPath: 'https://www.svgrepo.com/show/508915/flask.svg',
+              color: '#BD3C00',
+              description: 'Microframework web Python',
+            },
+            {
+              name: 'Spring Boot',
+              iconPath: '/svg/java-original.svg',
+              color: '#6DB33F',
+              description: 'Framework Java moderno',
+            },
+          ],
         },
         {
-          name: 'Flask',
-          iconPath: 'https://www.svgrepo.com/show/508915/flask.svg',
-          color: '#BD3C00',
-          description: 'Microframework web Python',
+          title: 'Desarrollo Frontend',
+          icon: 'fa-laptop-code',
+          skills: [
+            {
+              name: 'React',
+              iconPath: '/svg/react-original.svg',
+              color: '#61DAFB',
+              description: 'Libreria JavaScript para UI',
+            },
+            {
+              name: 'Angular',
+              iconPath: '/svg/angularjs-original.svg',
+              color: '#DD0031',
+              description: 'Framework TypeScript completo',
+            },
+            {
+              name: 'Next.js',
+              iconPath: '/svg/nextjs-original.svg',
+              color: '#A000FF',
+              description: 'Framework React con SSR',
+            },
+          ],
         },
         {
-          name: 'Spring Boot',
-          iconPath: '/svg/java-original.svg',
-          color: '#6DB33F',
-          description: 'Framework Java moderno',
+          title: 'Desarrollo Mobile',
+          icon: 'fa-mobile-alt',
+          skills: [
+            {
+              name: 'Flutter',
+              iconPath: '/svg/flutter-original.svg',
+              color: '#02569B',
+              description: 'Framework multiplataforma',
+            },
+          ],
+        },
+        {
+          title: 'Bases de Datos',
+          icon: 'fa-database',
+          skills: [
+            {
+              name: 'MongoDB',
+              iconPath: '/svg/mongodb-original.svg',
+              color: '#47A248',
+              description: 'Base de datos NoSQL',
+            },
+            {
+              name: 'PostgreSQL',
+              iconPath: '/svg/postgresql-original.svg',
+              color: '#336791',
+              description: 'Base de datos relacional',
+            },
+          ],
+        },
+        {
+          title: 'Otras Tecnologias',
+          icon: 'fa-cogs',
+          skills: [
+            {
+              name: 'Docker',
+              iconPath: '/svg/docker-original.svg',
+              color: '#2496ED',
+              description: 'Containerizacion',
+            },
+            {
+              name: 'ThingSpeak',
+              icon: 'fas fa-broadcast-tower',
+              color: '#F15A29',
+              description: 'Plataforma IoT',
+            },
+            {
+              name: 'n8n',
+              icon: 'fas fa-diagram-project',
+              color: '#EA4B71',
+              description: 'Automatizacion de flujos',
+            },
+            {
+              name: 'Arduino',
+              iconPath: '/svg/arduino-original.svg',
+              color: '#00979D',
+              description: 'Desarrollo embebido',
+            },
+          ],
         },
       ],
     },
-    {
-      title: 'Frontend Development',
-      icon: 'fa-laptop-code',
-      skills: [
+    en: {
+      title: 'Tech Stack and Skills',
+      subtitle: 'My skill set focused on full-stack development and modern technologies',
+      prevSkill: 'Previous skill',
+      nextSkill: 'Next skill',
+      goToCategory: 'Go to category',
+      categories: [
         {
-          name: 'React',
-          iconPath: '/svg/react-original.svg',
-          color: '#61DAFB',
-          description: 'Librería JavaScript UI',
+          title: 'Backend Development',
+          icon: 'fa-server',
+          skills: [
+            {
+              name: 'Django',
+              iconPath: '/svg/python-original.svg',
+              color: '#092E20',
+              description: 'Python web framework',
+            },
+            {
+              name: 'Flask',
+              iconPath: 'https://www.svgrepo.com/show/508915/flask.svg',
+              color: '#BD3C00',
+              description: 'Python micro web framework',
+            },
+            {
+              name: 'Spring Boot',
+              iconPath: '/svg/java-original.svg',
+              color: '#6DB33F',
+              description: 'Modern Java framework',
+            },
+          ],
         },
         {
-          name: 'Angular',
-          iconPath: '/svg/angularjs-original.svg',
-          color: '#DD0031',
-          description: 'Framework TypeScript completo',
+          title: 'Frontend Development',
+          icon: 'fa-laptop-code',
+          skills: [
+            {
+              name: 'React',
+              iconPath: '/svg/react-original.svg',
+              color: '#61DAFB',
+              description: 'JavaScript UI library',
+            },
+            {
+              name: 'Angular',
+              iconPath: '/svg/angularjs-original.svg',
+              color: '#DD0031',
+              description: 'Complete TypeScript framework',
+            },
+            {
+              name: 'Next.js',
+              iconPath: '/svg/nextjs-original.svg',
+              color: '#A000FF',
+              description: 'React framework with SSR',
+            },
+          ],
         },
         {
-          name: 'Next.js',
-          iconPath: '/svg/nextjs-original.svg',
-          color: '#A000FF',
-          description: 'Framework React con SSR',
+          title: 'Mobile Development',
+          icon: 'fa-mobile-alt',
+          skills: [
+            {
+              name: 'Flutter',
+              iconPath: '/svg/flutter-original.svg',
+              color: '#02569B',
+              description: 'Cross-platform framework',
+            },
+          ],
+        },
+        {
+          title: 'Databases',
+          icon: 'fa-database',
+          skills: [
+            {
+              name: 'MongoDB',
+              iconPath: '/svg/mongodb-original.svg',
+              color: '#47A248',
+              description: 'NoSQL database',
+            },
+            {
+              name: 'PostgreSQL',
+              iconPath: '/svg/postgresql-original.svg',
+              color: '#336791',
+              description: 'Relational database',
+            },
+          ],
+        },
+        {
+          title: 'Other Technologies',
+          icon: 'fa-cogs',
+          skills: [
+            {
+              name: 'Docker',
+              iconPath: '/svg/docker-original.svg',
+              color: '#2496ED',
+              description: 'Containerization',
+            },
+            {
+              name: 'ThingSpeak',
+              icon: 'fas fa-broadcast-tower',
+              color: '#F15A29',
+              description: 'IoT platform',
+            },
+            {
+              name: 'n8n',
+              icon: 'fas fa-diagram-project',
+              color: '#EA4B71',
+              description: 'Workflow automation',
+            },
+            {
+              name: 'Arduino',
+              iconPath: '/svg/arduino-original.svg',
+              color: '#00979D',
+              description: 'Embedded development',
+            },
+          ],
         },
       ],
     },
-    {
-      title: 'Mobile Development',
-      icon: 'fa-mobile-alt',
-      skills: [
-        {
-          name: 'Flutter',
-          iconPath: '/svg/flutter-original.svg',
-          color: '#02569B',
-          description: 'Framework multiplataforma',
-        },
-      ],
-    },
-    {
-      title: 'Bases de Datos',
-      icon: 'fa-database',
-      skills: [
-        {
-          name: 'MongoDB',
-          iconPath: '/svg/mongodb-original.svg',
-          color: '#47A248',
-          description: 'Base de datos NoSQL',
-        },
-        {
-          name: 'PostgreSQL',
-          iconPath: '/svg/postgresql-original.svg',
-          color: '#336791',
-          description: 'Base de datos relacional',
-        },
-      ],
-    },
-    {
-      title: 'Otras Tecnologías',
-      icon: 'fa-cogs',
-      skills: [
-        {
-          name: 'Docker',
-          iconPath: '/svg/docker-original.svg',
-          color: '#2496ED',
-          description: 'Containerización',
-        },
-        {
-          name: 'ThingSpeak',
-          icon: 'fas fa-broadcast-tower',
-          color: '#F15A29',
-          description: 'Plataforma IoT',
-        },
-        {
-          name: 'n8n',
-          icon: 'fas fa-diagram-project',
-          color: '#EA4B71',
-          description: 'Automatización flujos',
-        },
-        {
-          name: 'Arduino',
-          iconPath: '/svg/arduino-original.svg',
-          color: '#00979D',
-          description: 'Desarrollo embebido',
-        },
-      ],
-    },
-  ];
+  };
+
+  const currentContent = content[language];
+  const skillCategories = currentContent.categories;
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % skillCategories.length);
@@ -147,10 +278,10 @@ export default function Skills() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-theme-primary mb-4">
-            Tech Stack & Habilidades
+            {currentContent.title}
           </h2>
           <p className="text-base sm:text-lg text-theme-secondary max-w-2xl mx-auto px-4">
-            Mi conjunto de habilidades centrado en desarrollo full-stack y tecnologías modernas
+            {currentContent.subtitle}
           </p>
           <div className="w-24 h-1 bg-[var(--matrix-green)] mx-auto mt-4 rounded-full"></div>
         </div>
@@ -231,7 +362,7 @@ export default function Skills() {
                        rounded-full w-12 h-12 items-center justify-center 
                        transition-all duration-300 hover:scale-110
                        active:scale-95"
-              aria-label="Habilidad anterior"
+              aria-label={currentContent.prevSkill}
             >
               <i className="fas fa-chevron-left"></i>
             </button>
@@ -247,7 +378,7 @@ export default function Skills() {
                     ? 'active w-8'
                     : 'w-[10px]'
                 }`}
-                aria-label={`Ir a categoría ${idx + 1}`}
+                aria-label={`${currentContent.goToCategory} ${idx + 1}`}
               ></button>
             ))}            </div>
             
@@ -257,7 +388,7 @@ export default function Skills() {
                        rounded-full w-12 h-12 items-center justify-center 
                        transition-all duration-300 hover:scale-110
                        active:scale-95"
-              aria-label="Próxima habilidad"
+              aria-label={currentContent.nextSkill}
             >
               <i className="fas fa-chevron-right"></i>
             </button>
