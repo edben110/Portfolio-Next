@@ -59,7 +59,7 @@ export default function MatrixRain() {
 
     let animationId: number;
     let lastDraw = 0;
-    const frameInterval = 1000 / 18;
+    const frameInterval = 1000 / 27;
 
     function animate(timestamp: number) {
       if (timestamp - lastDraw >= frameInterval) {
