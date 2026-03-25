@@ -9,6 +9,7 @@ import Skills from '@/components/Skills';
 import Portfolio from '@/components/Portfolio';
 import Testimonios from '@/components/Testimonios';
 import Experience from '@/components/Experience';
+import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { useTheme } from '@/components/ThemeContext';
@@ -27,6 +28,7 @@ export default function Home() {
         <Portfolio />
         <Testimonios />
         <Experience />
+        <Contact />
       </main>
       <Footer />
       <WhatsAppButton />

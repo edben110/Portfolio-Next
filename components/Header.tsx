@@ -12,6 +12,7 @@ const navItems = {
     { id: 'portfolio', label: 'Portafolio', icon: 'fa-briefcase' },
     { id: 'testimonios', label: 'Testimonios', icon: 'fa-comments' },
     { id: 'experience', label: 'Experiencia', icon: 'fa-briefcase-clock' },
+    { id: 'contacto', label: 'Contacto', icon: 'fa-envelope' },
   ],
   en: [
     { id: 'inicio', label: 'Home', icon: 'fa-house' },
@@ -20,6 +21,7 @@ const navItems = {
     { id: 'portfolio', label: 'Portfolio', icon: 'fa-briefcase' },
     { id: 'testimonios', label: 'Testimonials', icon: 'fa-comments' },
     { id: 'experience', label: 'Experience', icon: 'fa-briefcase-clock' },
+    { id: 'contacto', label: 'Contact', icon: 'fa-envelope' },
   ],
 };
 
