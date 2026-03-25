@@ -44,7 +44,7 @@ export default function Skills() {
             },
             {
               name: 'Flask',
-              iconPath: 'https://www.svgrepo.com/show/508915/flask.svg',
+              iconPath: '/svg/flask-science-svgrepo-com.svg',
               color: '#BD3C00',
               description: 'Microframework web Python',
             },
@@ -161,7 +161,7 @@ export default function Skills() {
             },
             {
               name: 'Flask',
-              iconPath: 'https://www.svgrepo.com/show/508915/flask.svg',
+              iconPath: '/svg/flask-science-svgrepo-com.svg',
               color: '#BD3C00',
               description: 'Python micro web framework',
             },

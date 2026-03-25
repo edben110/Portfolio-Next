@@ -99,7 +99,7 @@ export default function Header() {
             >
               <div className="relative w-12 h-12">
                 <Image
-                  src="/imgs/logo.png"
+                  src="/imgs/logo.jpeg"
                   alt="Logo Edben"
                   fill
                   className="object-contain rounded-full"
