@@ -290,7 +290,7 @@ html[data-theme="light"] .btn-theme-primary:active {
 }
 
 html[data-theme="dark"] .btn-theme-primary {
-  border-radius: 0.5rem;
+  border-radius: 25px 0px 25px 0px;
   background-color: var(--matrix-green);
   color: #000;
 }
@@ -327,7 +327,7 @@ html[data-theme="light"] .btn-theme-outline:active {
 
 html[data-theme="dark"] .btn-theme-outline {
   color: var(--matrix-green);
-  border-radius: 0.5rem;
+  border-radius: 25px 0px 25px 0px;
 }
 
 html[data-theme="dark"] .btn-theme-outline:hover {
