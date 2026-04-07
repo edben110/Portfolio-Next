@@ -8,7 +8,7 @@ export default function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-  const { language } = useTheme();
+  const { language, theme } = useTheme();
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -33,6 +33,7 @@ export default function Portfolio() {
       prevProject: 'Proyecto anterior',
       nextProject: 'Proximo proyecto',
       goToProject: 'Ir a proyecto',
+      githubRepo: 'Ir al repositorio de GitHub',
       projects: [
         {
           title: 'Calculadora Multivariable',
@@ -45,6 +46,7 @@ export default function Portfolio() {
           image: '/imgs/prove multivar.jpeg',
           tags: ['Three.js', 'Django', 'Wolfram API'],
           link: 'https://multivar-3d.onrender.com',
+          github: 'https://github.com/edben110/MultiVar-3D',
           hasLink: true,
         },
         {
@@ -58,6 +60,7 @@ export default function Portfolio() {
           image: '/imgs/aplicacion movil.jpeg',
           tags: ['Flutter', 'ThingSpeak', 'Arduino'],
           link: '',
+          github: 'https://github.com/edben110/PotenGraf',
           hasLink: false,
         },
         {
@@ -71,6 +74,7 @@ export default function Portfolio() {
           image: '/imgs/ToneStatic.jpeg',
           tags: ['Next.js', 'Jamendo API', 'estructuras de datos'],
           link: '',
+          github: 'https://github.com/edben110/Tone-Static',
           hasLink: false,
         },
         {
@@ -84,6 +88,7 @@ export default function Portfolio() {
           image: '/imgs/cashify prove.jpeg',
           tags: ['SpringBoot', 'MongoDB', 'React'],
           link: 'https://cashify-black.vercel.app/',
+          github: 'https://github.com/edben110/Cashify',
           hasLink: true,
         },
         {
@@ -97,6 +102,7 @@ export default function Portfolio() {
           image: '/imgs/seleccion prove.jpeg',
           tags: ['Flask', 'BERT', 'NLP'],
           link: 'https://clippers-frontend.vercel.app/feed',
+          github: 'https://github.com/edben110/MicroSelectIA',
           hasLink: true,
         },
         {
@@ -110,6 +116,7 @@ export default function Portfolio() {
           image: '/imgs/black-night-guns.jpeg',
           tags: ['JavaScript', 'Canva', 'HTML5'],
           link: 'https://black-night-guns.vercel.app',
+          github: 'https://github.com/edben110/Black-night-guns',
           hasLink: true,
         },
       ],
@@ -122,6 +129,7 @@ export default function Portfolio() {
       prevProject: 'Previous project',
       nextProject: 'Next project',
       goToProject: 'Go to project',
+      githubRepo: 'Go to GitHub repository',
       projects: [
         {
           title: 'Multivariable Calculator',
@@ -134,6 +142,7 @@ export default function Portfolio() {
           image: '/imgs/prove multivar.jpeg',
           tags: ['Three.js', 'Django', 'Wolfram API'],
           link: 'https://multivar-3d.onrender.com',
+          github: 'https://github.com/edben110/MultiVar-3D',
           hasLink: true,
         },
         {
@@ -147,6 +156,7 @@ export default function Portfolio() {
           image: '/imgs/aplicacion movil.jpeg',
           tags: ['Flutter', 'ThingSpeak', 'Arduino'],
           link: '',
+          github: 'https://github.com/edben110/PotenGraf',
           hasLink: false,
         },
         {
@@ -160,6 +170,7 @@ export default function Portfolio() {
           image: '/imgs/ToneStatic.jpeg',
           tags: ['Next.js', 'Jamendo API', 'data structures'],
           link: '',
+          github: 'https://github.com/edben110/Tone-Static',
           hasLink: false,
         },
         {
@@ -173,6 +184,7 @@ export default function Portfolio() {
           image: '/imgs/cashify prove.jpeg',
           tags: ['SpringBoot', 'MongoDB', 'React'],
           link: 'https://cashify-black.vercel.app/',
+          github: 'https://github.com/edben110/Cashify',
           hasLink: true,
         },
         {
@@ -186,6 +198,7 @@ export default function Portfolio() {
           image: '/imgs/seleccion prove.jpeg',
           tags: ['Flask', 'BERT', 'NLP'],
           link: 'https://clippers-frontend.vercel.app/feed',
+          github: 'https://github.com/edben110/MicroSelectIA',
           hasLink: true,
         },
         {
@@ -199,6 +212,7 @@ export default function Portfolio() {
           image: '/imgs/black-night-guns.jpeg',
           tags: ['JavaScript', 'Canva', 'HTML5'],
           link: 'https://github.com/edben110/Py-scripts/tree/master/programas',
+          github: 'https://github.com/edben110/Black-night-guns',
           hasLink: true,
         },
       ],
@@ -243,10 +257,28 @@ export default function Portfolio() {
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
                     <div
                       className={`carousel-container-card border-2 rounded-2xl md:rounded-[0px_50px_0px_50px] overflow-hidden 
-                                transition-all duration-300 group mx-auto
+                                transition-all duration-300 group mx-auto relative
                                 ${project.hasLink ? 'cursor-pointer' : ''}`}
                       onClick={() => project.hasLink && window.open(project.link, '_blank')}
                     >
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.github, '_blank');
+                        }}
+                        className="absolute top-3 right-3 z-20 w-9 h-9 rounded-full bg-black/35 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-transform duration-300 hover:scale-110"
+                        aria-label={`${currentContent.githubRepo}: ${project.title}`}
+                      >
+                        <Image
+                          src="/svg/github-original.svg"
+                          alt="GitHub"
+                          width={18}
+                          height={18}
+                          className={theme === 'dark' ? 'invert' : ''}
+                        />
+                      </button>
+
                       {/* Project Image */}
                       <div className="relative h-[160px] sm:h-[180px] md:h-[165px] lg:h-[130px] overflow-hidden">
                         <Image
