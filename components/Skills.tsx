@@ -2,13 +2,14 @@
 
 import { useState, useRef } from 'react';
 import Image from 'next/image';
+import { FlaskOriginal } from 'devicons-react';
 import { useTheme } from './ThemeContext';
 
 export default function Skills() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-  const { language } = useTheme();
+  const { language, theme } = useTheme();
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -316,7 +317,16 @@ export default function Skills() {
                                      flex-1 min-w-[150px] max-w-[190px] h-[180px] flex items-center justify-center"
                           >
                             <div className="flex flex-col items-center text-center space-y-2 w-full px-1">
-                              {skill.iconPath ? (
+                              {skill.name === 'Flask' ? (
+                                <div className="relative w-[2.2rem] h-[2.2rem] sm:w-[2.8rem] sm:h-[2.8rem] transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+                                  <FlaskOriginal
+                                    size="100%"
+                                    style={{
+                                      filter: `${theme === 'dark' ? 'invert(1) ' : ''}drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
+                                    }}
+                                  />
+                                </div>
+                              ) : skill.iconPath ? (
                                 <div className="relative w-[2.2rem] h-[2.2rem] sm:w-[2.8rem] sm:h-[2.8rem] 
                                               transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
                                   <Image

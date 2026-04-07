@@ -11,6 +11,9 @@ interface ThemeContextType {
   matrixBgColor: string;
   language: Language;
   setLanguage: (language: Language) => void;
+  terminalMode: boolean;
+  toggleTerminalMode: () => void;
+  setTerminalMode: (enabled: boolean) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -18,6 +21,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark');
   const [language, setLanguage] = useState<Language>('es');
+  const [terminalMode, setTerminalMode] = useState(false);
 
   useEffect(() => {
     // Cargar tema guardado del localStorage
@@ -29,6 +33,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const savedLanguage = localStorage.getItem('language') as Language | null;
     if (savedLanguage === 'es' || savedLanguage === 'en') {
       setLanguage(savedLanguage);
+    }
+
+    const savedTerminalMode = localStorage.getItem('terminalMode');
+    if (savedTerminalMode === 'true') {
+      setTerminalMode(true);
     }
   }, []);
 
@@ -44,6 +53,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('language', language);
   }, [language]);
 
+  useEffect(() => {
+    localStorage.setItem('terminalMode', terminalMode ? 'true' : 'false');
+  }, [terminalMode]);
+
   const toggleTheme = () => {
     setTheme((prevTheme) => {
       const newTheme = prevTheme === 'dark' ? 'light' : 'dark';
@@ -52,11 +65,26 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  const toggleTerminalMode = () => {
+    setTerminalMode((prev) => !prev);
+  };
+
   // Color de fondo para el efecto Matrix
   const matrixBgColor = theme === 'dark' ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 1)';
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, matrixBgColor, language, setLanguage }}>
+    <ThemeContext.Provider
+      value={{
+        theme,
+        toggleTheme,
+        matrixBgColor,
+        language,
+        setLanguage,
+        terminalMode,
+        toggleTerminalMode,
+        setTerminalMode,
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   );

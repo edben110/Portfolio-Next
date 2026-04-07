@@ -22,13 +22,15 @@ export default function Home() {
       {theme === 'dark' ? <MatrixRain /> : <RadioactiveRain />}
       <Header />
       <main className="relative z-10">
-        <Hero />
-        <About />
-        <Skills />
-        <Portfolio />
-        <Testimonios />
-        <Experience />
-        <Contact />
+        <>
+          <Hero />
+          <About />
+          <Skills />
+          <Portfolio />
+          <Testimonios />
+          <Experience />
+          <Contact />
+        </>
       </main>
       <Footer />
       <WhatsAppButton />
