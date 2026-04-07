@@ -258,8 +258,7 @@ export default function RadioactiveRain() {
       if (ship.dead && ship.respawnTimer > 0) {
         ctx!.font = 'bold 18px monospace';
         const msg = '— DESTROYED — Reappearing…';
-        const tw  = ctx!.measureText(msg).width;
-        ctx!.fillText(msg, (w - tw) / 2, h / 2);
+        ctx!.fillText(msg, 20, 120);
       }
       ctx!.restore();
     }

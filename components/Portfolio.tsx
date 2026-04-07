@@ -256,7 +256,7 @@ export default function Portfolio() {
                 {projects.map((project, idx) => (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
                     <div
-                      className={`carousel-container-card border-2 rounded-2xl md:rounded-[0px_50px_0px_50px] overflow-hidden 
+                      className={`carousel-container-card border-2 rounded-[0px_50px_0px_50px] overflow-hidden 
                                 transition-all duration-300 group mx-auto relative
                                 ${project.hasLink ? 'cursor-pointer' : ''}`}
                       onClick={() => project.hasLink && window.open(project.link, '_blank')}

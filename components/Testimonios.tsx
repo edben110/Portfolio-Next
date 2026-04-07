@@ -136,7 +136,7 @@ export default function Testimonios() {
               <div className="flex">
                 {testimonios.map((testimonio, idx) => (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
-                    <div className="carousel-container-card border-2 rounded-2xl md:rounded-[0px_50px_0px_50px] transition-all duration-300 mx-auto">
+                    <div className="carousel-container-card border-2 rounded-[0px_50px_0px_50px] transition-all duration-300 mx-auto">
                       <div className="p-6 md:p-8">
                         <h3 className="text-xl sm:text-2xl font-bold text-matrix-green mb-2 text-center">
                           {testimonio.nombre}
