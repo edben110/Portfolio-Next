@@ -587,16 +587,40 @@ html[data-theme="light"] .carousel-indicator.active {
     transform: none;
   }
 
+  .hover\:scale-105:hover,
+  .hover\:scale-110:hover,
+  .hover\:scale-125:hover,
+  .group:hover .group-hover\:scale-110 {
+    transform: none !important;
+  }
+
+  .hover\:text-matrix-green:hover {
+    color: inherit !important;
+  }
+
+  .hover\:bg-matrix-green\/10:hover,
+  .hover\:bg-primary\/20:hover,
+  .hover\:bg-green-600:hover {
+    background-color: inherit !important;
+    border-color: inherit !important;
+  }
+
   .carousel-container-card:hover,
   .experience-card:hover {
     border-color: inherit;
   }
 
-  .carousel-container-card img {
+  html[data-theme="dark"] .carousel-container-card:hover,
+  html[data-theme="light"] .carousel-container-card:hover,
+  html[data-theme="dark"] .carousel-container-card:active,
+  html[data-theme="light"] .carousel-container-card:active {
+    background-color: inherit !important;
+    border-color: inherit !important;
+    box-shadow: none !important;
     transform: none !important;
   }
 
-  .group:hover .group-hover\:scale-110 {
+  .carousel-container-card img {
     transform: none !important;
   }
 }
