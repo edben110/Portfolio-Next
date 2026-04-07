@@ -248,7 +248,7 @@ export default function Portfolio() {
                       onClick={() => project.hasLink && window.open(project.link, '_blank')}
                     >
                       {/* Project Image */}
-                      <div className="relative h-[160px] sm:h-[180px] md:h-[200px] lg:h-[220px] overflow-hidden">
+                      <div className="relative h-[160px] sm:h-[180px] md:h-[165px] lg:h-[130px] overflow-hidden">
                         <Image
                           src={project.image}
                           alt={project.title}
@@ -259,15 +259,15 @@ export default function Portfolio() {
                       </div>
 
                       {/* Project Content */}
-                      <div className="p-4 md:p-5 text-center">
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-matrix-green mb-3">
+                      <div className="p-4 md:p-4 text-center">
+                        <h3 className="text-lg sm:text-xl md:text-xl font-bold text-matrix-green mb-3 md:mb-2">
                           {project.title}
                         </h3>
-                        <p className="text-sm md:text-base text-theme-secondary mb-4 leading-relaxed text-center max-w-md mx-auto">
+                        <p className="text-sm md:text-sm text-theme-secondary mb-4 md:mb-3 leading-relaxed text-center max-w-md mx-auto">
                           {project.description}
                         </p>
 
-                        <div className="text-left max-w-md mx-auto mb-4">
+                        <div className="text-left max-w-md mx-auto mb-4 md:mb-3">
                           <p className="text-xs uppercase tracking-[0.2em] text-theme-muted mb-2 text-center">
                             {currentContent.solutions}
                           </p>
