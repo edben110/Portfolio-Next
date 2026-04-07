@@ -65,7 +65,7 @@ export default function Portfolio() {
         },
         {
           title: 'Reproductor mp3',
-          description: 'Reproductor de musica con uso de api de jamendo para busqueda y reproduccion de canciones.',
+          description: 'Reproductor de musica con uso de api de jamendo.',
           solutions: [
             'Comprension de estructuras de datos y consumo de APIs',
             'Implementacion de reproductor con controles basicos',

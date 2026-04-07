@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { SiGoogletranslate } from 'react-icons/si';
 import { useTheme } from './ThemeContext';
 
 const navItems = {
@@ -124,7 +125,7 @@ export default function Header() {
                            hover:bg-matrix-green/10 hover:scale-110
                            ${theme === 'dark' ? 'text-matrix-green' : 'text-black'}`}
                 >
-                  <i className="fas fa-globe text-lg"></i>
+                  <SiGoogletranslate className="text-lg" />
                 </button>
 
                 <div
