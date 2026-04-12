@@ -3,10 +3,31 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import { useTheme } from './ThemeContext';
 
-export default function TerminalMode() {
+interface TerminalModeProps {
+  loaderMode?: boolean;
+  onLoaderComplete?: () => void;
+}
+
+const loaderPackages = [
+  'next@15.4.6',
+  'react@18.3.1',
+  'typescript@5.6.2',
+  'tailwindcss@3.4.17',
+  'framer-motion@11.6.0',
+  'font-awesome@6.4.0',
+  'portfolio-core@1.0.0',
+  'ui-sections@2.3.4',
+  'matrix-engine@0.9.2',
+  'projects-carousel@1.4.1',
+  'contact-gateway@1.2.0',
+];
+
+export default function TerminalMode({ loaderMode = false, onLoaderComplete }: TerminalModeProps) {
   const { language, theme, toggleTheme, setLanguage, setTerminalMode } = useTheme();
   const [command, setCommand] = useState('');
   const [history, setHistory] = useState<string[]>([]);
+  const [loaderHistory, setLoaderHistory] = useState<string[]>([]);
+  const [loaderProgress, setLoaderProgress] = useState(0);
   const outputRef = useRef<HTMLDivElement>(null);
 
   const terminalText = useMemo(
@@ -140,12 +161,66 @@ export default function TerminalMode() {
   const current = terminalText[language];
 
   useEffect(() => {
+    if (loaderMode) return;
     setHistory(current.welcome);
-  }, [current.welcome]);
+  }, [current.welcome, loaderMode]);
+
+  useEffect(() => {
+    if (!loaderMode) return;
+
+    let index = 0;
+    let completeTimeout: ReturnType<typeof setTimeout> | undefined;
+
+    setLoaderProgress(0);
+    setLoaderHistory([
+      'edben-loader@1.0.0 boot sequence',
+      '[init] forcing startup theme: dark',
+      '[init] checking network latency...',
+      '[init] preparing portfolio runtime',
+      '',
+    ]);
+
+    const timer = setInterval(() => {
+      if (index < loaderPackages.length) {
+        const pkg = loaderPackages[index];
+        const baseProgress = Math.round(((index + 1) / loaderPackages.length) * 92);
+        const progress = Math.min(96, Math.max(8, baseProgress));
+
+        setLoaderHistory((prev) => [
+          ...prev,
+          `[npm] fetch ${pkg}`,
+          `[npm] resolve ${pkg} OK`,
+        ]);
+        setLoaderProgress(progress);
+        index += 1;
+        return;
+      }
+
+      clearInterval(timer);
+      setLoaderHistory((prev) => [
+        ...prev,
+        '',
+        '[build] optimizing bundles...',
+        '[ready] portfolio loaded successfully',
+      ]);
+      setLoaderProgress(100);
+
+      completeTimeout = setTimeout(() => {
+        onLoaderComplete?.();
+      }, 550);
+    }, 180);
+
+    return () => {
+      clearInterval(timer);
+      if (completeTimeout) {
+        clearTimeout(completeTimeout);
+      }
+    };
+  }, [loaderMode, onLoaderComplete]);
 
   useEffect(() => {
     outputRef.current?.scrollTo({ top: outputRef.current.scrollHeight, behavior: 'smooth' });
-  }, [history]);
+  }, [history, loaderHistory]);
 
   const pushLines = (lines: string[]) => {
     setHistory((prev) => [...prev, ...lines]);
@@ -213,6 +288,48 @@ export default function TerminalMode() {
     runCommand(command);
     setCommand('');
   };
+
+  if (loaderMode) {
+    const barSlots = 24;
+    const filledSlots = Math.round((loaderProgress / 100) * barSlots);
+    const asciiBar = `${'='.repeat(filledSlots)}${'.'.repeat(barSlots - filledSlots)}`;
+
+    return (
+      <section className="relative z-[90] min-h-screen px-4 flex items-center justify-center bg-[#05090b]">
+        <div className="mx-auto w-full max-w-5xl rounded-2xl border overflow-hidden border-matrix-green/40 bg-black/90 shadow-[0_0_35px_rgba(0,255,65,0.25)] select-none">
+          <div className="px-4 py-3 border-b border-matrix-green/30 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-red-500" />
+              <span className="w-3 h-3 rounded-full bg-yellow-400" />
+              <span className="w-3 h-3 rounded-full bg-green-500" />
+            </div>
+            <p className="text-xs tracking-[0.16em] uppercase text-matrix-green">Startup Terminal</p>
+          </div>
+
+          <div
+            ref={outputRef}
+            className="h-[62vh] overflow-y-auto px-4 py-4 font-mono text-sm leading-7 text-matrix-green"
+          >
+            {loaderHistory.map((line, idx) => (
+              <p key={`${line}-${idx}`}>{line}</p>
+            ))}
+          </div>
+
+          <div className="px-4 py-3 border-t border-matrix-green/30">
+            <p className="font-mono text-xs text-matrix-green/90 mb-2">
+              {`[${asciiBar}] ${loaderProgress}%`}
+            </p>
+            <div className="h-2 rounded-full bg-matrix-green/15 overflow-hidden">
+              <div
+                className="h-full bg-matrix-green transition-all duration-300 ease-out"
+                style={{ width: `${loaderProgress}%` }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="terminal" className="relative z-10 pt-28 pb-12 px-4 min-h-screen">
