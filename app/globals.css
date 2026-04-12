@@ -483,12 +483,7 @@ html[data-theme="dark"] .experience-card {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-color: rgba(0, 255, 65, 0.3);
-}
-
-html[data-theme="dark"] .experience-card:hover {
-  border-color: #00ff41;
-  box-shadow: 0 8px 30px rgba(0, 255, 65, 0.25);
-  transform: scale(1.05);
+  transform-origin: center;
 }
 
 /* Experience card - Modo Claro */
@@ -497,13 +492,22 @@ html[data-theme="light"] .experience-card {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-color: rgba(0, 0, 0, 0.2);
+  transform-origin: center;
 }
 
-html[data-theme="light"] .experience-card:hover {
-  background-color: rgba(255, 255, 255, 0.55);
-  border-color: var(--matrix-green);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
-  transform: scale(1.05);
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+  html[data-theme="dark"] .experience-card:hover {
+    border-color: #00ff41;
+    box-shadow: 0 8px 30px rgba(0, 255, 65, 0.25);
+    transform: scale(1.03);
+  }
+
+  html[data-theme="light"] .experience-card:hover {
+    background-color: rgba(255, 255, 255, 0.55);
+    border-color: var(--matrix-green);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+    transform: scale(1.03);
+  }
 }
 
 /* Tags y badges */
@@ -622,15 +626,6 @@ html[data-theme="light"] .carousel-indicator.active {
 
   .carousel-container-card img {
     transform: none !important;
-  }
-}
-
-@media (max-width: 767px) {
-  .experience-card:hover {
-    box-shadow: none !important;
-    transform: none !important;
-    border-color: inherit !important;
-    background-color: inherit !important;
   }
 }
 

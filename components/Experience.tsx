@@ -200,7 +200,7 @@ function Experience() {
         </div>
 
         {/* Timeline */}
-        <div className="max-w-5xl mx-auto relative overflow-x-hidden">
+        <div className="max-w-5xl mx-auto relative overflow-x-hidden md:overflow-visible">
           <div className="relative px-1">
             {/* Timeline Line */}
             <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-[var(--matrix-green)]"></div>
