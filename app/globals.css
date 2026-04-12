@@ -5,6 +5,8 @@
 :root {
   --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-fira-code: 'Fira Code', 'Courier New', monospace;
+  --theme-transition-duration: 520ms;
+  --theme-transition-easing: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Dark Theme Variables (Default) */
@@ -22,6 +24,8 @@ html[data-theme="dark"] {
   --shadow-hover: rgba(0, 255, 65, 0.25);
   --scrollbar-thumb: #00ff41;
   --scrollbar-thumb-hover: #00cc33;
+  --header-bg: rgba(10, 15, 20, 0.75);
+  --menu-overlay-bg: rgba(10, 15, 20, 0.9);
 }
 
 /* Light Theme Variables */
@@ -39,6 +43,8 @@ html[data-theme="light"] {
   --shadow-hover: rgba(0, 0, 0, 0.25);
   --scrollbar-thumb: var(--matrix-green);
   --scrollbar-thumb-hover: var(--matrix-green-soft);
+  --header-bg: rgba(255, 255, 255, 0.75);
+  --menu-overlay-bg: rgba(255, 255, 255, 0.9);
 }
 
 * {
@@ -58,7 +64,18 @@ body {
   font-family: var(--font-poppins);
   overflow-x: hidden;
   position: relative;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color var(--theme-transition-duration) var(--theme-transition-easing),
+              color var(--theme-transition-duration) var(--theme-transition-easing);
+}
+
+.theme-bg-layer {
+  transition: opacity var(--theme-transition-duration) var(--theme-transition-easing);
+}
+
+.theme-sync-transition {
+  transition: background-color var(--theme-transition-duration) var(--theme-transition-easing),
+              color var(--theme-transition-duration) var(--theme-transition-easing),
+              border-color var(--theme-transition-duration) var(--theme-transition-easing);
 }
 
 /* Efecto de iluminación radial para modo claro */
@@ -684,7 +701,9 @@ html[data-theme="light"] .holographic-img-wrapper {
 
 /* Transiciones suaves */
 * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background-color var(--theme-transition-duration) var(--theme-transition-easing),
+              color var(--theme-transition-duration) var(--theme-transition-easing),
+              border-color var(--theme-transition-duration) var(--theme-transition-easing);
 }
 
 /* ============================================
@@ -721,5 +740,5 @@ html[data-theme="light"] .border-primary\/40 {
 }
 
 button, a {
-  transition: all 0.3s ease;
+  transition: all var(--theme-transition-duration) var(--theme-transition-easing);
 }

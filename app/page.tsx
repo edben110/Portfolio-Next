@@ -19,7 +19,20 @@ export default function Home() {
 
   return (
     <>
-      {theme === 'dark' ? <MatrixRain /> : <RadioactiveRain />}
+      <div
+        className={`theme-bg-layer fixed inset-0 z-0 pointer-events-none ${
+          theme === 'dark' ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <MatrixRain active={theme === 'dark'} />
+      </div>
+      <div
+        className={`theme-bg-layer fixed inset-0 z-0 pointer-events-none ${
+          theme === 'light' ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <RadioactiveRain active={theme === 'light'} />
+      </div>
       <Header />
       <main className="relative z-10">
         <>

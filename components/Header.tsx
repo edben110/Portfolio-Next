@@ -86,13 +86,7 @@ export default function Header() {
   return (
     <>
       {/* Barra superior fija */}
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md"
-        style={{
-          backgroundColor: theme === 'dark'
-            ? 'rgba(10, 15, 20, 0.75)'
-            : 'rgba(255, 255, 255, 0.75)',
-        }}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 theme-sync-transition backdrop-blur-md bg-[var(--header-bg)]">
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -194,13 +188,8 @@ export default function Header() {
       {/* Overlay fullscreen */}
       <div
         className={`fixed inset-0 z-40 flex flex-col items-center justify-center
-                    transition-all duration-500 ease-in-out backdrop-blur-md
+                    transition-all duration-500 ease-in-out backdrop-blur-md theme-sync-transition bg-[var(--menu-overlay-bg)]
                     ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        style={{
-          backgroundColor: theme === 'dark'
-            ? 'rgba(10, 15, 20, 0.90)'
-            : 'rgba(255, 255, 255, 0.90)',
-        }}
       >
         <nav className="w-full max-w-sm mx-auto px-8">
           <ul className="flex flex-col items-start gap-6">

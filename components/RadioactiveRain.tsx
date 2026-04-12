@@ -88,10 +88,16 @@ function makeAsteroid(w: number, h: number, tier: number, near?: Vec2): Asteroid
 }
 
 // ── Component ──────────────────────────────────────────
-export default function RadioactiveRain() {
+interface RadioactiveRainProps {
+  active?: boolean;
+}
+
+export default function RadioactiveRain({ active = true }: RadioactiveRainProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    if (!active) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -388,7 +394,7 @@ export default function RadioactiveRain() {
       window.removeEventListener('keydown', onKeyDown);
       window.removeEventListener('keyup',   onKeyUp);
     };
-  }, []);
+  }, [active]);
 
   return (
     <canvas

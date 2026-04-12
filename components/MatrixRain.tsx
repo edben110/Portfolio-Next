@@ -3,11 +3,17 @@
 import { useEffect, useRef } from 'react';
 import { useTheme } from './ThemeContext';
 
-export default function MatrixRain() {
+interface MatrixRainProps {
+  active?: boolean;
+}
+
+export default function MatrixRain({ active = true }: MatrixRainProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { matrixBgColor } = useTheme();
 
   useEffect(() => {
+    if (!active) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -200,7 +206,7 @@ export default function MatrixRain() {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [matrixBgColor]);
+  }, [active, matrixBgColor]);
 
   return (
     <canvas
