@@ -1,12 +1,12 @@
 'use client';
 
 import MatrixRain from '@/components/MatrixRain';
-import RadioactiveRain from '@/components/RadioactiveRain';
+import Asteroids from '@/components/Asteroids';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
-import Portfolio from '@/components/Portfolio';
+import Projects from '@/components/Projects';
 import Testimonios from '@/components/Testimonios';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
@@ -31,7 +31,7 @@ export default function Home() {
           theme === 'light' ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <RadioactiveRain active={theme === 'light'} />
+        <Asteroids active={theme === 'light'} />
       </div>
       <Header />
       <main className="relative z-10">
@@ -39,7 +39,7 @@ export default function Home() {
           <Hero />
           <About />
           <Skills />
-          <Portfolio />
+          <Projects />
           <Testimonios />
           <Experience />
           <Contact />

@@ -88,11 +88,11 @@ function makeAsteroid(w: number, h: number, tier: number, near?: Vec2): Asteroid
 }
 
 // ── Component ──────────────────────────────────────────
-interface RadioactiveRainProps {
+interface AsteroidsProps {
   active?: boolean;
 }
 
-export default function RadioactiveRain({ active = true }: RadioactiveRainProps) {
+export default function Asteroids({ active = true }: AsteroidsProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
