@@ -316,7 +316,7 @@ export default function TerminalMode({ loaderMode = false, onLoaderComplete }: T
           </div>
 
           <div className="px-4 py-3 border-t border-matrix-green/30">
-            <p className="font-mono text-xs text-matrix-green/90 mb-2">
+            <p className="font-mono text-xs text-[#00ff41] mb-2">
               {`[${asciiBar}] ${loaderProgress}%`}
             </p>
             <div className="h-2 rounded-full bg-matrix-green/15 overflow-hidden">
