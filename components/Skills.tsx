@@ -288,8 +288,8 @@ export default function Skills() {
         </div>
 
         {/* Skills Carousel */}
-        <div className="relative w-full md:max-w-3xl mx-auto">
-          <div className="overflow-x-hidden py-3 px-[4%]">
+        <div className="relative w-full md:max-w-[868px] mx-auto">
+          <div className="overflow-x-hidden py-4 px-[4%]">
             <div
               className="transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -307,22 +307,14 @@ export default function Skills() {
                         <i className={`fas ${category.icon}`}></i>
                         {category.title}
                       </h3>
-                      <div
-                        className={`flex flex-wrap justify-center gap-3 md:gap-4 w-full ${
-                          category.skills.length > 3 ? 'md:flex-nowrap' : ''
-                        }`}
-                      >
+                      <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-3 w-full">
                         {category.skills.map((skill, skillIdx) => (
                           <div
                             key={skillIdx}
-                            className={`skill-item-card border rounded-2xl p-3 sm:p-4 
+                            className="skill-item-card border rounded-2xl p-3 sm:p-4 
                                      transition-all duration-300 
                                      group
-                                     flex items-center justify-center ${
-                                       category.skills.length > 3
-                                         ? 'w-[47%] min-w-[135px] max-w-[170px] h-[168px] md:flex-1 md:min-w-0 md:max-w-none md:h-[168px]'
-                                         : 'flex-1 min-w-[150px] max-w-[190px] h-[180px]'
-                                     }`}
+                                     flex-1 min-w-[130px] max-w-[168px] h-[170px] flex items-center justify-center"
                           >
                             <div className="flex flex-col items-center text-center space-y-2 w-full px-1">
                               {skill.name === 'Flask' ? (

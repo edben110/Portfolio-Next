@@ -69,7 +69,7 @@ export default function Portfolio() {
           solutions: [
             'Comprension de estructuras de datos y consumo de APIs',
             'Implementacion de reproductor con controles basicos',
-            'adicion de funcionalidades como busqueda y listas de reproduccion',
+            'funcionalidades como busqueda y listas de reproduccion',
           ],
           image: '/imgs/ToneStatic.jpeg',
           tags: ['Next.js', 'Jamendo API', 'estructuras de datos'],
@@ -161,7 +161,7 @@ export default function Portfolio() {
         },
         {
           title: 'mp3 Player',
-          description: 'Music player using the Jamendo API for song search and playback.',
+          description: 'Music player using the Jamendo API.',
           solutions: [
             'Understanding data structures and API consumption',
             'Implementation of a player with basic controls',
@@ -244,7 +244,7 @@ export default function Portfolio() {
 
         {/* Portfolio Carousel */}
         <div className="relative w-full md:max-w-[868px] mx-auto">
-          <div className="overflow-x-hidden py-4 px-[4%]">
+          <div className="overflow-x-hidden pt-2 pb-1 px-[4%]">
             <div
               className="transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -256,13 +256,13 @@ export default function Portfolio() {
                 {projects.map((project, idx) => (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
                     <div
-                      className={`carousel-container-card border-2 rounded-[0px_50px_0px_50px] overflow-hidden 
-                                transition-all duration-300 group mx-auto relative
-                                ${project.hasLink ? 'cursor-pointer' : ''}`}
+                      className={`carousel-container-card portfolio-card border-2 rounded-[0px_50px_0px_50px] overflow-hidden 
+                                transition-all duration-300 group mx-auto relative h-full flex flex-col
+                                md:min-h-[560px] ${project.hasLink ? 'cursor-pointer' : ''}`}
                       onClick={() => project.hasLink && window.open(project.link, '_blank')}
                     >
                       {/* Project Image */}
-                      <div className="relative h-[160px] sm:h-[180px] md:h-[165px] lg:h-[130px] overflow-hidden">
+                      <div className="relative h-[150px] sm:h-[170px] md:h-[160px] overflow-hidden">
                         <Image
                           src={project.image}
                           alt={project.title}
@@ -273,15 +273,15 @@ export default function Portfolio() {
                       </div>
 
                       {/* Project Content */}
-                      <div className="p-4 md:p-4 text-center">
-                        <h3 className="text-lg sm:text-xl md:text-xl font-bold text-matrix-green mb-3 md:mb-2">
+                      <div className="p-4 md:p-4 text-center flex flex-col flex-1">
+                        <h3 className="text-lg sm:text-xl md:text-xl font-bold text-matrix-green mb-3 md:mb-2 min-h-[52px] flex items-center justify-center leading-tight px-1">
                           {project.title}
                         </h3>
-                        <p className="text-sm md:text-sm text-theme-secondary mb-4 md:mb-3 leading-relaxed text-center max-w-md mx-auto">
+                        <p className="text-sm md:text-sm text-theme-secondary mb-4 md:mb-3 leading-relaxed text-center max-w-md mx-auto min-h-[48px]">
                           {project.description}
                         </p>
 
-                        <div className="text-left max-w-md mx-auto mb-4 md:mb-3">
+                        <div className="text-left max-w-md mx-auto mb-4 md:mb-3 min-h-[148px] w-full">
                           <p className="text-xs uppercase tracking-[0.2em] text-theme-muted mb-2 text-center">
                             {currentContent.solutions}
                           </p>
@@ -289,14 +289,14 @@ export default function Portfolio() {
                             {project.solutions.map((solution, solutionIdx) => (
                               <li key={solutionIdx} className="flex items-start gap-2">
                                 <i className="fas fa-check-circle text-matrix-green mt-1"></i>
-                                <span>{solution}</span>
+                                <span className="leading-snug">{solution}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
 
                         {/* Tags */}
-                        <div className="flex flex-col items-center gap-2">
+                        <div className="flex flex-col items-center gap-2 mt-auto">
                           <p className="text-xs uppercase tracking-[0.2em] text-theme-muted">
                             {currentContent.technologies}
                           </p>
@@ -340,7 +340,7 @@ export default function Portfolio() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex justify-center items-center gap-4 mt-5">
+          <div className="flex justify-center items-center gap-4 mt-1 sm:mt-2 md:mt-3">
             <button
               onClick={prevSlide}
               className="carousel-nav-btn border hidden md:flex

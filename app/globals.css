@@ -447,6 +447,26 @@ html[data-theme="light"] .carousel-container-card:hover {
   transform: scale(1.05);
 }
 
+html[data-theme="dark"] .portfolio-card,
+html[data-theme="light"] .portfolio-card {
+  transform-origin: center;
+}
+
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+  html[data-theme="dark"] .portfolio-card:hover {
+    border-color: #00ff41;
+    box-shadow: 0 8px 30px rgba(0, 255, 65, 0.25);
+    transform: translateY(-2px);
+  }
+
+  html[data-theme="light"] .portfolio-card:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: var(--matrix-green);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
+  }
+}
+
 /* Contenedor interior de skill item - Modo Oscuro */
 html[data-theme="dark"] .skill-item-card {
   background-color: rgba(0, 15, 0, 0.35);
