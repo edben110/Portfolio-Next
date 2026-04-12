@@ -21,50 +21,6 @@ Portfolio profesional desarrollado con Next.js 15, TypeScript y Tailwind CSS.
 - **Fuentes:** Google Fonts (Poppins, Fira Code)
 - **Iconos:** Font Awesome 6
 
-## 📦 Instalación
-
-1. Clona el repositorio o navega a la carpeta del proyecto:
-```bash
-cd portfolio-nextjs
-```
-
-2. Instala las dependencias:
-```bash
-npm install
-```
-
-3. Copia las imágenes desde el proyecto original:
-   - logo.png
-   - perfil.png
-   - prove multivar.png
-   - aplicacion movil.jpeg
-   - radar ard.jpeg
-   - cashify prove.png
-   - seleccion prove.png
-   - prove scripts.png
-
-   Colócalas en la carpeta `public/` del proyecto.
-
-## 🚀 Uso
-
-### Modo desarrollo
-```bash
-npm run dev
-```
-
-Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
-
-### Build de producción
-```bash
-npm run build
-npm start
-```
-
-### Linting
-```bash
-npm run lint
-```
-
 ## 📁 Estructura del Proyecto
 
 ```
@@ -79,7 +35,7 @@ portfolio-nextjs/
 │   ├── Hero.tsx            # Sección hero
 │   ├── About.tsx           # Sobre mí
 │   ├── Skills.tsx          # Habilidades técnicas
-│   ├── Portfolio.tsx       # Proyectos
+│   ├── Projects.tsx       # Proyectos
 │   ├── Experience.tsx      # Experiencia
 │   ├── Footer.tsx          # Pie de página
 │   └── WhatsAppButton.tsx  # Botón flotante WhatsApp
@@ -115,22 +71,6 @@ El proyecto utiliza los colores originales de cada tecnología:
 4. **Portafolio** - Proyectos destacados
 5. **Experiencia** - Trayectoria académica y profesional
 6. **Footer** - Información de contacto y redes sociales
-
-## 🌐 Deploy
-
-### Vercel (Recomendado)
-
-1. Sube tu código a GitHub
-2. Conecta tu repositorio en [Vercel](https://vercel.com)
-3. Vercel detectará automáticamente Next.js y configurará el deploy
-
-### Otras plataformas
-
-El proyecto puede desplegarse en cualquier plataforma que soporte Next.js:
-- Netlify
-- Railway
-- AWS Amplify
-- DigitalOcean App Platform
 
 ## 📄 Licencia
 
