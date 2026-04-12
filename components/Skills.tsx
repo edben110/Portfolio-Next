@@ -289,7 +289,7 @@ export default function Skills() {
 
         {/* Skills Carousel */}
         <div className="relative w-full md:max-w-3xl mx-auto">
-          <div className="overflow-x-hidden py-4 px-[4%]">
+          <div className="overflow-x-hidden py-3 px-[4%]">
             <div
               className="transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -307,14 +307,22 @@ export default function Skills() {
                         <i className={`fas ${category.icon}`}></i>
                         {category.title}
                       </h3>
-                      <div className="flex flex-wrap justify-center gap-3 md:gap-4 w-full">
+                      <div
+                        className={`flex flex-wrap justify-center gap-3 md:gap-4 w-full ${
+                          category.skills.length > 3 ? 'md:flex-nowrap' : ''
+                        }`}
+                      >
                         {category.skills.map((skill, skillIdx) => (
                           <div
                             key={skillIdx}
-                            className="skill-item-card border rounded-2xl p-3 sm:p-4 
+                            className={`skill-item-card border rounded-2xl p-3 sm:p-4 
                                      transition-all duration-300 
                                      group
-                                     flex-1 min-w-[150px] max-w-[190px] h-[180px] flex items-center justify-center"
+                                     flex items-center justify-center ${
+                                       category.skills.length > 3
+                                         ? 'w-[47%] min-w-[135px] max-w-[170px] h-[168px] md:flex-1 md:min-w-0 md:max-w-none md:h-[168px]'
+                                         : 'flex-1 min-w-[150px] max-w-[190px] h-[180px]'
+                                     }`}
                           >
                             <div className="flex flex-col items-center text-center space-y-2 w-full px-1">
                               {skill.name === 'Flask' ? (
@@ -365,7 +373,7 @@ export default function Skills() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex justify-center items-center gap-4 mt-4 sm:mt-5 md:mt-6">
+          <div className="flex justify-center items-center gap-4 mt-2 sm:mt-3 md:mt-4">
             <button
               onClick={prevSlide}
               className="carousel-nav-btn border hidden md:flex
