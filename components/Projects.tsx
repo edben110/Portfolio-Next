@@ -301,7 +301,7 @@ export default function Projects() {
                             {currentContent.technologies}
                           </p>
                           <div className="relative w-full">
-                            <div className="md:hidden flex justify-start mb-2">
+                            <div className="lg:hidden flex justify-start mb-2">
                               <button
                                 type="button"
                                 onClick={(e) => {
@@ -327,7 +327,7 @@ export default function Projects() {
                                 e.stopPropagation();
                                 window.open(project.github, '_blank');
                               }}
-                              className="hidden md:flex absolute left-1 top-1/2 -translate-y-1/2 z-20 w-10 h-10 tag-badge border rounded-full items-center justify-center p-0 transition-transform duration-300 hover:scale-110"
+                              className="hidden lg:flex absolute left-1 top-1/2 -translate-y-1/2 z-20 w-10 h-10 tag-badge border rounded-full items-center justify-center p-0 transition-transform duration-300 hover:scale-110"
                               aria-label={`${currentContent.githubRepo}: ${project.title}`}
                             >
                               <Image
