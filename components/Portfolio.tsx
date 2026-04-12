@@ -296,18 +296,18 @@ export default function Portfolio() {
                         </div>
 
                         {/* Tags */}
-                        <div className="flex flex-col items-center gap-2 w-full">
+                        <div className="flex flex-col items-center gap-2">
                           <p className="text-xs uppercase tracking-[0.2em] text-theme-muted">
                             {currentContent.technologies}
                           </p>
-                          <div className="relative w-full pt-1">
+                          <div className="relative w-full">
                             <button
                               type="button"
                               onClick={(e) => {
                                 e.stopPropagation();
                                 window.open(project.github, '_blank');
                               }}
-                              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/35 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-transform duration-300 hover:scale-110"
+                              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 tag-badge border rounded-full flex items-center justify-center p-0 transition-transform duration-300 hover:scale-110"
                               aria-label={`${currentContent.githubRepo}: ${project.title}`}
                             >
                               <Image
@@ -318,15 +318,16 @@ export default function Portfolio() {
                                 className={theme === 'dark' ? 'invert' : ''}
                               />
                             </button>
-                            <div className="flex flex-wrap gap-2 justify-center px-12">
-                            {project.tags.map((tag, tagIdx) => (
-                              <span
-                                key={tagIdx}
-                                className="tag-badge px-4 py-2 border rounded-full text-sm font-medium"
-                              >
-                                {tag}
-                              </span>
-                            ))}
+
+                            <div className="flex flex-wrap gap-2 justify-center">
+                              {project.tags.map((tag, tagIdx) => (
+                                <span
+                                  key={tagIdx}
+                                  className="tag-badge px-4 py-2 border rounded-full text-sm font-medium"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
                             </div>
                           </div>
                         </div>
