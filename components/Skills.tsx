@@ -273,6 +273,91 @@ export default function Skills() {
     setCurrentIndex((prev) => (prev - 1 + skillCategories.length) % skillCategories.length);
   };
 
+  const renderSkillCard = (
+    skill: {
+      name: string;
+      iconPath?: string;
+      icon?: string;
+      color: string;
+      description: string;
+    },
+    skillIdx: number
+  ) => (
+    <div
+      key={skillIdx}
+      className="skill-item-card border rounded-2xl p-3 sm:p-4 
+               transition-all duration-300 
+               group
+               flex-1 min-w-[130px] max-w-[168px] h-[170px] flex items-center justify-center"
+    >
+      <div className="flex flex-col items-center text-center space-y-2 w-full px-1">
+        {skill.name === 'Flask' ? (
+          <div className="relative w-[2.2rem] h-[2.2rem] sm:w-[2.8rem] sm:h-[2.8rem] transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+            <FlaskOriginal
+              size="100%"
+              style={{
+                filter: `${theme === 'dark' ? 'invert(1) ' : ''}drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
+              }}
+            />
+          </div>
+        ) : skill.iconPath ? (
+          <div className="relative w-[2.2rem] h-[2.2rem] sm:w-[2.8rem] sm:h-[2.8rem] 
+                        transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+            <Image
+              src={skill.iconPath}
+              alt={`${skill.name} icon`}
+              fill
+              className="object-contain"
+              style={{
+                filter: `drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
+              }}
+            />
+          </div>
+        ) : (
+          <i
+            className={`${skill.icon} text-[1.8rem] sm:text-[2.2rem] transition-all duration-300 
+                     group-hover:scale-110 flex-shrink-0`}
+            style={{
+              color: skill.color,
+              filter: `drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
+            }}
+          ></i>
+        )}
+        <h4 className="text-[0.95rem] font-semibold text-matrix-green tracking-wide break-words w-full">
+          {skill.name}
+        </h4>
+        <p className="text-[0.72rem] text-theme-muted leading-snug break-words w-full">{skill.description}</p>
+      </div>
+    </div>
+  );
+
+  const renderCategoryCard = (
+    category: {
+      title: string;
+      icon: string;
+      skills: Array<{
+        name: string;
+        iconPath?: string;
+        icon?: string;
+        color: string;
+        description: string;
+      }>;
+    },
+    idx: number
+  ) => (
+    <div key={idx} className="w-full">
+      <div className="carousel-container-card border-2 rounded-[0px_50px_0px_50px] p-4 sm:p-5 md:p-6 lg:p-8 transition-all duration-300 relative mx-auto">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-matrix-green mb-4 md:mb-6 flex items-center justify-center gap-3">
+          <i className={`fas ${category.icon}`}></i>
+          {category.title}
+        </h3>
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-3 w-full">
+          {category.skills.map((skill, skillIdx) => renderSkillCard(skill, skillIdx))}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section id="skills" className="relative py-20">
       <div className="container mx-auto px-4">
@@ -287,8 +372,13 @@ export default function Skills() {
           <div className="w-24 h-1 bg-[var(--matrix-green)] mx-auto mt-4 rounded-full"></div>
         </div>
 
-        {/* Skills Carousel */}
-        <div className="relative w-full md:max-w-[868px] mx-auto">
+        {/* Mobile List (No Carousel) */}
+        <div className="space-y-6 md:hidden">
+          {skillCategories.map((category, idx) => renderCategoryCard(category, idx))}
+        </div>
+
+        {/* Skills Carousel (Desktop/Tablet) */}
+        <div className="relative w-full md:max-w-[868px] mx-auto hidden md:block">
           <div className="overflow-x-hidden py-4 px-[4%]">
             <div
               className="transition-transform duration-500 ease-in-out"
@@ -300,64 +390,7 @@ export default function Skills() {
               <div className="flex">
                 {skillCategories.map((category, idx) => (
                   <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
-                    <div className={`carousel-container-card border-2 rounded-[0px_50px_0px_50px] p-4 sm:p-5 md:p-6 lg:p-8 
-                                  transition-all duration-300 relative mx-auto`}>
-                      
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-matrix-green mb-4 md:mb-6 flex items-center justify-center gap-3">
-                        <i className={`fas ${category.icon}`}></i>
-                        {category.title}
-                      </h3>
-                      <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-3 w-full">
-                        {category.skills.map((skill, skillIdx) => (
-                          <div
-                            key={skillIdx}
-                            className="skill-item-card border rounded-2xl p-3 sm:p-4 
-                                     transition-all duration-300 
-                                     group
-                                     flex-1 min-w-[130px] max-w-[168px] h-[170px] flex items-center justify-center"
-                          >
-                            <div className="flex flex-col items-center text-center space-y-2 w-full px-1">
-                              {skill.name === 'Flask' ? (
-                                <div className="relative w-[2.2rem] h-[2.2rem] sm:w-[2.8rem] sm:h-[2.8rem] transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
-                                  <FlaskOriginal
-                                    size="100%"
-                                    style={{
-                                      filter: `${theme === 'dark' ? 'invert(1) ' : ''}drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
-                                    }}
-                                  />
-                                </div>
-                              ) : skill.iconPath ? (
-                                <div className="relative w-[2.2rem] h-[2.2rem] sm:w-[2.8rem] sm:h-[2.8rem] 
-                                              transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
-                                  <Image
-                                    src={skill.iconPath}
-                                    alt={`${skill.name} icon`}
-                                    fill
-                                    className="object-contain"
-                                    style={{
-                                      filter: `drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
-                                    }}
-                                  />
-                                </div>
-                              ) : (
-                                <i
-                                  className={`${skill.icon} text-[1.8rem] sm:text-[2.2rem] transition-all duration-300 
-                                           group-hover:scale-110 flex-shrink-0`}
-                                  style={{ 
-                                    color: skill.color,
-                                    filter: `drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
-                                  }}
-                                ></i>
-                              )}
-                              <h4 className="text-[0.95rem] font-semibold text-matrix-green tracking-wide break-words w-full">
-                                {skill.name}
-                              </h4>
-                              <p className="text-[0.72rem] text-theme-muted leading-snug break-words w-full">{skill.description}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                    {renderCategoryCard(category, idx)}
                   </div>
                 ))}
               </div>
