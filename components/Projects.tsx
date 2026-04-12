@@ -262,7 +262,7 @@ export default function Projects() {
                       onClick={() => project.hasLink && window.open(project.link, '_blank')}
                     >
                       {/* Project Image */}
-                      <div className="relative h-[150px] sm:h-[170px] md:h-[160px] overflow-hidden">
+                      <div className="relative h-[115px] sm:h-[170px] md:h-[160px] overflow-hidden">
                         <Image
                           src={project.image}
                           alt={project.title}
@@ -273,19 +273,19 @@ export default function Projects() {
                       </div>
 
                       {/* Project Content */}
-                      <div className="p-4 md:p-4 text-center flex flex-col flex-1">
-                        <h3 className="text-lg sm:text-xl md:text-xl font-bold text-matrix-green mb-3 md:mb-2 min-h-[52px] flex items-center justify-center leading-tight px-1">
+                      <div className="p-3 sm:p-4 md:p-4 text-center flex flex-col flex-1">
+                        <h3 className="text-lg sm:text-xl md:text-xl font-bold text-matrix-green mb-3 md:mb-2 md:min-h-[52px] flex items-center justify-center leading-tight px-1">
                           {project.title}
                         </h3>
-                        <p className="text-sm md:text-sm text-theme-secondary mb-4 md:mb-3 leading-relaxed text-center max-w-md mx-auto min-h-[48px]">
+                        <p className="text-sm md:text-sm text-theme-secondary mb-3 md:mb-3 leading-relaxed text-center max-w-md mx-auto md:min-h-[48px]">
                           {project.description}
                         </p>
 
-                        <div className="text-left max-w-md mx-auto mb-4 md:mb-3 min-h-[148px] w-full">
+                        <div className="text-left max-w-md mx-auto mb-3 md:mb-3 md:min-h-[148px] w-full">
                           <p className="text-xs uppercase tracking-[0.2em] text-theme-muted mb-2 text-center">
                             {currentContent.solutions}
                           </p>
-                          <ul className="space-y-2 text-sm text-theme-secondary">
+                          <ul className="space-y-1.5 sm:space-y-2 text-sm text-theme-secondary">
                             {project.solutions.map((solution, solutionIdx) => (
                               <li key={solutionIdx} className="flex items-start gap-2">
                                 <i className="fas fa-check-circle text-matrix-green mt-1"></i>
@@ -301,13 +301,33 @@ export default function Projects() {
                             {currentContent.technologies}
                           </p>
                           <div className="relative w-full">
+                            <div className="md:hidden flex justify-start mb-2">
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  window.open(project.github, '_blank');
+                                }}
+                                className="w-10 h-10 tag-badge border rounded-full flex items-center justify-center p-0 transition-transform duration-300"
+                                aria-label={`${currentContent.githubRepo}: ${project.title}`}
+                              >
+                                <Image
+                                  src="/svg/github-original.svg"
+                                  alt="GitHub"
+                                  width={18}
+                                  height={18}
+                                  className={theme === 'dark' ? 'invert' : ''}
+                                />
+                              </button>
+                            </div>
+
                             <button
                               type="button"
                               onClick={(e) => {
                                 e.stopPropagation();
                                 window.open(project.github, '_blank');
                               }}
-                              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 tag-badge border rounded-full flex items-center justify-center p-0 transition-transform duration-300 hover:scale-110"
+                              className="hidden md:flex absolute left-1 top-1/2 -translate-y-1/2 z-20 w-10 h-10 tag-badge border rounded-full items-center justify-center p-0 transition-transform duration-300 hover:scale-110"
                               aria-label={`${currentContent.githubRepo}: ${project.title}`}
                             >
                               <Image
