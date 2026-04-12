@@ -87,99 +87,101 @@ export default function Header() {
     <>
       {/* Barra superior fija */}
       <header className="fixed top-0 left-0 right-0 z-50 theme-sync-transition backdrop-blur-md bg-[var(--header-bg)]">
-        <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <div
-              className="flex items-center gap-3 cursor-pointer"
-              onClick={() => scrollToSection('inicio')}
-            >
-              <div className="relative w-12 h-12">
-                <Image
-                  src="/imgs/logo.jpeg"
-                  alt="Logo Edben"
-                  fill
-                  className="object-contain rounded-full"
-                  priority
-                />
-              </div>
-              <span className={`text-xl font-bold tracking-widest transition-colors duration-300
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex items-center justify-between h-20">
+              {/* Logo */}
+              <div
+                className="flex items-center gap-3 cursor-pointer"
+                onClick={() => scrollToSection('inicio')}
+              >
+                <div className="relative w-12 h-12">
+                  <Image
+                    src="/imgs/logo.jpeg"
+                    alt="Logo Edben"
+                    fill
+                    className="object-contain rounded-full"
+                    priority
+                  />
+                </div>
+                <span className={`text-xl font-bold tracking-widest transition-colors duration-300
                                ${theme === 'dark' ? 'text-matrix-green' : 'text-black'}`}>Edben</span>
-            </div>
+              </div>
 
-            {/* Controles derechos */}
-            <div className="flex items-center gap-4">
-              {/* Selector de idioma */}
-              <div className="relative" ref={languageMenuRef}>
-                <button
-                  onClick={() => setIsLanguageOpen((prev) => !prev)}
-                  aria-label={currentText.language}
-                  className={`w-10 h-10 flex items-center justify-center rounded-full
+              {/* Controles derechos */}
+              <div className="flex items-center gap-4">
+                {/* Selector de idioma */}
+                <div className="relative" ref={languageMenuRef}>
+                  <button
+                    onClick={() => setIsLanguageOpen((prev) => !prev)}
+                    aria-label={currentText.language}
+                    className={`w-10 h-10 flex items-center justify-center rounded-full
                            transition-all duration-500 ease-in-out
                            hover:bg-matrix-green/10 hover:scale-110
                            ${theme === 'dark' ? 'text-matrix-green' : 'text-black'}`}
-                >
-                  <SiGoogletranslate className="text-lg" />
-                </button>
+                  >
+                    <SiGoogletranslate className="text-lg" />
+                  </button>
 
-                <div
-                  className={`absolute right-0 top-12 min-w-[140px] rounded-xl border p-2 backdrop-blur-md
+                  <div
+                    className={`absolute right-0 top-12 min-w-[140px] rounded-xl border p-2 backdrop-blur-md
                             transition-all duration-300 ease-in-out
                             ${isLanguageOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}
                             ${theme === 'dark'
                               ? 'bg-[rgba(10,15,20,0.92)] border-[rgba(0,255,65,0.25)]'
                               : 'bg-[rgba(255,255,255,0.92)] border-[rgba(0,0,0,0.15)]'
                             }`}
-                >
-                  <button
-                    onClick={() => {
-                      setLanguage('es');
-                      setIsLanguageOpen(false);
-                    }}
-                    className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left transition-all duration-200
+                  >
+                    <button
+                      onClick={() => {
+                        setLanguage('es');
+                        setIsLanguageOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left transition-all duration-200
                               ${language === 'es' ? 'text-matrix-green bg-matrix-green/10' : theme === 'dark' ? 'text-white hover:bg-matrix-green/10' : 'text-black hover:bg-matrix-green/10'}`}
-                  >
-                    <i className="fas fa-language"></i>
-                    <span>{currentText.spanish}</span>
-                  </button>
+                    >
+                      <i className="fas fa-language"></i>
+                      <span>{currentText.spanish}</span>
+                    </button>
 
-                  <button
-                    onClick={() => {
-                      setLanguage('en');
-                      setIsLanguageOpen(false);
-                    }}
-                    className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left transition-all duration-200
+                    <button
+                      onClick={() => {
+                        setLanguage('en');
+                        setIsLanguageOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left transition-all duration-200
                               ${language === 'en' ? 'text-matrix-green bg-matrix-green/10' : theme === 'dark' ? 'text-white hover:bg-matrix-green/10' : 'text-black hover:bg-matrix-green/10'}`}
-                  >
-                    <i className="fas fa-language"></i>
-                    <span>{currentText.english}</span>
-                  </button>
+                    >
+                      <i className="fas fa-language"></i>
+                      <span>{currentText.english}</span>
+                    </button>
+                  </div>
                 </div>
-              </div>
 
-              {/* Toggle tema */}
-              <button
-                onClick={toggleTheme}
-                aria-label={theme === 'dark' ? currentText.lightMode : currentText.darkMode}
-                className={`w-10 h-10 flex items-center justify-center rounded-full
+                {/* Toggle tema */}
+                <button
+                  onClick={toggleTheme}
+                  aria-label={theme === 'dark' ? currentText.lightMode : currentText.darkMode}
+                  className={`w-10 h-10 flex items-center justify-center rounded-full
                            transition-all duration-500 ease-in-out
                            hover:bg-matrix-green/10 hover:scale-110
                            ${theme === 'dark' ? 'text-matrix-green' : 'text-black'}`}
-              >
-                <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'} text-lg`}></i>
-              </button>
+                >
+                  <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'} text-lg`}></i>
+                </button>
 
-              {/* Botón hamburger */}
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label={isMenuOpen ? currentText.closeMenu : currentText.openMenu}
-                className={`w-10 h-10 flex items-center justify-center rounded-full
+                {/* Botón hamburger */}
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  aria-label={isMenuOpen ? currentText.closeMenu : currentText.openMenu}
+                  className={`w-10 h-10 flex items-center justify-center rounded-full
                             transition-all duration-500 ease-in-out
                             hover:bg-matrix-green/10 hover:scale-110
                             ${theme === 'dark' ? 'text-white' : 'text-black'}`}
-              >
-                <i className={`fas ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-xl`}></i>
-              </button>
+                >
+                  <i className={`fas ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-xl`}></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
