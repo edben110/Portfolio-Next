@@ -26,7 +26,7 @@ export default function Portfolio() {
 
   const content = {
     es: {
-      title: 'Portafolio',
+      title: 'Proyectos',
       subtitle: 'Algunos de mis proyectos recientes',
       solutions: 'Soluciones',
       technologies: 'Tecnologias',
@@ -122,7 +122,7 @@ export default function Portfolio() {
       ],
     },
     en: {
-      title: 'Portfolio',
+      title: 'Projects',
       subtitle: 'Some of my recent projects',
       solutions: 'Solutions',
       technologies: 'Technologies',
