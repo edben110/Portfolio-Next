@@ -7,18 +7,49 @@ import { useTheme } from './ThemeContext';
 function Contact() {
   const { theme, language } = useTheme();
 
+  const copyToClipboard = async (value: string) => {
+    try {
+      await navigator.clipboard.writeText(value);
+      return;
+    } catch {
+      const fallback = document.createElement('textarea');
+      fallback.value = value;
+      fallback.setAttribute('readonly', '');
+      fallback.style.position = 'absolute';
+      fallback.style.left = '-9999px';
+      document.body.appendChild(fallback);
+      fallback.select();
+      document.execCommand('copy');
+      document.body.removeChild(fallback);
+    }
+  };
+
+  const handleCopyContextMenu = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    value: string
+  ) => {
+    event.preventDefault();
+    void copyToClipboard(value);
+  };
+
   const content = {
     es: {
       title: 'Contacto',
       subtitle: 'Puedes escribirme por correo o seguirme en redes.',
+      rightClickHint: 'click derecho sobre un contacto para copiarlo.',
       contact: 'Contacto',
       followMe: 'Sigueme',
+      formalEmail: 'correo formal',
+      personalEmail: 'correo personal',
     },
     en: {
       title: 'Contact',
       subtitle: 'You can reach me by email or follow me on social media.',
+      rightClickHint: 'right-click any contact to copy it.',
       contact: 'Contact',
       followMe: 'Follow me',
+      formalEmail: 'work email',
+      personalEmail: 'personal email',
     },
   };
 
@@ -32,6 +63,7 @@ function Contact() {
             {currentContent.title}
           </h2>
           <p className="text-base sm:text-lg text-theme-secondary px-4">{currentContent.subtitle}</p>
+          <p className="text-sm text-theme-muted mt-2 px-4">{currentContent.rightClickHint}</p>
           <div className="w-24 h-1 bg-[var(--matrix-green)] mx-auto mt-4 rounded-full"></div>
         </div>
 
@@ -42,16 +74,18 @@ function Contact() {
               <div className="space-y-3 flex flex-col items-start w-fit">
                 <a
                   href="mailto:ebenito370@gmail.com"
+                  onContextMenu={(event) => handleCopyContextMenu(event, 'ebenito370@gmail.com')}
                   className="flex items-center justify-center gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group"
                 >
                   <i className="fas fa-envelope text-matrix-green group-hover:scale-110 transition-transform duration-300"></i>
-                  <span>ebenito370@gmail.com</span>
+                  <span>{currentContent.formalEmail}</span>
                 </a>
                 <a
                   href="mailto:edben1407@gmail.com"
+                  onContextMenu={(event) => handleCopyContextMenu(event, 'edben1407@gmail.com')}
                   className="flex items-center justify-center gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group">
                   <i className="fas fa-envelope text-matrix-green group-hover:scale-110 transition-transform duration-300"></i>
-                  <span>edben1407@gmail.com</span>
+                  <span>{currentContent.personalEmail}</span>
                 </a>
               </div>
             </div>
@@ -65,6 +99,7 @@ function Contact() {
                   href="https://github.com/edben110"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onContextMenu={(event) => handleCopyContextMenu(event, 'https://github.com/edben110')}
                   className="flex items-center justify-left gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group"
                 >
                   <div className="relative w-6 h-6 transition-transform duration-300 group-hover:scale-110">
@@ -82,6 +117,7 @@ function Contact() {
                   href="https://www.linkedin.com/in/edwar-alexander-benito-basante-0a9742393/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onContextMenu={(event) => handleCopyContextMenu(event, 'https://www.linkedin.com/in/edwar-alexander-benito-basante-0a9742393/')}
                   className="flex items-center justify-left gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group">
                   <div className="relative w-5 h-5 transition-transform duration-300 group-hover:scale-110">
                     <Image
