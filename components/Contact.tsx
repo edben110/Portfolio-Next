@@ -36,62 +36,64 @@ function Contact() {
         </div>
 
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-theme-primary mb-4">{currentContent.contact}</h3>
-            <div className="space-y-3">
-              <a
-                href="mailto:ebenito370@gmail.com"
-                className="flex items-center justify-center gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group"
-              >
-                <i className="fas fa-envelope text-matrix-green group-hover:scale-110 transition-transform duration-300"></i>
-                <span>ebenito370@gmail.com</span>
-              </a>
-              <a
-                href="mailto:edben1407@gmail.com"
-                className="flex items-center justify-center gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group"
-              >
-                <i className="fas fa-envelope text-matrix-green group-hover:scale-110 transition-transform duration-300"></i>
-                <span>edben1407@gmail.com</span>
-              </a>
+          <div>
+            <h3 className="text-center text-2xl font-bold text-theme-primary mb-4">{currentContent.contact}</h3>
+            <div className="flex justify-center">
+              <div className="space-y-3 flex flex-col items-start w-fit">
+                <a
+                  href="mailto:ebenito370@gmail.com"
+                  className="flex items-center justify-center gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group"
+                >
+                  <i className="fas fa-envelope text-matrix-green group-hover:scale-110 transition-transform duration-300"></i>
+                  <span>ebenito370@gmail.com</span>
+                </a>
+                <a
+                  href="mailto:edben1407@gmail.com"
+                  className="flex items-center justify-center gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group">
+                  <i className="fas fa-envelope text-matrix-green group-hover:scale-110 transition-transform duration-300"></i>
+                  <span>edben1407@gmail.com</span>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-theme-primary mb-4">{currentContent.followMe}</h3>
-            <div className="space-y-3">
-              <a
-                href="https://github.com/edben110"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group"
-              >
-                <div className="relative w-6 h-6 transition-transform duration-300 group-hover:scale-110">
-                  <Image
-                    src="/svg/github-original.svg"
-                    alt="GitHub icon"
-                    fill
-                    className="object-contain"
-                    style={{ filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'brightness(0)' }}
-                  />
-                </div>
-                <span>GitHub</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/edwar-alexander-benito-basante-0a9742393/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group"
-              >
-                <div className="relative w-5 h-5 transition-transform duration-300 group-hover:scale-110">
-                  <Image
-                    src="/svg/linkedin-original.svg"
-                    alt="LinkedIn icon"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <span>LinkedIn</span>
-              </a>
+          <div>
+            <h3 className="text-center text-2xl font-bold text-theme-primary mb-4">{currentContent.followMe}</h3>
+            <div className="flex justify-center">
+              <div className="space-y-3 flex flex-col items-start w-fit">
+                <a
+                  href="https://github.com/edben110"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-left gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group"
+                >
+                  <div className="relative w-6 h-6 transition-transform duration-300 group-hover:scale-110">
+                    <Image
+                      src="/svg/github-original.svg"
+                      alt="GitHub icon"
+                      fill
+                      className="object-contain"
+                      style={{ filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'brightness(0)' }}
+                    />
+                  </div>
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/edwar-alexander-benito-basante-0a9742393/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-left gap-3 text-theme-secondary hover:text-matrix-green transition-colors duration-300 group">
+                  <div className="relative w-5 h-5 transition-transform duration-300 group-hover:scale-110">
+                    <Image
+                      src="/svg/linkedin-original.svg"
+                      alt="LinkedIn icon"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

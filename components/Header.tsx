@@ -100,13 +100,12 @@ export default function Header() {
               className="flex items-center gap-3 cursor-pointer"
               onClick={() => scrollToSection('inicio')}
             >
-              <div className="relative w-12 h-12 rounded-full overflow-hidden bg-black p-1">
+              <div className="relative w-12 h-12">
                 <Image
                   src="/imgs/logo.jpeg"
                   alt="Logo Edben"
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-contain"
+                  fill
+                  className="object-contain rounded-full"
                   priority
                 />
               </div>
