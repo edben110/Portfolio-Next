@@ -9,7 +9,7 @@ type Testimonio = {
   descripcion: string;
 };
 
-export default function Testimonios() {
+export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -24,28 +24,28 @@ export default function Testimonios() {
       goTo: 'Ir a testimonio',
       items: [
         {
-          nombre: 'Mariana Cardenas',
-          cargo: 'Product Manager - Fintech',
+          nombre: 'Oscar Jurado',
+          cargo: 'Sargento - Ejercito de Colombia',
           descripcion:
-            'Trabajar con Edben fue clave para transformar una idea compleja en una solucion funcional. Tiene una gran capacidad para escuchar, proponer mejoras y entregar resultados con alta calidad tecnica.',
+            'El señor Edwar Benito tiene una excelente ética laboral, es una persona en quien confiar, es valioso contar con él, Para un equipo de trabajo es muy importante contar con total discrecion, personas así resaltan una actitud profesional en una empresa o institucion como la nuestra..',
         },
         {
-          nombre: 'Jose Luis Torres',
-          cargo: 'Tech Lead - Consultora de Software',
+          nombre: 'Diego Rodriguez',
+          cargo: 'Cabo- Ejercito de Colombia',
           descripcion:
-            'Edben demostro criterio tecnico y compromiso en todo el proceso. Su forma de estructurar soluciones, documentar decisiones y colaborar con el equipo acelero de forma notable los tiempos de entrega.',
+            'EL Caballero Edwar Alexander Benito demostro criterio tecnico y compromiso en todo proceso de su labor. Su forma de estructurar soluciones, documentar decisiones y colaborar con el equipo acelero de forma notable los tiempos de entrega y actualizacion documental en la institucion.',
         },
         {
-          nombre: 'Valeria Paredes',
-          cargo: 'Coordinadora Academica - Universidad',
+          nombre: 'Juliett Lopez',
+          cargo: 'Estudiante de negocios Internacionales - Universidad del Magdalena',
           descripcion:
-            'Destaca por su responsabilidad y enfoque practico. Explica conceptos complejos con claridad, mantiene una comunicacion constante y siempre busca que el resultado final sea util y sostenible.',
+            'Benito destaca por su responsabilidad y enfoque practico. Explica conceptos complejos con claridad, mantiene una comunicacion constante y siempre busca que el resultado del aprendizaje sea util y perdurable en nuestra vida profesional.',
         },
         {
-          nombre: 'Diego Ramiro Quinones',
-          cargo: 'Founder - Startup de IA',
+          nombre: 'Leydy Rojas',
+          cargo: 'Delineante de arquitectura - Independiente',
           descripcion:
-            'Edben aporta vision de producto y solidez tecnica. Durante nuestro proyecto, propuso mejoras que elevaron el rendimiento de la plataforma y mejoraron la experiencia de los usuarios finales.',
+            'EL joven Edwar Alexander Benito aporta una vision de pedagogia y solidez en la comunicacion. Durante el desarrollo de nuestro proyecto de arquitectura, propuso mejoras en nuestro lexico que elevaron las capacidades de comunicacion y mejoraron la experiencia de los usuarios finales.',
         },
       ] as Testimonio[],
     },
