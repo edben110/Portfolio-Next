@@ -57,28 +57,28 @@ export default function Testimonials() {
       goTo: 'Go to testimonial',
       items: [
         {
-          nombre: 'Mariana Cardenas',
-          cargo: 'Product Manager - Fintech',
+          nombre: 'Oscar Jurado',
+          cargo: 'Sergeant - Colombian Army',
           descripcion:
-            'Working with Edben was key to turning a complex idea into a functional solution. He has a strong ability to listen, propose improvements, and deliver high-quality technical results.',
+            'Mr. Edwar Benito has an excellent work ethic, he is a trustworthy person, it is valuable to have him on a team. For a work team it is very important to have total discretion, people like that highlight a professional attitude in a company or institution like ours.',
         },
         {
-          nombre: 'Jose Luis Torres',
-          cargo: 'Tech Lead - Software Consulting',
+          nombre: 'Diego Rodriguez',
+          cargo: 'Corporal - Colombian Army',
           descripcion:
-            'Edben showed strong technical judgment and commitment throughout the process. His way of structuring solutions, documenting decisions, and collaborating with the team significantly improved delivery times.',
+            'The gentleman Edwar Alexander Benito has demonstrated technical criteria and commitment in every aspect of his work. His approach to structuring solutions, documenting decisions, and collaborating with the team significantly accelerated delivery times and updated documentation at the institution.',
         },
         {
-          nombre: 'Valeria Paredes',
-          cargo: 'Academic Coordinator - University',
+          nombre: 'Juliett Lopez',
+          cargo: 'International Business Student - University of Magdalena',
           descripcion:
-            'He stands out for his responsibility and practical mindset. He explains complex concepts clearly, keeps communication consistent, and always aims for a useful and sustainable final result.',
+            'Benito stands out for his responsibility and practical mindset. He explains complex concepts clearly, maintains consistent communication, and always aims for a useful and sustainable final result.',
         },
         {
-          nombre: 'Diego Ramiro Quinones',
-          cargo: 'Founder - AI Startup',
+          nombre: 'Leydy Rojas',
+          cargo: 'Architecture Draftsman - Independent',
           descripcion:
-            'Edben brings product vision and technical strength. During our project, he proposed improvements that boosted platform performance and improved the end-user experience.',
+            'The young Edwar Alexander Benito brings a pedagogical vision and solid communication skills. During the development of our architecture project, he proposed improvements to our vocabulary that elevated communication capabilities and improved the end-user experience.',
         },
       ] as Testimonio[],
     },
