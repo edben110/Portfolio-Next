@@ -3,6 +3,18 @@
 import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { useTheme } from './ThemeContext';
+import { SiYoutube } from 'react-icons/si';
+
+const getYoutubeEmbedUrl = (url: string) => {
+  const parsedUrl = new URL(url);
+  const videoId = parsedUrl.searchParams.get('v') ?? parsedUrl.pathname.split('/').filter(Boolean).pop();
+
+  if (!videoId) {
+    return url;
+  }
+
+  return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1`;
+};
 
 export default function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -119,6 +131,40 @@ export default function Projects() {
           github: 'https://github.com/edben110/Black-night-guns',
           hasLink: true,
         },
+        {
+          title: 'Proyecto Unity',
+          description: 'Demo en video del proyecto desarrollado en Unity.',
+          solutions: [
+            'Muestra interactiva del gameplay y la experiencia jugable',
+            'Captura de mecánicas y control en tiempo real',
+            'Presentacion optimizada para visualizarse desde cualquier dispositivo',
+          ],
+          mediaType: 'video',
+          videoUrl: 'https://youtu.be/Z1Pcn8KtNjI',
+          embedUrl: getYoutubeEmbedUrl('https://youtu.be/Z1Pcn8KtNjI'),
+          tags: ['Unity', 'Video demo', 'Gameplay'],
+          actionUrl: 'https://youtu.be/Z1Pcn8KtNjI',
+          actionKind: 'youtube',
+          actionLabel: 'Ver demo en YouTube',
+          hasLink: false,
+        },
+        {
+          title: 'Proyecto AWS',
+          description: 'Demo tecnica del despliegue y arquitectura en AWS.',
+          solutions: [
+            'Presentacion del flujo desplegado en infraestructura cloud',
+            'Visibilidad de la aplicacion en entorno productivo',
+            'Acceso rapido a la demo sin afectar el rendimiento de la pagina',
+          ],
+          mediaType: 'video',
+          videoUrl: 'https://youtu.be/giZSWFxuNuk',
+          embedUrl: getYoutubeEmbedUrl('https://youtu.be/giZSWFxuNuk'),
+          tags: ['AWS', 'Video demo', 'Cloud'],
+          actionUrl: 'https://youtu.be/giZSWFxuNuk',
+          actionKind: 'youtube',
+          actionLabel: 'Ver demo en YouTube',
+          hasLink: false,
+        },
       ],
     },
     en: {
@@ -215,12 +261,121 @@ export default function Projects() {
           github: 'https://github.com/edben110/Black-night-guns',
           hasLink: true,
         },
+        {
+          title: 'Unity Project',
+          description: 'Video demo of the project built in Unity.',
+          solutions: [
+            'Interactive showcase of the gameplay and user experience',
+            'Real-time capture of core mechanics and controls',
+            'Mobile-friendly presentation for any device',
+          ],
+          mediaType: 'video',
+          videoUrl: 'https://youtu.be/Z1Pcn8KtNjI',
+          embedUrl: getYoutubeEmbedUrl('https://youtu.be/Z1Pcn8KtNjI'),
+          tags: ['Unity', 'Video demo', 'Gameplay'],
+          actionUrl: 'https://youtu.be/Z1Pcn8KtNjI',
+          actionKind: 'youtube',
+          actionLabel: 'Watch YouTube demo',
+          hasLink: false,
+        },
+        {
+          title: 'AWS Project',
+          description: 'Technical demo of the AWS deployment and architecture.',
+          solutions: [
+            'Shows the workflow deployed in cloud infrastructure',
+            'Demonstrates the app in a production-like environment',
+            'Fast access to the demo without hurting page performance',
+          ],
+          mediaType: 'video',
+          videoUrl: 'https://youtu.be/giZSWFxuNuk',
+          embedUrl: getYoutubeEmbedUrl('https://youtu.be/giZSWFxuNuk'),
+          tags: ['AWS', 'Video demo', 'Cloud'],
+          actionUrl: 'https://youtu.be/giZSWFxuNuk',
+          actionKind: 'youtube',
+          actionLabel: 'Watch YouTube demo',
+          hasLink: false,
+        },
       ],
     },
   };
 
   const currentContent = content[language];
   const projects = currentContent.projects;
+
+  const renderProjectMedia = (project: (typeof projects)[number]) => {
+    if (project.mediaType === 'video') {
+      return (
+        <div className="relative h-[115px] sm:h-[170px] md:h-[160px] overflow-hidden bg-black">
+          <iframe
+            src={project.embedUrl}
+            title={project.title}
+            className="absolute inset-0 h-full w-full"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/25 to-transparent"></div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="relative h-[115px] sm:h-[170px] md:h-[160px] overflow-hidden">
+        <Image
+          src={project.image ?? ''}
+          alt={project.title}
+          fill
+          className="object-cover group-hover:scale-110 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
+      </div>
+    );
+  };
+
+  const renderActionButton = (project: (typeof projects)[number]) => {
+    const handleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.stopPropagation();
+      window.open(project.actionUrl ?? project.github, '_blank', 'noopener,noreferrer');
+    };
+
+    const icon = project.actionKind === 'youtube' ? (
+      <SiYoutube size={18} />
+    ) : (
+      <Image
+        src="/svg/github-original.svg"
+        alt="GitHub"
+        width={18}
+        height={18}
+        className={theme === 'dark' ? 'invert' : ''}
+      />
+    );
+
+    const ariaLabel = project.actionLabel ?? currentContent.githubRepo;
+
+    return (
+      <>
+        <div className="lg:hidden flex justify-start mb-2">
+          <button
+            type="button"
+            onClick={handleOpen}
+            className="w-10 h-10 tag-badge border rounded-full flex items-center justify-center p-0 transition-transform duration-300"
+            aria-label={`${ariaLabel}: ${project.title}`}
+          >
+            {icon}
+          </button>
+        </div>
+
+        <button
+          type="button"
+          onClick={handleOpen}
+          className="hidden lg:flex absolute left-1 top-1/2 -translate-y-1/2 z-20 w-10 h-10 tag-badge border rounded-full items-center justify-center p-0 transition-transform duration-300 hover:scale-110"
+          aria-label={`${ariaLabel}: ${project.title}`}
+        >
+          {icon}
+        </button>
+      </>
+    );
+  };
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);
@@ -259,18 +414,10 @@ export default function Projects() {
                       className={`carousel-container-card portfolio-card border-2 rounded-[0px_50px_0px_50px] overflow-hidden 
                                 transition-all duration-300 group mx-auto relative h-full flex flex-col
                                 md:min-h-[560px] ${project.hasLink ? 'cursor-pointer' : ''}`}
-                      onClick={() => project.hasLink && window.open(project.link, '_blank')}
+                      onClick={() => project.hasLink && window.open(project.link, '_blank', 'noopener,noreferrer')}
                     >
-                      {/* Project Image */}
-                      <div className="relative h-[115px] sm:h-[170px] md:h-[160px] overflow-hidden">
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-black/50"></div>
-                      </div>
+                      {/* Project Media */}
+                      {renderProjectMedia(project)}
 
                       {/* Project Content */}
                       <div className="p-3 sm:p-4 md:p-4 text-center flex flex-col flex-1">
@@ -301,43 +448,7 @@ export default function Projects() {
                             {currentContent.technologies}
                           </p>
                           <div className="relative w-full">
-                            <div className="lg:hidden flex justify-start mb-2">
-                              <button
-                                type="button"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  window.open(project.github, '_blank');
-                                }}
-                                className="w-10 h-10 tag-badge border rounded-full flex items-center justify-center p-0 transition-transform duration-300"
-                                aria-label={`${currentContent.githubRepo}: ${project.title}`}
-                              >
-                                <Image
-                                  src="/svg/github-original.svg"
-                                  alt="GitHub"
-                                  width={18}
-                                  height={18}
-                                  className={theme === 'dark' ? 'invert' : ''}
-                                />
-                              </button>
-                            </div>
-
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                window.open(project.github, '_blank');
-                              }}
-                              className="hidden lg:flex absolute left-1 top-1/2 -translate-y-1/2 z-20 w-10 h-10 tag-badge border rounded-full items-center justify-center p-0 transition-transform duration-300 hover:scale-110"
-                              aria-label={`${currentContent.githubRepo}: ${project.title}`}
-                            >
-                              <Image
-                                src="/svg/github-original.svg"
-                                alt="GitHub"
-                                width={18}
-                                height={18}
-                                className={theme === 'dark' ? 'invert' : ''}
-                              />
-                            </button>
+                            {renderActionButton(project)}
 
                             <div className="flex flex-wrap gap-2 justify-center">
                               {project.tags.map((tag, tagIdx) => (

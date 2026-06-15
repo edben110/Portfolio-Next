@@ -3,6 +3,8 @@
 import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { FlaskOriginal } from 'devicons-react';
+import type { IconType } from 'react-icons';
+import { SiAmazonwebservices, SiJavascript, SiUnity, SiVercel } from 'react-icons/si';
 import { useTheme } from './ThemeContext';
 
 export default function Skills() {
@@ -141,6 +143,53 @@ export default function Skills() {
             },
           ],
         },
+        {
+          title: 'DevOps',
+          icon: 'fa-cloud-arrow-up',
+          skills: [
+            {
+              name: 'GitHub',
+              iconPath: '/svg/github-original.svg',
+              color: '#181717',
+              darkColor: '#FFFFFF',
+              description: 'Control de versiones y colaboracion',
+            },
+            {
+              name: 'AWS',
+              iconComponent: SiAmazonwebservices,
+              color: '#FF9900',
+              darkColor: '#FF9900',
+              description: 'Infraestructura y despliegue en la nube',
+            },
+            {
+              name: 'Vercel',
+              iconComponent: SiVercel,
+              color: '#000000',
+              darkColor: '#FFFFFF',
+              description: 'Deploy continuo y hosting frontend',
+            },
+          ],
+        },
+        {
+          title: 'Videojuegos',
+          icon: 'fa-gamepad',
+          skills: [
+            {
+              name: 'Unity',
+              iconComponent: SiUnity,
+              color: '#000000',
+              darkColor: '#FFFFFF',
+              description: 'Desarrollo de videojuegos',
+            },
+            {
+              name: 'JavaScript',
+              iconComponent: SiJavascript,
+              color: '#F7DF1E',
+              darkColor: '#F7DF1E',
+              description: 'Programacion de videojuegos',
+            },
+          ],
+        },
       ],
     },
     en: {
@@ -258,6 +307,53 @@ export default function Skills() {
             },
           ],
         },
+        {
+          title: 'DevOps',
+          icon: 'fa-cloud-arrow-up',
+          skills: [
+            {
+              name: 'GitHub',
+              iconPath: '/svg/github-original.svg',
+              color: '#181717',
+              darkColor: '#FFFFFF',
+              description: 'Version control and collaboration',
+            },
+            {
+              name: 'AWS',
+              iconComponent: SiAmazonwebservices,
+              color: '#FF9900',
+              darkColor: '#FF9900',
+              description: 'Cloud infrastructure and deployment',
+            },
+            {
+              name: 'Vercel',
+              iconComponent: SiVercel,
+              color: '#000000',
+              darkColor: '#FFFFFF',
+              description: 'Continuous deploy and frontend hosting',
+            },
+          ],
+        },
+        {
+          title: 'Video Game Development',
+          icon: 'fa-gamepad',
+          skills: [
+            {
+              name: 'Unity',
+              iconComponent: SiUnity,
+              color: '#000000',
+              darkColor: '#FFFFFF',
+              description: 'Video game development',
+            },
+            {
+              name: 'JavaScript',
+              iconComponent: SiJavascript,
+              color: '#F7DF1E',
+              darkColor: '#F7DF1E',
+              description: 'Video game programming',
+            },
+          ],
+        },
       ],
     },
   };
@@ -278,7 +374,9 @@ export default function Skills() {
       name: string;
       iconPath?: string;
       icon?: string;
+      iconComponent?: IconType;
       color: string;
+      darkColor?: string;
       description: string;
     },
     skillIdx: number
@@ -297,6 +395,16 @@ export default function Skills() {
               size="100%"
               style={{
                 filter: `${theme === 'dark' ? 'invert(1) ' : ''}drop-shadow(0 0 8px ${skill.color}66) drop-shadow(0 0 4px ${skill.color}99)`,
+              }}
+            />
+          </div>
+        ) : skill.iconComponent ? (
+          <div className="relative w-[2.2rem] h-[2.2rem] sm:w-[2.8rem] sm:h-[2.8rem] transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+            <skill.iconComponent
+              size="100%"
+              style={{
+                color: theme === 'dark' && skill.darkColor ? skill.darkColor : skill.color,
+                filter: `drop-shadow(0 0 8px ${(theme === 'dark' && skill.darkColor ? skill.darkColor : skill.color)}66) drop-shadow(0 0 4px ${(theme === 'dark' && skill.darkColor ? skill.darkColor : skill.color)}99)`,
               }}
             />
           </div>

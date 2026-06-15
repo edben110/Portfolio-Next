@@ -5,13 +5,14 @@ import Image from 'next/image';
 import { SiGoogletranslate } from 'react-icons/si';
 import { useTheme } from './ThemeContext';
 
+const SHOW_TESTIMONIALS = false;
+
 const navItems = {
   es: [
     { id: 'inicio', label: 'Inicio', icon: 'fa-house' },
     { id: 'about', label: 'Sobre mi', icon: 'fa-user' },
     { id: 'skills', label: 'Habilidades', icon: 'fa-code' },
     { id: 'portfolio', label: 'Portafolio', icon: 'fa-briefcase' },
-    { id: 'testimonios', label: 'Testimonios', icon: 'fa-comments' },
     { id: 'experience', label: 'Experiencia', icon: 'fa-briefcase-clock' },
     { id: 'contacto', label: 'Contacto', icon: 'fa-envelope' },
   ],
@@ -20,7 +21,6 @@ const navItems = {
     { id: 'about', label: 'About me', icon: 'fa-user' },
     { id: 'skills', label: 'Skills', icon: 'fa-code' },
     { id: 'portfolio', label: 'Portfolio', icon: 'fa-briefcase' },
-    { id: 'testimonios', label: 'Testimonials', icon: 'fa-comments' },
     { id: 'experience', label: 'Experience', icon: 'fa-briefcase-clock' },
     { id: 'contacto', label: 'Contact', icon: 'fa-envelope' },
   ],
@@ -54,7 +54,13 @@ export default function Header() {
   };
 
   const currentText = text[language];
-  const currentNavItems = navItems[language];
+  const currentNavItems = SHOW_TESTIMONIALS
+    ? [
+        ...navItems[language].slice(0, 4),
+        { id: 'testimonios', label: language === 'es' ? 'Testimonios' : 'Testimonials', icon: 'fa-comments' },
+        ...navItems[language].slice(4),
+      ]
+    : navItems[language];
 
   // Bloquear scroll cuando el menú está abierto
   useEffect(() => {

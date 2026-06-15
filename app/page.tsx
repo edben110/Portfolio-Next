@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import MatrixRain from '@/components/MatrixRain';
 import Asteroids from '@/components/Asteroids';
@@ -8,13 +9,15 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
-import Testimonials from '@/components/Testimonials';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import TerminalMode from '@/components/TerminalMode';
 import { useTheme } from '@/components/ThemeContext';
+
+const SHOW_TESTIMONIALS = false;
+const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: false });
 
 export default function Home() {
   const { theme } = useTheme();
@@ -70,7 +73,7 @@ export default function Home() {
             <About />
             <Skills />
             <Projects />
-            <Testimonials />
+              {SHOW_TESTIMONIALS ? <Testimonials /> : null}
             <Experience />
             <Contact />
           </>
