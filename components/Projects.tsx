@@ -132,8 +132,8 @@ export default function Projects() {
           hasLink: true,
         },
         {
-          title: 'Proyecto Unity',
-          description: 'Demo en video del proyecto desarrollado en Unity.',
+          title: 'Simon Mansion',
+          description: 'videojuego/Novela visual desarrollado en Unity.',
           solutions: [
             'Muestra interactiva del gameplay y la experiencia jugable',
             'Captura de mecánicas y control en tiempo real',
@@ -149,8 +149,8 @@ export default function Projects() {
           hasLink: false,
         },
         {
-          title: 'Proyecto AWS',
-          description: 'Demo tecnica del despliegue y arquitectura en AWS.',
+          title: 'MarketAWS',
+          description: 'Demo tecnica del despliegue y arquitectura en AWS de un aplicativo simulado de mercado.',
           solutions: [
             'Presentacion del flujo desplegado en infraestructura cloud',
             'Visibilidad de la aplicacion en entorno productivo',
@@ -159,7 +159,7 @@ export default function Projects() {
           mediaType: 'video',
           videoUrl: 'https://youtu.be/giZSWFxuNuk',
           embedUrl: getYoutubeEmbedUrl('https://youtu.be/giZSWFxuNuk'),
-          tags: ['AWS', 'Video demo', 'Cloud'],
+          tags: ['EC2', 'RDS', 'VPC'],
           actionUrl: 'https://youtu.be/giZSWFxuNuk',
           actionKind: 'youtube',
           actionLabel: 'Ver demo en YouTube',
@@ -279,7 +279,7 @@ export default function Projects() {
           hasLink: false,
         },
         {
-          title: 'AWS Project',
+          title: 'MarketAWS',
           description: 'Technical demo of the AWS deployment and architecture.',
           solutions: [
             'Shows the workflow deployed in cloud infrastructure',
@@ -289,7 +289,7 @@ export default function Projects() {
           mediaType: 'video',
           videoUrl: 'https://youtu.be/giZSWFxuNuk',
           embedUrl: getYoutubeEmbedUrl('https://youtu.be/giZSWFxuNuk'),
-          tags: ['AWS', 'Video demo', 'Cloud'],
+          tags: ['EC2', 'RDS', 'VPC'],
           actionUrl: 'https://youtu.be/giZSWFxuNuk',
           actionKind: 'youtube',
           actionLabel: 'Watch YouTube demo',
