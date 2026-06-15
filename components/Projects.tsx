@@ -309,7 +309,7 @@ export default function Projects() {
           <iframe
             src={project.embedUrl}
             title={project.title}
-            className="absolute inset-0 h-full w-full"
+            className="portfolio-card-media absolute inset-0 h-full w-full"
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
@@ -325,7 +325,7 @@ export default function Projects() {
           src={project.image ?? ''}
           alt={project.title}
           fill
-          className="object-cover group-hover:scale-110 transition-transform duration-500"
+          className="portfolio-card-media object-cover group-hover:scale-110 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
@@ -368,7 +368,7 @@ export default function Projects() {
         <button
           type="button"
           onClick={handleOpen}
-          className="hidden lg:flex absolute left-1 top-1/2 -translate-y-1/2 z-20 w-10 h-10 tag-badge border rounded-full items-center justify-center p-0 transition-transform duration-300 hover:scale-110"
+          className="portfolio-card-action hidden lg:flex absolute top-1/2 -translate-y-1/2 z-20 w-10 h-10 tag-badge border rounded-full items-center justify-center p-0 transition-transform duration-300 hover:scale-110"
           aria-label={`${ariaLabel}: ${project.title}`}
         >
           {icon}
@@ -399,9 +399,9 @@ export default function Projects() {
 
         {/* Portfolio Carousel */}
         <div className="relative w-full md:max-w-[868px] mx-auto">
-          <div className="overflow-x-hidden pt-2 pb-1 px-[4%]">
+          <div className="portfolio-carousel-viewport overflow-x-hidden pt-2 pb-1 px-[4%]">
             <div
-              className="transition-transform duration-500 ease-in-out"
+              className="portfolio-carousel-track transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
@@ -409,9 +409,9 @@ export default function Projects() {
             >
               <div className="flex">
                 {projects.map((project, idx) => (
-                  <div key={idx} className="w-full flex-shrink-0 px-2 sm:px-4">
+                  <div key={idx} className="portfolio-carousel-slide w-full flex-shrink-0 px-2 sm:px-4">
                     <div
-                      className={`carousel-container-card portfolio-card border-2 rounded-[0px_50px_0px_50px] overflow-hidden 
+                      className={`carousel-container-card portfolio-card border-2 rounded-[0px_30px_0px_30px] overflow-hidden 
                                 transition-all duration-300 group mx-auto relative h-full flex flex-col
                                 md:min-h-[560px] ${project.hasLink ? 'cursor-pointer' : ''}`}
                       onClick={() => project.hasLink && window.open(project.link, '_blank', 'noopener,noreferrer')}

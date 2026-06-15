@@ -7,6 +7,9 @@
   --font-fira-code: 'Fira Code', 'Courier New', monospace;
   --theme-transition-duration: 520ms;
   --theme-transition-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius-portfolio-card: 0px 30px 0px 30px;
+  --radius-portfolio-media: 0px 30px 0px 0px;
+  --radius-portfolio-round: 9999px;
 }
 
 /* Dark Theme Variables (Default) */
@@ -255,6 +258,52 @@ html[data-theme="dark"] .shadow-theme-hover:hover {
   box-shadow: 0 8px 30px var(--shadow-hover);
 }
 
+.carousel-container-card,
+.portfolio-card,
+.skill-item-card,
+.experience-card,
+.holographic-card {
+  border-radius: var(--radius-portfolio-card);
+}
+
+.carousel-nav-btn,
+.carousel-indicator,
+.tag-badge,
+.btn-theme-primary,
+.btn-theme-outline {
+  border-radius: var(--radius-portfolio-round);
+}
+
+.portfolio-card {
+  transform-origin: center;
+  will-change: transform, box-shadow;
+}
+
+.portfolio-card .portfolio-card-media {
+  border-top-left-radius: var(--radius-portfolio-media);
+  border-top-right-radius: var(--radius-portfolio-media);
+}
+
+.portfolio-card .portfolio-card-action {
+  left: 0;
+}
+
+.portfolio-carousel-viewport {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.portfolio-carousel-track {
+  overflow: visible;
+}
+
+.portfolio-carousel-slide {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
 /* Buttons - Adaptable al tema */
 .btn-theme-primary {
   background-color: var(--matrix-green);
@@ -482,6 +531,19 @@ html[data-theme="light"] .portfolio-card {
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
     transform: translateY(-2px);
   }
+
+  html[data-theme="dark"] .carousel-container-card:hover {
+    border-color: #00ff41;
+    box-shadow: 0 8px 30px rgba(0, 255, 65, 0.25);
+    transform: translateY(-2px);
+  }
+
+  html[data-theme="light"] .carousel-container-card:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: var(--matrix-green);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
+  }
 }
 
 /* Contenedor interior de skill item - Modo Oscuro */
@@ -614,25 +676,28 @@ html[data-theme="light"] .carousel-indicator.active {
   border-color: var(--matrix-green);
 }
 
-@media (hover: none) and (pointer: coarse) {
+@media (hover: none), (pointer: coarse) {
   .btn-theme-primary:hover,
   .btn-theme-outline:hover,
   .carousel-container-card:hover,
+  .portfolio-card:hover,
   .skill-item-card:hover,
   .experience-card:hover,
   .tag-badge:hover,
   .carousel-nav-btn:hover,
   .carousel-indicator:hover,
   .shadow-theme-hover:hover {
-    box-shadow: none;
-    transform: none;
+    box-shadow: none !important;
+    transform: none !important;
   }
 
   .hover\:scale-105:hover,
   .hover\:scale-110:hover,
   .hover\:scale-125:hover,
-  .group:hover .group-hover\:scale-110 {
+  .group:hover .group-hover\:scale-110,
+  .group:hover .group-hover\:opacity-100 {
     transform: none !important;
+    opacity: 1 !important;
   }
 
   .hover\:text-matrix-green:hover {
@@ -646,22 +711,30 @@ html[data-theme="light"] .carousel-indicator.active {
     border-color: inherit !important;
   }
 
-  .carousel-container-card:hover,
-  .experience-card:hover {
-    border-color: inherit;
-  }
-
   html[data-theme="dark"] .carousel-container-card:hover,
   html[data-theme="light"] .carousel-container-card:hover,
   html[data-theme="dark"] .carousel-container-card:active,
-  html[data-theme="light"] .carousel-container-card:active {
+  html[data-theme="light"] .carousel-container-card:active,
+  html[data-theme="dark"] .portfolio-card:hover,
+  html[data-theme="light"] .portfolio-card:hover,
+  html[data-theme="dark"] .portfolio-card:active,
+  html[data-theme="light"] .portfolio-card:active {
     background-color: inherit !important;
     border-color: inherit !important;
     box-shadow: none !important;
     transform: none !important;
   }
 
-  .carousel-container-card img {
+  .carousel-container-card img,
+  .portfolio-card img {
+    transform: none !important;
+  }
+
+  .carousel-nav-btn:active,
+  .carousel-indicator:active,
+  .tag-badge:active,
+  .btn-theme-primary:active,
+  .btn-theme-outline:active {
     transform: none !important;
   }
 }

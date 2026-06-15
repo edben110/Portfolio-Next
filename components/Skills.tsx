@@ -454,7 +454,7 @@ export default function Skills() {
     idx: number
   ) => (
     <div key={idx} className="w-full">
-      <div className="carousel-container-card border-2 rounded-[0px_50px_0px_50px] p-4 sm:p-5 md:p-6 lg:p-8 transition-all duration-300 relative mx-auto">
+      <div className="carousel-container-card border-2 rounded-[0px_30px_0px_30px] p-4 sm:p-5 md:p-6 lg:p-8 transition-all duration-300 relative mx-auto">
         <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-matrix-green mb-4 md:mb-6 flex items-center justify-center gap-3">
           <i className={`fas ${category.icon}`}></i>
           {category.title}
