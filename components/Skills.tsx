@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { FlaskOriginal } from 'devicons-react';
 import type { IconType } from 'react-icons';
-import { SiAmazonwebservices, SiJavascript, SiUnity, SiVercel } from 'react-icons/si';
+import { SiAmazonwebservices, SiGithub, SiJavascript, SiUnity, SiVercel } from 'react-icons/si';
 import { useTheme } from './ThemeContext';
 
 export default function Skills() {
@@ -149,8 +149,8 @@ export default function Skills() {
           skills: [
             {
               name: 'GitHub',
-              iconPath: '/svg/github-original.svg',
-              color: '#181717',
+              iconComponent: SiGithub,
+              color: '#FFFFFF',
               darkColor: '#FFFFFF',
               description: 'Control de versiones y colaboracion',
             },
@@ -313,8 +313,8 @@ export default function Skills() {
           skills: [
             {
               name: 'GitHub',
-              iconPath: '/svg/github-original.svg',
-              color: '#181717',
+              iconComponent: SiGithub,
+              color: '#FFFFFF',
               darkColor: '#FFFFFF',
               description: 'Version control and collaboration',
             },

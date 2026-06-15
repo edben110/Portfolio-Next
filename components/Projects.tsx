@@ -339,7 +339,7 @@ export default function Projects() {
     };
 
     const icon = project.actionKind === 'youtube' ? (
-      <SiYoutube size={18} />
+      <SiYoutube size={18} color="#FF0000" style={{ color: '#FF0000' }} />
     ) : (
       <Image
         src="/svg/github-original.svg"
