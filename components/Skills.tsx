@@ -150,7 +150,7 @@ export default function Skills() {
             {
               name: 'GitHub',
               iconComponent: SiGithub,
-              color: '#FFFFFF',
+              color: '#000000',
               darkColor: '#FFFFFF',
               description: 'Control de versiones y colaboracion',
             },
@@ -314,7 +314,7 @@ export default function Skills() {
             {
               name: 'GitHub',
               iconComponent: SiGithub,
-              color: '#FFFFFF',
+              color: '#000000',
               darkColor: '#FFFFFF',
               description: 'Version control and collaboration',
             },
